@@ -36,6 +36,9 @@
     <Content Include=".env">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="routes\hello-options.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="routes\index.js" />
     <Content Include="routes\users.js" />
     <Content Include="package.json" />
