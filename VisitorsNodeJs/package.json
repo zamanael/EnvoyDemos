@@ -2,8 +2,12 @@
   "name": "visitors-node-js",
   "version": "0.0.0",
   "description": "VisitorsNodeJs",
-  "main": "server.js",
+  "main": "index.js",
   "author": {
-    "name": ""
-  }
+    "name": "AEL"
+  },
+  "engines": {
+    "node": "11.x"
+  },
+  "scripts": { "start": "node index.js" }
 }
