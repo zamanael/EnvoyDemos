@@ -82,8 +82,8 @@ try {
         app.use(errorMiddleware());
 
         app.use(function (req, res, next) {
-            console.log('Time:', Date.now())
-            next()
+            console.log('Time:', Date.now());
+            next();
         })
         app.use('/', routes);
         app.use('/hello-options', helloOptions);
