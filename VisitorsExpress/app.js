@@ -84,7 +84,7 @@ try {
         app.use(function (req, res, next) {
             console.log('Time:', Date.now());
             next();
-        })
+        });
         app.use('/', routes);
         app.use('/hello-options', helloOptions);
         app.use('/goodbye-options', goodbyeOptions);
