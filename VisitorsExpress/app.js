@@ -182,7 +182,7 @@ try {
             { name: 'commonName', value: 'example.com' },
             { name: 'organizationName', value: 'E Corp' },
             { name: 'organizationalUnitName', value: 'Washington Township Plant' }
-        ]
+        ];
         const certificateExtensions = [
             { name: 'basicConstraints', cA: true },
             { name: 'keyUsage', keyCertSign: true, digitalSignature: true, nonRepudiation: true, keyEncipherment: true, dataEncipherment: true },
@@ -190,23 +190,22 @@ try {
             { name: 'nsCertType', client: true, server: true, email: true, objsign: true, sslCA: true, emailCA: true, objCA: true },
             { name: 'subjectAltName', altNames },
             { name: 'subjectKeyIdentifier' }
-        ]
-        const keys = forge.pki.rsa.generateKeyPair(2048)
-        const cert = forge.pki.createCertificate()
-        cert.validity.notBefore = new Date()
-        cert.validity.notAfter = new Date()
-        cert.validity.notAfter.setFullYear(cert.validity.notBefore.getFullYear() + 1)
-        cert.publicKey = keys.publicKey
-        cert.setSubject(issuer)
-        cert.setIssuer(issuer)
-        cert.setExtensions(certificateExtensions)
-        cert.sign(keys.privateKey)
+        ];
+        const keys = forge.pki.rsa.generateKeyPair(2048);
+        const cert = forge.pki.createCertificate();
+        cert.validity.notBefore = new Date();
+        cert.validity.notAfter = new Date();
+        cert.validity.notAfter.setFullYear(cert.validity.notBefore.getFullYear() + 1);
+        cert.publicKey = keys.publicKey;
+        cert.setSubject(issuer);
+        cert.setIssuer(issuer);
+        cert.setExtensions(certificateExtensions);
+        cert.sign(keys.privateKey);
         return {
             key: forge.pki.privateKeyToPem(keys.privateKey),
             cert: forge.pki.certificateToPem(cert)
         }
     }
-
 
     function makeExpressApp() {
         const app = express();
