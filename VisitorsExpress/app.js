@@ -14,8 +14,10 @@ try {
     var bodyParser = require('body-parser');
 
     var routes = require('./routes/index');
-    var users = require('./routes/users');
     var helloOptions = require('./routes/hello-options');
+    var goodbyeOptions = require('./routes/goodbye-options');
+    var visitorsSignInOptions = require('./routes/visitor-sign-in');
+    var visitorsSignOutOptions = require('./routes/visitor-sign-out');
 
     // https://flaviocopes.com/express-https-self-signed-certificate/
 
@@ -77,10 +79,13 @@ try {
         app.use(cookieParser());
         app.use(express.static(path.join(__dirname, 'public')));
         app.use(middleware());
+        app.use(errorMiddleware());
 
         app.use('/', routes);
-        app.use('/users', users);
         app.use('/hello-options', helloOptions);
+        app.use('/goodbye-options', goodbyeOptions);
+        app.use('/visitor-sign-in', visitorsSignInOptions);
+        app.use('/visitor-sign-out', visitorsSignOutOptions);
 
         // catch 404 and forward to error handler
         app.use(function (req, res, next) {

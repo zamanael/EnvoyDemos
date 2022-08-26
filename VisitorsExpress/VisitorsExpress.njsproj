@@ -36,11 +36,13 @@
     <Content Include=".env">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="routes\visitor-sign-out.js" />
+    <Content Include="routes\visitor-sign-in.js" />
+    <Content Include="routes\goodbye-options.js" />
     <Content Include="routes\hello-options.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="routes\index.js" />
-    <Content Include="routes\users.js" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
