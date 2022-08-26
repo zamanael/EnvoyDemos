@@ -1,6 +1,8 @@
 'use strict';
+
 var debug = require('debug')('my express app');
 var express = require('express');
+const { middleware, errorMiddleware } = require('@envoy/envoy-integrations-sdk');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');

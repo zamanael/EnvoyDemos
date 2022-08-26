@@ -13,9 +13,6 @@
     "@envoy/envoy-integrations-sdk": "^1.3.0"
   },
   "description": "VisitorsExpress",
-  "engines": {
-    "node": "11.x"
-  },
   "name": "visitors-express",
   "private": true,
   "scripts": {
