@@ -2,6 +2,7 @@
 
 const express = require('express');
 const { middleware, errorMiddleware } = require('@envoy/envoy-integrations-sdk');
+const baseUrl = 'https://api.envoy.com/v1';
 
 const app = express();
 app.use(middleware());
@@ -15,10 +16,10 @@ app.get('/locations', async (req, res) => {
     var request = require('request');
     var options = {
         'method': 'GET',
-        'url': 'https://api.envoy.com/v1/locations',
+        'url': `${baseUrl}/locations`,
         'headers': {
             'Content-Type': 'application/json',
-            'x-api-key': 'ODMzMjAzZjItMjUxMy0xMWVkLWFhZGUtYzdhOGUzYjc4NDk5OmJjMjgwZjExNWMwYzA2OTY5ZjY4MWQ5YmJkM2UyOTkzMjAxZGVmZWRhZjBhZmVmOTdiMDc2MTAyODNhNWEwYzc3N2EwMTkyZjg4NmQ3YWFkMGY4OTQ4OTU1ZDk3Yjc5MzUzOTM0ZDZjNjU4YzQ3ZTBhNDhlODRlMDVlNzgwMDA3'
+            'x-api-key': `${process.env.ENVOY_CLIENT_API_KEY}`
         }
     };
 
