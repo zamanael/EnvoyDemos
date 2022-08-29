@@ -2,7 +2,7 @@
 
 const express = require('express');
 const { middleware, errorMiddleware } = require('@envoy/envoy-integrations-sdk');
-const baseUrl = 'https://api.envoy.com/v1';
+const baseUrl = 'https://api.envoy.com';
 
 const app = express();
 app.use(middleware());
@@ -16,7 +16,7 @@ app.get('/locations', async (req, res) => {
     var request = require('request');
     var options = {
         'method': 'GET',
-        'url': `${baseUrl}/locations`,
+        'url': `${baseUrl}/v1/locations`,
         'headers': {
             'Content-Type': 'application/json',
             'x-api-key': `${process.env.ENVOY_CLIENT_API_KEY}`
@@ -33,7 +33,7 @@ app.get('/token', async (req, res) => {
     var request = require('request');
     var options = {
         'method': 'POST',
-        'url': 'https://api.envoy.com/oauth2/token',
+        'url': `${baseUrl}/oauth2/token`,
         'headers': {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': 'Basic ODMzMjAzZjItMjUxMy0xMWVkLWFhZGUtYzdhOGUzYjc4NDk5OmJjMjgwZjExNWMwYzA2OTY5ZjY4MWQ5YmJkM2UyOTkzMjAxZGVmZWRhZjBhZmVmOTdiMDc2MTAyODNhNWEwYzc3N2EwMTkyZjg4NmQ3YWFkMGY4OTQ4OTU1ZDk3Yjc5MzUzOTM0ZDZjNjU4YzQ3ZTBhNDhlODRlMDVlNzgwMDA3',
