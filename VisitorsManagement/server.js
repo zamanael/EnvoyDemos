@@ -19,7 +19,7 @@ app.get('/locations', async (req, res) => {
         'url': `${baseUrl}/v1/locations`,
         'headers': {
             'Content-Type': 'application/json',
-            'x-api-key': `${process.env.ENVOY_CLIENT_API_KEY}`
+            'x-api-key': `${process.env.ENVOY_CLIENT_ID}`
         }
     };
 
@@ -31,12 +31,14 @@ app.get('/locations', async (req, res) => {
 
 app.get('/token', async (req, res) => {
     var request = require('request');
+    const base64Encoding = Buffer.from(`${process.env.ENVOY_CLIENT_ID}:${process.env.ENVOY_CLIENT_SECRET}`).toString('base64');
+
     var options = {
         'method': 'POST',
         'url': `${baseUrl}/oauth2/token`,
         'headers': {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': 'Basic ODMzMjAzZjItMjUxMy0xMWVkLWFhZGUtYzdhOGUzYjc4NDk5OmJjMjgwZjExNWMwYzA2OTY5ZjY4MWQ5YmJkM2UyOTkzMjAxZGVmZWRhZjBhZmVmOTdiMDc2MTAyODNhNWEwYzc3N2EwMTkyZjg4NmQ3YWFkMGY4OTQ4OTU1ZDk3Yjc5MzUzOTM0ZDZjNjU4YzQ3ZTBhNDhlODRlMDVlNzgwMDA3',
+            'Authorization': `Basic ${base64Encoding}`,
         },
         form: {
             'username': 'titucse700@gmail.com',
