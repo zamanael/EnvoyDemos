@@ -41,8 +41,8 @@ app.get('/token', async (req, res) => {
             'Authorization': `Basic ${base64Encoding}`,
         },
         form: {
-            'username': 'titucse700@gmail.com',
-            'password': 'Admin#123456',
+            'username': `${process.env.USER_NAME}`,
+            'password': `${process.env.PASSWORD}`,
             'scope': 'token.refresh,locations.read',
             'grant_type': 'password'
         }
