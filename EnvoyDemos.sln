@@ -7,6 +7,8 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "VisitorsNodeJs", "VisitorsN
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "VisitorsExpress", "VisitorsExpress\VisitorsExpress.njsproj", "{DED0CBAD-B4BD-4F2F-94A4-42F4F6E71F31}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "VisitorsManagement", "VisitorsManagement\VisitorsManagement.njsproj", "{DA390E6B-614B-4D9B-9F2F-C01B00BED326}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DED0CBAD-B4BD-4F2F-94A4-42F4F6E71F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DED0CBAD-B4BD-4F2F-94A4-42F4F6E71F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DED0CBAD-B4BD-4F2F-94A4-42F4F6E71F31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA390E6B-614B-4D9B-9F2F-C01B00BED326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA390E6B-614B-4D9B-9F2F-C01B00BED326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA390E6B-614B-4D9B-9F2F-C01B00BED326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA390E6B-614B-4D9B-9F2F-C01B00BED326}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
