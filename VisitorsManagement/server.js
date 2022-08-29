@@ -8,7 +8,24 @@ app.use(middleware());
 app.use(errorMiddleware());
 
 app.get('/', (req, res) => {
-    res.send('This is a test.');
+    res.send(process.env.ENVOY_CLIENT_API_KEY);
+});
+
+app.get('/locations', async (req, res) => {
+    var request = require('request');
+    var options = {
+        'method': 'GET',
+        'url': 'https://api.envoy.com/v1/locations',
+        'headers': {
+            'Content-Type': 'application/json',
+            'x-api-key': 'ODMzMjAzZjItMjUxMy0xMWVkLWFhZGUtYzdhOGUzYjc4NDk5OmJjMjgwZjExNWMwYzA2OTY5ZjY4MWQ5YmJkM2UyOTkzMjAxZGVmZWRhZjBhZmVmOTdiMDc2MTAyODNhNWEwYzc3N2EwMTkyZjg4NmQ3YWFkMGY4OTQ4OTU1ZDk3Yjc5MzUzOTM0ZDZjNjU4YzQ3ZTBhNDhlODRlMDVlNzgwMDA3'
+        }
+    };
+
+    request(options, function (error, response) {
+        if (error) throw new Error(error);
+        res.send(response.body);
+    }); 
 });
 
 app.post('/hello-options', (req, res) => {
