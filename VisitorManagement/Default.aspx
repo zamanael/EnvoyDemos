@@ -4,7 +4,7 @@
     <script>
         async function visitorSignIn(s, e) {
             try {
-                const url = 'Default.aspx/VisitorSignIn';
+                const url = 'https://localhost:44318/EnvoyWebService.asmx/VisitorSignIn';
 
                 const data = {
                    
