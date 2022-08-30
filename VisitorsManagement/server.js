@@ -88,29 +88,37 @@ app.post('/goodbye-options', (req, res) => {
 });
 
 app.post('/visitor-sign-in', async (req, res) => {
-    const envoy = req.envoy; // our middleware adds an "envoy" object to req.
-    const job = envoy.job;
-    const hello = envoy.meta.config.HELLO;
-    const visitor = envoy.payload;
-    const visitorName = visitor.attributes['full-name'];
+    try {
+        const envoy = req.envoy; // our middleware adds an "envoy" object to req.
+        const job = envoy.job;
+        const hello = envoy.meta.config.HELLO;
+        const visitor = envoy.payload;
+        const visitorName = visitor.attributes['full-name'];
 
-    const message = `${hello} ${visitorName}!`; // our custom greeting
-    await job.attach({ label: 'Hello', value: message }); // show in the Envoy dashboard.
+        const message = `${hello} ${visitorName}!`; // our custom greeting
+        await job.attach({ label: 'Hello', value: message }); // show in the Envoy dashboard.
 
-    res.send({ hello });
+        res.send({ hello });
+    } catch (e) {
+        res.send(e.message);
+    }
 });
 
 app.post('/visitor-sign-out', async (req, res) => {
-    const envoy = req.envoy; // our middleware adds an "envoy" object to req.
-    const job = envoy.job;
-    const goodbye = envoy.meta.config.GOODBYE;
-    const visitor = envoy.payload;
-    const visitorName = visitor.attributes['full-name'];
+    try {
+        const envoy = req.envoy; // our middleware adds an "envoy" object to req.
+        const job = envoy.job;
+        const goodbye = envoy.meta.config.GOODBYE;
+        const visitor = envoy.payload;
+        const visitorName = visitor.attributes['full-name'];
 
-    const message = `${goodbye} ${visitorName}!`;
-    await job.attach({ label: 'Goodbye', value: message });
+        const message = `${goodbye} ${visitorName}!`;
+        await job.attach({ label: 'Goodbye', value: message });
 
-    res.send({ goodbye });
+        res.send({ goodbye });
+    } catch (e) {
+        res.send(e.message);
+    }
 });
 
 app.use(function (req, res, next) {
