@@ -16,6 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
+
 <body>
     <form runat="server">
         <asp:ScriptManager runat="server">
@@ -37,6 +38,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        <script src="Scripts/common.js"></script>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">

@@ -1,6 +1,23 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="VisitorManagement._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <script>
+        async function visitorSignIn(s, e) {
+            try {
+                const url = 'Default.aspx/VisitorSignIn';
+
+                const data = {
+                   
+                };
+
+                const result = await postAsync(url, data);
+                console.log(result);
+            } catch (e) {
+                alert(e);
+                console.error(e);
+            }
+        }
+    </script>
 
     <div class="jumbotron">
         <h1>ASP.NET</h1>
