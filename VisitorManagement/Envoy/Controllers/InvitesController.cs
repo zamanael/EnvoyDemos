@@ -2,6 +2,7 @@
 
 namespace VisitorManagement.Envoy.Controllers
 {
+
     public class InvitesController : ApiController
     {
         

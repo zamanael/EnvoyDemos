@@ -2,6 +2,7 @@
 
 namespace VisitorManagement.Envoy.Controllers
 {
+    [RoutePrefix("envoy")]
     public class SpacesController : ApiController
     {
         
