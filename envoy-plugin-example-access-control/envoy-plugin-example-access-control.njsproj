@@ -36,6 +36,7 @@
     <Content Include="index.js" />
     <Content Include="lib\AccessControlClient.js" />
     <Content Include="lib\handlers\.DS_Store" />
+    <Content Include="lib\handlers\events\envoy-integrations-helper-nodejs.js" />
     <Content Include="lib\handlers\events\webhookEmployeeSignIn.js" />
     <Content Include="lib\handlers\events\webhookEmployeeSignOut.js" />
     <Content Include="lib\handlers\events\webhookInvite.js" />

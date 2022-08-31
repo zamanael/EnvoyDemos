@@ -1,4 +1,4 @@
-const helper = require('envoy-integrations-helper-nodejs');
+const helper = require('./envoy-integrations-helper-nodejs');
 const moment = require('moment-timezone');
 const AccessControl = require('../../AccessControlClient');
 
