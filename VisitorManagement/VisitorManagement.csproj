@@ -172,6 +172,7 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -199,6 +200,17 @@
       <DependentUpon>EnvoyWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Envoy\Controllers\EmployeesController.cs" />
+    <Compile Include="Envoy\Controllers\FlowsController.cs" />
+    <Compile Include="Envoy\Controllers\EntriesController.cs" />
+    <Compile Include="Envoy\Controllers\InvitesController.cs" />
+    <Compile Include="Envoy\Controllers\ReservationsController.cs" />
+    <Compile Include="Envoy\Controllers\RecrurringInvitesController.cs" />
+    <Compile Include="Envoy\Controllers\WorkSchedulesController.cs" />
+    <Compile Include="Envoy\Controllers\SpacesController.cs" />
+    <Compile Include="Envoy\Controllers\LocationsController.cs" />
+    <Compile Include="Envoy\Controllers\CompaniesController.cs" />
+    <Compile Include="Envoy\Controllers\AuthenticationController.cs" />
     <Compile Include="Envoy\Controllers\ProductsController.cs" />
     <Compile Include="Envoy\Controllers\VisitorsController.cs" />
     <Compile Include="Envoy\Models\Option.cs" />
