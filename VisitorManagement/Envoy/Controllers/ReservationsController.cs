@@ -19,70 +19,42 @@ namespace VisitorManagement.Envoy.Controllers
         [Route("reservations")]
         public IEnumerable<Reservation> GetReservation()
         {
-            //var client = new RestClient("https://api.envoy.com/v1/reservations");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            return _reservationHelper.GetReservation();
         }
 
         [HttpGet]
         [Route("reservations/{id}")]
         public IEnumerable<Reservation> GetReservationById(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/v1/reservations/id");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            return _reservationHelper.GetReservationById(id);
         }
 
         [HttpPost]
         [Route("reservations/{id}/{checkin}")]
         public IEnumerable<Reservation> UpdateReservationCheckin(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/v1/reservations/Id/checkin");
-            //var request = new RestRequest(Method.POST);
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            return _reservationHelper.UpdateReservationCheckin(id);
         }
 
         [HttpPost]
         [Route("reservations/{id}/{checkout}")]
         public IEnumerable<Reservation> UpdateReservationCheckout(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/v1/reservations/id/checkout");
-            //var request = new RestRequest(Method.POST);
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            return _reservationHelper.UpdateReservationCheckout(id);
         }
 
         [HttpPost]
         [Route("reservations")]
         public IEnumerable<Reservation> CreateReservation()
         {
-            //var client = new RestClient("https://api.envoy.com/v1/reservations");
-            //var request = new RestRequest(Method.POST);
-            //request.AddHeader("Accept", "application/json");
-            //request.AddHeader("Content-Type", "application/json");
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            return _reservationHelper.CreateReservation();
         }
 
         [HttpDelete]
         [Route("reservations/{id}/cancel")]
         public IEnumerable<Reservation> CancelReservation()
         {
-            //var client = new RestClient("https://api.envoy.com/v1/reservations/id/cancel");
-            //var request = new RestRequest(Method.POST);
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            return _reservationHelper.CancelReservation();
         }
     }
 }

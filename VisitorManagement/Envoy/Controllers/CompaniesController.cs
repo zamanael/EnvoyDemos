@@ -20,12 +20,7 @@ namespace VisitorManagement.Envoy.Controllers
         [Route("companies")]
         public IEnumerable<Company> GetCompanies()
         {
-            //var client = new RestClient("https://api.envoy.com/rest/v1/companies");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            return _companiesHelper.GetCompanies();
         }
     }
 }
