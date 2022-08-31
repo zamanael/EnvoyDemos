@@ -1,4 +1,5 @@
-﻿using Envoy.Models;
+﻿using Envoy.Api.ServerComponent;
+using Envoy.Models;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -7,6 +8,13 @@ namespace VisitorManagement.Envoy.Controllers
     [RoutePrefix("envoy")]
     public class WorkSchedulesController : ApiController
     {
+        private readonly WorkSchedulesHelper _workSchedulesHelper;
+
+        public WorkSchedulesController()
+        {
+            _workSchedulesHelper = new WorkSchedulesHelper();
+        }
+
         [HttpGet]
         [Route("work-schedules")]
         public IEnumerable<Invite> GetWorkSchedules()

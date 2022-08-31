@@ -1,4 +1,5 @@
-﻿using Envoy.Models;
+﻿using Envoy.Api.ServerComponent;
+using Envoy.Models;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -7,6 +8,13 @@ namespace VisitorManagement.Envoy.Controllers
     [RoutePrefix("envoy")]
     public class VisitorsController : ApiController
     {
+        private readonly VisitorsHelper _visitorsHelper;
+
+        public VisitorsController()
+        {
+            _visitorsHelper = new VisitorsHelper();
+        }
+
         [HttpPost]
         [Route("hello-options")]
         public IEnumerable<Option> GetHelloOption()

@@ -253,6 +253,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Envoy.Api.ServerComponent\Envoy.Api.ServerComponent.csproj">
+      <Project>{7de1fa0d-bfad-4e46-81dd-ec2bce540349}</Project>
+      <Name>Envoy.Api.ServerComponent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Envoy.Models\Envoy.Models.csproj">
       <Project>{076be4c9-d6aa-4d77-88c5-7398ab9ee4a2}</Project>
       <Name>Envoy.Models</Name>

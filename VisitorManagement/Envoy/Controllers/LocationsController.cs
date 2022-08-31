@@ -1,4 +1,5 @@
-﻿using Envoy.Models;
+﻿using Envoy.Api.ServerComponent;
+using Envoy.Models;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -7,6 +8,13 @@ namespace VisitorManagement.Envoy.Controllers
     [RoutePrefix("envoy")]
     public class LocationsController : ApiController
     {
+        private readonly LocationsHelper _locationsHelper;
+
+        public LocationsController()
+        {
+            _locationsHelper = new LocationsHelper();
+        }
+
         [HttpGet]
         [Route("locations")]
         public IEnumerable<Location> GetLocations()

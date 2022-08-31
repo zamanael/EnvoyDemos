@@ -1,4 +1,5 @@
-﻿using Envoy.Models;
+﻿using Envoy.Api.ServerComponent;
+using Envoy.Models;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -7,6 +8,13 @@ namespace VisitorManagement.Envoy.Controllers
     [RoutePrefix("envoy")]
     public class EntriesController : ApiController
     {
+        private readonly EntriesHelper _entriesHelper;
+
+        public EntriesController()
+        {
+            _entriesHelper = new EntriesHelper();
+        }
+
         [HttpGet]
         [Route("entries")]
         public IEnumerable<Entry> GetEntries()

@@ -1,4 +1,5 @@
-﻿using Envoy.Models;
+﻿using Envoy.Api.ServerComponent;
+using Envoy.Models;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -7,6 +8,13 @@ namespace VisitorManagement.Envoy.Controllers
     [RoutePrefix("envoy")]
     public class ReservationsController : ApiController
     {
+        private readonly ReservationsHelper _reservationHelper;
+
+        public ReservationsController()
+        {
+            _reservationHelper = new ReservationsHelper();
+        }
+
         [HttpGet]
         [Route("reservations")]
         public IEnumerable<Reservation> GetReservation()
