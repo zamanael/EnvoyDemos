@@ -213,8 +213,16 @@
     <Compile Include="Envoy\Controllers\AuthenticationController.cs" />
     <Compile Include="Envoy\Controllers\ProductsController.cs" />
     <Compile Include="Envoy\Controllers\VisitorsController.cs" />
+    <Compile Include="Envoy\Models\Company.cs" />
+    <Compile Include="Envoy\Models\Employee.cs" />
+    <Compile Include="Envoy\Models\Entry.cs" />
+    <Compile Include="Envoy\Models\Flow.cs" />
+    <Compile Include="Envoy\Models\Invite.cs" />
+    <Compile Include="Envoy\Models\Location.cs" />
     <Compile Include="Envoy\Models\Option.cs" />
     <Compile Include="Envoy\Models\Product.cs" />
+    <Compile Include="Envoy\Models\Reservation.cs" />
+    <Compile Include="Envoy\Models\Space.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
