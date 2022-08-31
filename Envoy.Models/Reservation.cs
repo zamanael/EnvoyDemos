@@ -1,4 +1,4 @@
-﻿namespace VisitorManagement.Envoy.Models
+﻿namespace Envoy.Models
 {
     public class Reservation
     {

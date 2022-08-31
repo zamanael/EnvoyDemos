@@ -45,6 +45,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -89,9 +92,6 @@
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -211,18 +211,7 @@
     <Compile Include="Envoy\Controllers\LocationsController.cs" />
     <Compile Include="Envoy\Controllers\CompaniesController.cs" />
     <Compile Include="Envoy\Controllers\AuthenticationController.cs" />
-    <Compile Include="Envoy\Controllers\ProductsController.cs" />
     <Compile Include="Envoy\Controllers\VisitorsController.cs" />
-    <Compile Include="Envoy\Models\Company.cs" />
-    <Compile Include="Envoy\Models\Employee.cs" />
-    <Compile Include="Envoy\Models\Entry.cs" />
-    <Compile Include="Envoy\Models\Flow.cs" />
-    <Compile Include="Envoy\Models\Invite.cs" />
-    <Compile Include="Envoy\Models\Location.cs" />
-    <Compile Include="Envoy\Models\Option.cs" />
-    <Compile Include="Envoy\Models\Product.cs" />
-    <Compile Include="Envoy\Models\Reservation.cs" />
-    <Compile Include="Envoy\Models\Space.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -262,6 +251,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Envoy.Models\Envoy.Models.csproj">
+      <Project>{076be4c9-d6aa-4d77-88c5-7398ab9ee4a2}</Project>
+      <Name>Envoy.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

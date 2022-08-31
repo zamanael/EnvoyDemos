@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebAppli
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "envoy-plugin-example-access-control", "envoy-plugin-example-access-control\envoy-plugin-example-access-control.njsproj", "{12DA6E0F-7863-4320-B30A-2613AC5AB17F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envoy.Models", "Envoy.Models\Envoy.Models.csproj", "{076BE4C9-D6AA-4D77-88C5-7398AB9EE4A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{12DA6E0F-7863-4320-B30A-2613AC5AB17F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12DA6E0F-7863-4320-B30A-2613AC5AB17F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12DA6E0F-7863-4320-B30A-2613AC5AB17F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076BE4C9-D6AA-4D77-88C5-7398AB9EE4A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076BE4C9-D6AA-4D77-88C5-7398AB9EE4A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076BE4C9-D6AA-4D77-88C5-7398AB9EE4A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076BE4C9-D6AA-4D77-88C5-7398AB9EE4A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

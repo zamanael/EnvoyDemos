@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace VisitorManagement.Envoy.Models
+namespace Envoy.Models
 {
     public class Option
     {

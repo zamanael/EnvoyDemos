@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Envoy.Models;
+using System.Collections.Generic;
 using System.Web.Http;
-using VisitorManagement.Envoy.Models;
 
 namespace VisitorManagement.Envoy.Controllers
 {
