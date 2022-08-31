@@ -200,6 +200,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Envoy\Controllers\ProductsController.cs" />
+    <Compile Include="Envoy\Controllers\VisitorsController.cs" />
+    <Compile Include="Envoy\Models\Option.cs" />
     <Compile Include="Envoy\Models\Product.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

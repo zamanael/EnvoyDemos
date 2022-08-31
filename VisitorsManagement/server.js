@@ -53,7 +53,7 @@ app.get('/token', async (req, res) => {
     });
 });
 
-app.post('/hello-options', (req, res) => {
+app.post('/envoy/hello-options', (req, res) => {
     res.send([
         {
             label: 'Hello',
@@ -70,7 +70,7 @@ app.post('/hello-options', (req, res) => {
     ]);
 });
 
-app.post('/goodbye-options', (req, res) => {
+app.post('/envoy/goodbye-options', (req, res) => {
     res.send([
         {
             label: 'Goodbye',
