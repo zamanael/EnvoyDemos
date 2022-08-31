@@ -7,6 +7,7 @@ using VisitorManagement.Envoy.Models;
 
 namespace VisitorManagement.Envoy.Controllers
 {
+    [RoutePrefix("books")]
     public class ProductsController : ApiController
     {
         Product[] products = new Product[]
@@ -21,6 +22,8 @@ namespace VisitorManagement.Envoy.Controllers
             return products;
         }
 
+        [HttpGet]
+        [Route("{id:int}")]
         public Product GetProductById(int id)
         {
             var product = products.FirstOrDefault((p) => p.Id == id);
@@ -31,6 +34,8 @@ namespace VisitorManagement.Envoy.Controllers
             return product;
         }
 
+        [HttpGet]
+        [Route("{category}")]
         public IEnumerable<Product> GetProductsByCategory(string category)
         {
             return products.Where(
