@@ -11,6 +11,8 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "VisitorsManagement", "Visit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitorManagement", "VisitorManagement\VisitorManagement.csproj", "{D43503D9-48F8-4625-B274-0381F0C79979}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{9871F67B-17A8-4F06-A78C-480ADAF16D1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D43503D9-48F8-4625-B274-0381F0C79979}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D43503D9-48F8-4625-B274-0381F0C79979}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D43503D9-48F8-4625-B274-0381F0C79979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9871F67B-17A8-4F06-A78C-480ADAF16D1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9871F67B-17A8-4F06-A78C-480ADAF16D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9871F67B-17A8-4F06-A78C-480ADAF16D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9871F67B-17A8-4F06-A78C-480ADAF16D1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
