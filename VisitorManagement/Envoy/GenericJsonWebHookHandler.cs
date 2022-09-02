@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.WebHooks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 
@@ -72,7 +73,7 @@ namespace VisitorManagement.Envoy
             //}
 
             var hubContext = GlobalHost.ConnectionManager.GetHubContext<EnvoyWebhookEventHub>();
-            hubContext.Clients.All.notifyEnvoyWebhookEvent(@event, data.ToString());
+            hubContext.Clients.All.notifyEnvoyWebhookEvent(@event, JsonConvert.SerializeObject(data, Formatting.Indented));
 
             return Task.FromResult(true);
         }

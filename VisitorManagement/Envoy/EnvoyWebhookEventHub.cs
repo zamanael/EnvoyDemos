@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.SignalR;
+using Newtonsoft.Json.Linq;
 
 namespace VisitorManagement.Envoy
 {
