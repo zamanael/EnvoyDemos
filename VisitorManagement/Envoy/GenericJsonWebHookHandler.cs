@@ -14,19 +14,65 @@ namespace VisitorManagement.Envoy
 
         public override Task ExecuteAsync(string generator, WebHookHandlerContext context)
         {
-            // Get JSON from WebHook
             JObject data = context.GetDataOrDefault<JObject>();
+            string @event = (string)data["event"];
 
-            if (context.Id == "i")
+            switch (@event)
             {
-                //You can use the passed in Id to route differently depending on source.
-            }
-            else if (context.Id == "z")
-            {
+                case EnvoyWebhookEvents.EmployeeCheckInCreated:
+                    break;
+                case EnvoyWebhookEvents.EmployeeCheckInUpdated:
+                    break;
+                case EnvoyWebhookEvents.EmployeeEntrySignIn:
+                    break;
+                case EnvoyWebhookEvents.EmployeeEntrySignOut:
+                    break;
+                case EnvoyWebhookEvents.EntryblockListDenied:
+                    break;
+                case EnvoyWebhookEvents.EntryBlockListReview:
+                    break;
+                case EnvoyWebhookEvents.EntrySignIn:
+                    break;
+                case EnvoyWebhookEvents.EntrySignOut:
+                    break;
+                case EnvoyWebhookEvents.Invitecreated:
+                    break;
+                case EnvoyWebhookEvents.InviteQRCodeSent:
+                    break;
+                case EnvoyWebhookEvents.InviteRemoved:
+                    break;
+                case EnvoyWebhookEvents.InviteUpdated:
+                    break;
+                case EnvoyWebhookEvents.LocationCapacityUpdated:
+                    break;
+                case EnvoyWebhookEvents.SignIn:
+                    break;
+                case EnvoyWebhookEvents.TicketCreated:
+                    break;
+                case EnvoyWebhookEvents.UpcomingEmployeeOnSite:
+                    break;
+                case EnvoyWebhookEvents.UpcomingInvitedVisit:
+                    break;
+                default:
+                    break;
             }
 
-            var context2 = GlobalHost.ConnectionManager.GetHubContext<EnvoyHub>();
-            context2.Clients.All.Hello(context.Id, data.ToString());
+            //switch (context.Id)
+            //{
+            //    case "i":
+            //        context.Response = context.Request.CreateResponse();
+            //        context.Response.Content = new StringContent("Hello slash command!");
+            //        break;
+            //    case "z":
+            //        context.Response = context.Request.CreateResponse();
+            //        context.Response.Content = new StringContent("Hello slash command!");
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            var hubContext = GlobalHost.ConnectionManager.GetHubContext<EnvoyWebhookEventHub>();
+            hubContext.Clients.All.notifyEnvoyWebhookEvent(@event, data.ToString());
 
             return Task.FromResult(true);
         }

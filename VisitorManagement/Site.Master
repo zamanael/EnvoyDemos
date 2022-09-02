@@ -25,7 +25,6 @@
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
                 <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
@@ -38,50 +37,70 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+        <script src="Scripts/bootstrap.bundle.js"></script>
         <script src="Scripts/jquery.signalR-2.2.2.min.js"></script>
         <script src="<%= ResolveUrl("~/signalr/hubs") %>" type="text/javascript"></script>
         <script type="text/javascript">
-            var myFunc;
-
             $(function () {
-                var envoyHub = $.connection.envoyHub;
-                console.log(envoyHub);
+                var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+                    keyboard: false
+                })
 
-                envoyHub.client.hello = function (id, message) {
-                    alert(`${id}: ${message}`);
+                var hub = $.connection.envoyWebhookEventHub;
+                hub.client.notifyEnvoyWebhookEvent = function (eventName, data) {
+                    $('#exampleModalLabel').text(eventName);
+                    $('#myModal .modal-body .prettyprint').text(JSON.stringify(JSON.parse(data)));
+                    myModal.show();
                 };
 
                 $.connection.hub.start().done(function () {
-                    myFunc = function () {
-                        envoyHub.server.hello('id', 'message');
-                    };
                 });
             });
         </script>
         <script src="Scripts/common.js"></script>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+            <div class="container-fluid">
+                <a runat="server" class="navbar-brand" href="~/">Application name</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a runat="server" class="nav-link active" aria-current="page" href="~/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a runat="server" class="nav-link" href="~/About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a runat="server" class="nav-link" href="~/Contact">Contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <code class="prettyprint">...</code>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
