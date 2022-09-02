@@ -22,6 +22,8 @@ namespace VisitorManagement
                     routeTemplate: "api/{controller}/{id}",
                     defaults: new { id = RouteParameter.Optional }
                 );
+
+                config.InitializeReceiveGenericJsonWebHooks();
             });
         }
     }
