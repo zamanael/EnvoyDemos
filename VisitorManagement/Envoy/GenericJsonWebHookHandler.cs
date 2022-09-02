@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.WebHooks;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.WebHooks;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 
@@ -23,6 +24,9 @@ namespace VisitorManagement.Envoy
             else if (context.Id == "z")
             {
             }
+
+            var context2 = GlobalHost.ConnectionManager.GetHubContext<EnvoyHub>();
+            context2.Clients.All.Hello(context.Id, data.ToString());
 
             return Task.FromResult(true);
         }

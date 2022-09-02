@@ -12,7 +12,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -38,6 +38,26 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        <script src="Scripts/jquery.signalR-2.2.2.min.js"></script>
+        <script src="<%= ResolveUrl("~/signalr/hubs") %>" type="text/javascript"></script>
+        <script type="text/javascript">
+            var myFunc;
+
+            $(function () {
+                var envoyHub = $.connection.envoyHub;
+                console.log(envoyHub);
+
+                envoyHub.client.hello = function (id, message) {
+                    alert(`${id}: ${message}`);
+                };
+
+                $.connection.hub.start().done(function () {
+                    myFunc = function () {
+                        envoyHub.server.hello('id', 'message');
+                    };
+                });
+            });
+        </script>
         <script src="Scripts/common.js"></script>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
