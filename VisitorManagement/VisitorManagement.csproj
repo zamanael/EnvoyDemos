@@ -162,6 +162,7 @@
     <Content Include="EnvoyWebService.asmx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -349,7 +350,7 @@
     <Compile Include="Envoy\Controllers\VisitorsController.cs" />
     <Compile Include="Envoy\EnvoyWebhookEventHub.cs" />
     <Compile Include="Envoy\EnvoyWebhookEvents.cs" />
-    <Compile Include="Envoy\GenericJsonWebHookHandler.cs" />
+    <Compile Include="Envoy\EnvoyWebhookEventHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

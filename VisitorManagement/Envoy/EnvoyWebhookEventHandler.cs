@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace VisitorManagement.Envoy
 {
-    public class GenericJsonWebHookHandler : WebHookHandler
+    /// <summary>
+    /// This is a generic json webhook handler to receive Envoy events
+    /// An entry added to Web.config file <add key="MS_WebHookReceiverSecret_GenericJson" value="80ad19e357b01a04fe767067df7cd31b96a844e1" />
+    /// You can test this using postman with url {{base_address}}/api/webhooks/incoming/GenericJson?code=80ad19e357b01a04fe767067df7cd31b96a844e1
+    /// Method: POST; Json Body: {"event": "foo","foo":"bar"}
+/// </summary>
+public class EnvoyWebhookEventHandler : WebHookHandler
     {
-        public GenericJsonWebHookHandler()
+        public EnvoyWebhookEventHandler()
         {
-            this.Receiver = "genericjson";
+            Receiver = "GenericJson";
         }
 
         public override Task ExecuteAsync(string generator, WebHookHandlerContext context)

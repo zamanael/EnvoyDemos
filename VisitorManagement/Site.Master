@@ -41,23 +41,7 @@
         <script src="Scripts/bootstrap.bundle.js"></script>
         <script src="Scripts/jquery.signalR-2.2.2.min.js"></script>
         <script src="<%= ResolveUrl("~/signalr/hubs") %>" type="text/javascript"></script>
-        <script type="text/javascript">
-            $(function () {
-                var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
-                    keyboard: false
-                })
-
-                var hub = $.connection.envoyWebhookEventHub;
-                hub.client.notifyEnvoyWebhookEvent = function (eventName, data) {
-                    $('#exampleModalLabel').text(eventName);
-                    $('#myModal .modal-body .prettyprint').text(JSON.stringify(JSON.parse(data)));
-                    myModal.show();
-                };
-
-                $.connection.hub.start().done(function () {
-                });
-            });
-        </script>
+        <script src="Scripts/app.js"></script>
         <script src="Scripts/common.js"></script>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
@@ -90,7 +74,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <code class="prettyprint">...</code>
+                            <pre class="prettyprint">...</pre>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
