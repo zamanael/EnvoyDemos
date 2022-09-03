@@ -11,8 +11,8 @@ namespace VisitorManagement.Envoy
     /// An entry added to Web.config file <add key="MS_WebHookReceiverSecret_GenericJson" value="80ad19e357b01a04fe767067df7cd31b96a844e1" />
     /// You can test this using postman with url {{base_address}}/api/webhooks/incoming/GenericJson?code=80ad19e357b01a04fe767067df7cd31b96a844e1
     /// Method: POST; Json Body: {"event": "foo","foo":"bar"}
-/// </summary>
-public class EnvoyWebhookEventHandler : WebHookHandler
+    /// </summary>
+    public class EnvoyWebhookEventHandler : WebHookHandler
     {
         public EnvoyWebhookEventHandler()
         {
