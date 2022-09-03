@@ -37,7 +37,6 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
         <script src="Scripts/bootstrap.bundle.js"></script>
         <script src="Scripts/jquery.signalR-2.2.2.min.js"></script>
         <script src="<%= ResolveUrl("~/signalr/hubs") %>" type="text/javascript"></script>
@@ -74,7 +73,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <pre class="prettyprint">...</pre>
+                            <pre>...</pre>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

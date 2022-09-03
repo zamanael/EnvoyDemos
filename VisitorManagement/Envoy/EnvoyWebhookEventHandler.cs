@@ -79,7 +79,7 @@ namespace VisitorManagement.Envoy
             //}
 
             var hubContext = GlobalHost.ConnectionManager.GetHubContext<EnvoyWebhookEventHub>();
-            hubContext.Clients.All.notifyEnvoyWebhookEvent(@event, JsonConvert.SerializeObject(data, Formatting.Indented));
+            hubContext.Clients.All.notifyEnvoyWebhookEvent(@event, JsonConvert.SerializeObject(data));
 
             return Task.FromResult(true);
         }
