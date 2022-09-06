@@ -1,28 +1,41 @@
 ﻿using Envoy.Models;
-using System.Collections.Generic;
+using Newtonsoft.Json;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Envoy.Api.ServerComponent.CoreApis
 {
     public class LocationsHelper : BaseHelper
     {
-        public IEnumerable<Location> GetLocations()
-        {
-            //var client = new RestClient("https://api.envoy.com/rest/v1/locations");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
+        private const string locationsUri = "locations";
 
-            return null;
+        public async Task<LocationResponse> GetLocationsAsync()
+        {
+            try
+            {
+                var responseString = await GetAsync(locationsUri);
+                return JsonConvert.DeserializeObject<LocationResponse>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new Exception("An error occured");
+            }
         }
 
-        public IEnumerable<Location> GetLocationById(int id)
+        public async Task<LocationResponse> GetLocationByIdAsync(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/rest/v1/locations/id");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            try
+            {
+                var responseString = await GetAsync($"{locationsUri}/{id}");
+                return JsonConvert.DeserializeObject<LocationResponse>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new Exception("An error occured");
+            }
         }
     }
 }

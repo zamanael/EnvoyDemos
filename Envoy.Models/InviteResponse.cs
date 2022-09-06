@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Envoy.Models
 {
-    public class Entry
+    public class InviteResponse
     {
     }
 }

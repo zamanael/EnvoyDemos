@@ -1,6 +1,7 @@
 ﻿using Envoy.Api.ServerComponent.SpacesApis;
 using Envoy.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
@@ -17,44 +18,44 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("reservations")]
-        public IEnumerable<Reservation> GetReservation()
+        public async Task<ReservationResponse> GetReservationAsync()
         {
-            return _reservationHelper.GetReservation();
+            return await _reservationHelper.GetReservationAsync();
         }
 
         [HttpGet]
         [Route("reservations/{id}")]
-        public IEnumerable<Reservation> GetReservationById(int id)
+        public async Task<ReservationResponse> GetReservationByIdAsync(int id)
         {
-            return _reservationHelper.GetReservationById(id);
+            return await _reservationHelper.GetReservationByIdAsync(id);
         }
 
         [HttpPost]
         [Route("reservations/{id}/{checkin}")]
-        public IEnumerable<Reservation> UpdateReservationCheckin(int id)
+        public async Task<ReservationResponse> UpdateReservationCheckinAsync(int id)
         {
-            return _reservationHelper.UpdateReservationCheckin(id);
+            return await _reservationHelper.UpdateReservationCheckinAsync(id);
         }
 
         [HttpPost]
         [Route("reservations/{id}/{checkout}")]
-        public IEnumerable<Reservation> UpdateReservationCheckout(int id)
+        public async Task<ReservationResponse> UpdateReservationCheckoutAsync(int id)
         {
-            return _reservationHelper.UpdateReservationCheckout(id);
+            return await _reservationHelper.UpdateReservationCheckoutAsync(id);
         }
 
         [HttpPost]
         [Route("reservations")]
-        public IEnumerable<Reservation> CreateReservation()
+        public async Task<ReservationResponse> CreateReservationAsync()
         {
-            return _reservationHelper.CreateReservation();
+            return await _reservationHelper.CreateReservationAsync();
         }
 
         [HttpDelete]
         [Route("reservations/{id}/cancel")]
-        public IEnumerable<Reservation> CancelReservation()
+        public async Task<ReservationResponse> CancelReservationAsync()
         {
-            return _reservationHelper.CancelReservation();
+            return await _reservationHelper.CancelReservationAsync();
         }
     }
 }

@@ -1,28 +1,41 @@
 ﻿using Envoy.Models;
-using System.Collections.Generic;
+using Newtonsoft.Json;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
 {
     public class FlowsHelper : BaseHelper
     {
-        public IEnumerable<Flow> GetLocations()
-        {
-            //var client = new RestClient("https://api.envoy.com/v1/flows");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
+        private const string flowsUri = "flows";
 
-            return null;
+        public async Task<FlowResponse> GetFlowsAsync()
+        {
+            try
+            {
+                var responseString = await GetAsync(flowsUri);
+                return JsonConvert.DeserializeObject<FlowResponse>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new Exception("An error occured");
+            }
         }
 
-        public IEnumerable<Flow> GetLocationById(int id)
+        public async Task<FlowResponse> GetFlowByIdAsync(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/rest/v1/locations/id");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            try
+            {
+                var responseString = await GetAsync($"{flowsUri}/{id}");
+                return JsonConvert.DeserializeObject<FlowResponse>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new Exception("An error occured");
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Envoy.Api.ServerComponent.VisitorAndProtectApis;
 using Envoy.Models;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
@@ -16,37 +16,37 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("invites")]
-        public IEnumerable<Invite> GetInvites()
+        public async Task<InviteResponse> GetInvitesAsync()
         {
-            return _invitesHelper.GetInvites();
+            return await _invitesHelper.GetInvitesAsync();
         }
 
         [HttpGet]
         [Route("invites/{id}")]
-        public IEnumerable<Invite> GetInviteById(int id)
+        public async Task<InviteResponse> GetInviteByIdAsync(int id)
         {
-            return _invitesHelper.GetInviteById(id);
+            return await _invitesHelper.GetInviteByIdAsync(id);
         }
 
         [HttpPost]
         [Route("invites/{id}")]
-        public IEnumerable<Invite> UpdateInvite(int id)
+        public async Task<InviteResponse> UpdateInviteAsync(int id)
         {
-            return _invitesHelper.UpdateInvite(id);
+            return await _invitesHelper.UpdateInviteAsync(id);
         }
 
         [HttpPost]
         [Route("invites")]
-        public IEnumerable<Invite> CreateInvite()
+        public async Task<InviteResponse> CreateInviteAsync()
         {
-            return _invitesHelper.CreateInvite();
+            return await _invitesHelper.CreateInviteAsync();
         }
 
         [HttpDelete]
         [Route("invites")]
-        public IEnumerable<Invite> DeleteInvite()
+        public async Task<InviteResponse> DeleteInviteAsync()
         {
-            return _invitesHelper.DeleteInvite();
+            return await _invitesHelper.DeleteInviteAsync();
         }
     }
 }

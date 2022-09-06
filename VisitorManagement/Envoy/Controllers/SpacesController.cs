@@ -1,6 +1,6 @@
 ﻿using Envoy.Api.ServerComponent.SpacesApis;
 using Envoy.Models;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
@@ -17,16 +17,16 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("spaces")]
-        public IEnumerable<Space> GetSpaces()
+        public async Task<SpaceResponse> GetSpacesAsync()
         {
-           return _spaceHelper.GetSpaces(); 
+            return await _spaceHelper.GetSpacesAsync();
         }
 
         [HttpGet]
         [Route("spaces/{id}")]
-        public IEnumerable<Space> GetSpaceById(int id)
+        public async Task<SpaceResponse> GetSpaceByIdAsync(int id)
         {
-            return _spaceHelper.GetSpaceById(id);
+            return await _spaceHelper.GetSpaceByIdAsync(id);
         }
     }
 }

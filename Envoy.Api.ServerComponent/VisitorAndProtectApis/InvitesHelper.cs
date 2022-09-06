@@ -1,31 +1,44 @@
 ﻿using Envoy.Models;
-using System.Collections.Generic;
+using Newtonsoft.Json;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
 {
     public class InvitesHelper : BaseHelper
     {
-        public IEnumerable<Invite> GetInvites()
-        {
-            //var client = new RestClient("https://api.envoy.com/v1/invites?type=VISITOR&approvalStatus=PENDING&page=1&perPage=100&sort=EXPECTED_ARRIVAL_AT&order=DESC");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
+        private const string invitesUri = "invites";
 
-            return null;
+        public async Task<InviteResponse> GetInvitesAsync(string type = "VISITOR", string approvalStatus = "PENDING", int page = 1, int perPage = 100, string sort = "EXPECTED_ARRIVAL_AT", string order = "DESC")
+        {
+            try
+            {
+                var responseString = await GetAsync($"{invitesUri}?type={type}&approvalStatus={approvalStatus}&page={page}&perPage={perPage}&sort={sort}&order={order}");
+                return JsonConvert.DeserializeObject<InviteResponse>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new Exception("An error occured");
+            }
         }
 
-        public IEnumerable<Invite> GetInviteById(int id)
+        public async Task<InviteResponse> GetInviteByIdAsync(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/v1/invites/id");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            try
+            {
+                var responseString = await GetAsync($"{invitesUri}/{id}");
+                return JsonConvert.DeserializeObject<InviteResponse>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new Exception("An error occured");
+            }
         }
 
-        public IEnumerable<Invite> UpdateInvite(int id)
+        public async Task<InviteResponse> UpdateInviteAsync(int id)
         {
             //var client = new RestClient("https://api.envoy.com/v1/invites/id");
             //var request = new RestRequest(Method.POST);
@@ -36,7 +49,7 @@ namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
             return null;
         }
 
-        public IEnumerable<Invite> CreateInvite()
+        public async Task<InviteResponse> CreateInviteAsync()
         {
             //var client = new RestClient("https://api.envoy.com/v1/invites");
             //var request = new RestRequest(Method.POST);
@@ -47,7 +60,7 @@ namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
             return null;
         }
 
-        public IEnumerable<Invite> DeleteInvite()
+        public async Task<InviteResponse> DeleteInviteAsync()
         {
             //var client = new RestClient("https://api.envoy.com/v1/invites/id");
             //var request = new RestRequest(Method.DELETE);

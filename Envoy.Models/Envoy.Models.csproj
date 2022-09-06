@@ -46,17 +46,24 @@
   <ItemGroup>
     <Compile Include="Company.cs" />
     <Compile Include="CompanyResponse.cs" />
+    <Compile Include="EmployeeResponse.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="EntryResponse.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="FlowResponse.cs" />
     <Compile Include="Flow.cs" />
+    <Compile Include="InviteResponse.cs" />
     <Compile Include="Invite.cs" />
+    <Compile Include="LocationResponse.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Meta.cs" />
     <Compile Include="Option.cs" />
-    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservationResponse.cs" />
     <Compile Include="Reservation.cs" />
+    <Compile Include="SpaceResponse.cs" />
     <Compile Include="Space.cs" />
+    <Compile Include="WorkScheduleResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

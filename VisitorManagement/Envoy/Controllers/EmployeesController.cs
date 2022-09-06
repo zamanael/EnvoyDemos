@@ -1,7 +1,6 @@
-﻿using Envoy.Api.ServerComponent;
-using Envoy.Api.ServerComponent.VisitorAndProtectApis;
+﻿using Envoy.Api.ServerComponent.VisitorAndProtectApis;
 using Envoy.Models;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
@@ -18,16 +17,16 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("employees")]
-        public IEnumerable<Employee> GetEmployees()
+        public async Task<EmployeeResponse> GetEmployeesAsync()
         {
-            return _employeesHelper.GetEmployees();
+            return await _employeesHelper.GetEmployeesAsync();
         }
 
         [HttpGet]
         [Route("employees/{id}")]
-        public IEnumerable<Employee> GetEmployeeById(int id)
+        public async Task<EmployeeResponse> GetEmployeeByIdAsync(int id)
         {
-            return _employeesHelper.GetEmployeeById(id);
+            return await _employeesHelper.GetEmployeeByIdAsync(id);
         }
     }
 }

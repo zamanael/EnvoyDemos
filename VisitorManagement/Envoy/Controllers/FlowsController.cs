@@ -1,6 +1,6 @@
 ﻿using Envoy.Api.ServerComponent.VisitorAndProtectApis;
 using Envoy.Models;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
@@ -17,16 +17,16 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("flows")]
-        public IEnumerable<Flow> GetLocations()
+        public async Task<FlowResponse> GetLocationsAsync()
         {
-            return _flowsHelper.GetLocations();
+            return await _flowsHelper.GetFlowsAsync();
         }
 
         [HttpGet]
         [Route("flows/{id}")]
-        public IEnumerable<Flow> GetLocationById(int id)
+        public async Task<FlowResponse> GetLocationByIdAsync(int id)
         {
-            return _flowsHelper.GetLocationById(id);
+            return await _flowsHelper.GetFlowByIdAsync(id);
         }
     }
 }

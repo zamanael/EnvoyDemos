@@ -1,21 +1,30 @@
 ﻿using Envoy.Models;
-using System.Collections.Generic;
+using Newtonsoft.Json;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
 {
     public class RecrurringInvitesHelper : BaseHelper
     {
-        public IEnumerable<Invite> GetRecurringInviteById(int id)
-        {
-            //var client = new RestClient("https://api.envoy.com/v1/recurring-invites/id");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
+        private const string recurringInvitesUri = "recurring-invites";
 
-            return null;
+        public async Task<InviteResponse> GetRecurringInviteByIdAsync(int id)
+        {
+            try
+            {
+                var responseString = await GetAsync($"{recurringInvitesUri}/{id}");
+                return JsonConvert.DeserializeObject<InviteResponse>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new Exception("An error occured");
+            }
         }
 
-        public IEnumerable<Invite> UpdateRecurringInvite(int id)
+        public async Task<InviteResponse> UpdateRecurringInviteAsync(int id)
         {
             //var client = new RestClient("https://api.envoy.com/v1/recurring-invites/id");
             //var request = new RestRequest(Method.POST);
@@ -26,7 +35,7 @@ namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
             return null;
         }
 
-        public IEnumerable<Invite> CreateRecurringInvite()
+        public async Task<InviteResponse> CreateRecurringInviteAsync()
         {
             //var client = new RestClient("https://api.envoy.com/v1/recurring-invites");
             //var request = new RestRequest(Method.POST);

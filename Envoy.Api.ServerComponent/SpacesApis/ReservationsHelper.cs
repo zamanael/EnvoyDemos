@@ -1,31 +1,44 @@
 ﻿using Envoy.Models;
-using System.Collections.Generic;
+using Newtonsoft.Json;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Envoy.Api.ServerComponent.SpacesApis
 {
     public class ReservationsHelper : BaseHelper
     {
-        public IEnumerable<Reservation> GetReservation()
-        {
-            //var client = new RestClient("https://api.envoy.com/v1/reservations");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
+        private const string reservationsUri = "reservations";
 
-            return null;
+        public async Task<ReservationResponse> GetReservationAsync()
+        {
+            try
+            {
+                var responseString = await GetAsync(reservationsUri);
+                return JsonConvert.DeserializeObject<ReservationResponse>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new Exception("An error occured");
+            }
         }
 
-        public IEnumerable<Reservation> GetReservationById(int id)
+        public async Task<ReservationResponse> GetReservationByIdAsync(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/v1/reservations/id");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
-
-            return null;
+            try
+            {
+                var responseString = await GetAsync($"{reservationsUri}/{id}");
+                return JsonConvert.DeserializeObject<ReservationResponse>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new Exception("An error occured");
+            }
         }
 
-        public IEnumerable<Reservation> UpdateReservationCheckin(int id)
+        public async Task<ReservationResponse> UpdateReservationCheckinAsync(int id)
         {
             //var client = new RestClient("https://api.envoy.com/v1/reservations/Id/checkin");
             //var request = new RestRequest(Method.POST);
@@ -34,7 +47,7 @@ namespace Envoy.Api.ServerComponent.SpacesApis
             return null;
         }
 
-        public IEnumerable<Reservation> UpdateReservationCheckout(int id)
+        public async Task<ReservationResponse> UpdateReservationCheckoutAsync(int id)
         {
             //var client = new RestClient("https://api.envoy.com/v1/reservations/id/checkout");
             //var request = new RestRequest(Method.POST);
@@ -43,7 +56,7 @@ namespace Envoy.Api.ServerComponent.SpacesApis
             return null;
         }
 
-        public IEnumerable<Reservation> CreateReservation()
+        public async Task<ReservationResponse> CreateReservationAsync()
         {
             //var client = new RestClient("https://api.envoy.com/v1/reservations");
             //var request = new RestRequest(Method.POST);
@@ -54,7 +67,7 @@ namespace Envoy.Api.ServerComponent.SpacesApis
             return null;
         }
 
-        public IEnumerable<Reservation> CancelReservation()
+        public async Task<ReservationResponse> CancelReservationAsync()
         {
             //var client = new RestClient("https://api.envoy.com/v1/reservations/id/cancel");
             //var request = new RestRequest(Method.POST);

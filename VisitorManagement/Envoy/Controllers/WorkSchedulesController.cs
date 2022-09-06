@@ -1,6 +1,6 @@
 ﻿using Envoy.Api.ServerComponent.VisitorAndProtectApis;
 using Envoy.Models;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
@@ -17,44 +17,44 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("work-schedules")]
-        public IEnumerable<Invite> GetWorkSchedules()
+        public async Task<WorkScheduleResponse> GetWorkSchedulesAsync()
         {
-            return _workSchedulesHelper.GetWorkSchedules();
+            return await _workSchedulesHelper.GetWorkSchedulesAsync();
         }
 
         [HttpGet]
         [Route("work-schedules/{id}")]
-        public IEnumerable<Invite> GetWorkScheduleById(int id)
+        public async Task<WorkScheduleResponse> GetWorkScheduleByIdAsync(int id)
         {
-            return _workSchedulesHelper.GetWorkScheduleById(id);
+            return await _workSchedulesHelper.GetWorkScheduleByIdAsync(id);
         }
 
         [HttpPost]
         [Route("work-schedules/{id}/checkin")]
-        public IEnumerable<Invite> CheckinWorkSchedule(int id)
+        public async Task<WorkScheduleResponse> CheckinWorkScheduleAsync(int id)
         {
-            return _workSchedulesHelper.CheckinWorkSchedule(id);
+            return await _workSchedulesHelper.CheckinWorkScheduleAsync(id);
         }
 
         [HttpPost]
         [Route("work-schedules/{id}/checkout")]
-        public IEnumerable<Invite> CheckoutWorkSchedule(int id)
+        public async Task<WorkScheduleResponse> CheckoutWorkScheduleAsync(int id)
         {
-            return _workSchedulesHelper.CheckoutWorkSchedule(id);
+            return await _workSchedulesHelper.CheckoutWorkScheduleAsync(id);
         }
 
         [HttpPost]
         [Route("work-schedules")]
-        public IEnumerable<Invite> CreateWorkSchedule()
+        public async Task<WorkScheduleResponse> CreateWorkScheduleAsync()
         {
-            return _workSchedulesHelper.CreateWorkSchedule();
+            return await _workSchedulesHelper.CreateWorkScheduleAsync();
         }
 
         [HttpDelete]
         [Route("work-schedules")]
-        public IEnumerable<Invite> DeleteWorkSchedule()
+        public async Task<WorkScheduleResponse> DeleteWorkScheduleAsync()
         {
-            return _workSchedulesHelper.DeleteWorkSchedule();
+            return await _workSchedulesHelper.DeleteWorkScheduleAsync();
         }
     }
 }

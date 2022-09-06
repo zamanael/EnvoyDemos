@@ -1,6 +1,6 @@
 ﻿using Envoy.Api.ServerComponent.VisitorAndProtectApis;
 using Envoy.Models;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
@@ -17,23 +17,23 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("recurring-invites/{id}")]
-        public IEnumerable<Invite> GetRecurringInviteById(int id)
+        public async Task<InviteResponse> GetRecurringInviteByIdAsync(int id)
         {
-            return _recurringInvitesHelper.GetRecurringInviteById(id);
+            return await _recurringInvitesHelper.GetRecurringInviteByIdAsync(id);
         }
 
         [HttpPost]
         [Route("recurring-invites/{id}")]
-        public IEnumerable<Invite> UpdateRecurringInvite(int id)
+        public async Task<InviteResponse> UpdateRecurringInviteAsync(int id)
         {
-           return _recurringInvitesHelper.UpdateRecurringInvite(id);
+            return await _recurringInvitesHelper.UpdateRecurringInviteAsync(id);
         }
 
         [HttpPost]
         [Route("recurring-invites")]
-        public IEnumerable<Invite> CreateRecurringInvite()
+        public async Task<InviteResponse> CreateRecurringInviteAsync()
         {
-           return _recurringInvitesHelper.CreateRecurringInvite();
+            return await _recurringInvitesHelper.CreateRecurringInviteAsync();
         }
     }
 }

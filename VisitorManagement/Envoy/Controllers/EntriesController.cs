@@ -1,6 +1,6 @@
 ﻿using Envoy.Api.ServerComponent.VisitorAndProtectApis;
 using Envoy.Models;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
@@ -17,30 +17,30 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("entries")]
-        public IEnumerable<Entry> GetEntries()
+        public async Task<EntryResponse> GetEntriesAsync()
         {
-            return _entriesHelper.GetEntries();
+            return await _entriesHelper.GetEntriesAsync();
         }
 
         [HttpGet]
         [Route("entries/{id}")]
-        public IEnumerable<Entry> GetEntryById(int id)
+        public async Task<EntryResponse> GetEntryByIdAsync(int id)
         {
-            return _entriesHelper.GetEntryById(id);
+            return await _entriesHelper.GetEntryByIdAsync(id);
         }
 
         [HttpPost]
         [Route("entries/{id}")]
-        public IEnumerable<Entry> UpdateEntry(int id)
+        public async Task<EntryResponse> UpdateEntryAsync(int id)
         {
-            return _entriesHelper.UpdateEntry(id);
+            return await _entriesHelper.UpdateEntryAsync(id);
         }
 
         [HttpPost]
         [Route("entries")]
-        public IEnumerable<Entry> CreateEntry()
+        public async Task<EntryResponse> CreateEntryAsync()
         {
-            return _entriesHelper.CreateEntry();
+            return await _entriesHelper.CreateEntryAsync();
         }
     }
 }
