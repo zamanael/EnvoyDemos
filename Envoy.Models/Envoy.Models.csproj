@@ -71,8 +71,11 @@
     <Compile Include="RecurringInvite.cs" />
     <Compile Include="ReservationResponse.cs" />
     <Compile Include="Reservation.cs" />
+    <Compile Include="ScheduledFor.cs" />
     <Compile Include="SpaceResponse.cs" />
     <Compile Include="Space.cs" />
+    <Compile Include="WorkSchedule.cs" />
+    <Compile Include="WorkSchedulesResponse.cs" />
     <Compile Include="WorkScheduleResponse.cs" />
   </ItemGroup>
   <ItemGroup>

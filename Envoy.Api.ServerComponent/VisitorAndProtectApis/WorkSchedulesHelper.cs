@@ -10,12 +10,12 @@ namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
     {
         private const string workSchedulesUri = "work-schedules";
 
-        public async Task<WorkScheduleResponse> GetWorkSchedulesAsync(int page = 1, int perPage = 100)
+        public async Task<WorkSchedulesResponse> GetWorkSchedulesAsync(int page = 1, int perPage = 100)
         {
             try
             {
                 var responseString = await GetAsync($"{workSchedulesUri}?page={page}&perPage={perPage}");
-                return JsonConvert.DeserializeObject<WorkScheduleResponse>(responseString);
+                return JsonConvert.DeserializeObject<WorkSchedulesResponse>(responseString);
             }
             catch (Exception ex)
             {

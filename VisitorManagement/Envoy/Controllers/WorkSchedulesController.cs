@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("work-schedules")]
-        public async Task<WorkScheduleResponse> GetWorkSchedulesAsync()
+        public async Task<WorkSchedulesResponse> GetWorkSchedulesAsync()
         {
             return await _workSchedulesHelper.GetWorkSchedulesAsync();
         }
