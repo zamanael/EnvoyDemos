@@ -10,12 +10,12 @@ namespace Envoy.Api.ServerComponent.CoreApis
     {
         private const string locationsUri = "locations";
 
-        public async Task<LocationResponse> GetLocationsAsync()
+        public async Task<LocationsResponse> GetLocationsAsync()
         {
             try
             {
                 var responseString = await GetAsync(locationsUri);
-                return JsonConvert.DeserializeObject<LocationResponse>(responseString);
+                return JsonConvert.DeserializeObject<LocationsResponse>(responseString);
             }
             catch (Exception ex)
             {
@@ -34,7 +34,7 @@ namespace Envoy.Api.ServerComponent.CoreApis
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                throw new Exception("An error occured");
+                throw;
             }
         }
     }
