@@ -55,6 +55,7 @@
     <Compile Include="FlowsResponse.cs" />
     <Compile Include="FlowResponse.cs" />
     <Compile Include="Flow.cs" />
+    <Compile Include="InvitesResponse.cs" />
     <Compile Include="InviteResponse.cs" />
     <Compile Include="Invite.cs" />
     <Compile Include="LocationsResponse.cs" />

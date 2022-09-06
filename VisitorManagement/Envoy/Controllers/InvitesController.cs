@@ -5,6 +5,7 @@ using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
 {
+    [RoutePrefix("envoy")]
     public class InvitesController : ApiController
     {
         private readonly InvitesHelper _invitesHelper;
@@ -16,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("invites")]
-        public async Task<InviteResponse> GetInvitesAsync()
+        public async Task<InvitesResponse> GetInvitesAsync()
         {
             return await _invitesHelper.GetInvitesAsync();
         }

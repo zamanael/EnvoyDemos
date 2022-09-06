@@ -10,12 +10,12 @@ namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
     {
         private const string invitesUri = "invites";
 
-        public async Task<InviteResponse> GetInvitesAsync(string type = "VISITOR", string approvalStatus = "PENDING", int page = 1, int perPage = 100, string sort = "EXPECTED_ARRIVAL_AT", string order = "DESC")
+        public async Task<InvitesResponse> GetInvitesAsync(string type = "VISITOR", int page = 1, int perPage = 100, string sort = "EXPECTED_ARRIVAL_AT", string order = "ASC")
         {
             try
             {
-                var responseString = await GetAsync($"{invitesUri}?type={type}&approvalStatus={approvalStatus}&page={page}&perPage={perPage}&sort={sort}&order={order}");
-                return JsonConvert.DeserializeObject<InviteResponse>(responseString);
+                var responseString = await GetAsync($"{invitesUri}?type={type}&page={page}&perPage={perPage}&sort={sort}&order={order}");
+                return JsonConvert.DeserializeObject<InvitesResponse>(responseString);
             }
             catch (Exception ex)
             {
