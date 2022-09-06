@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Envoy.Models
 {
-    public class Invite
+    public class RecurringInvite
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -15,14 +15,20 @@ namespace Envoy.Models
         [JsonProperty("updatedAt")]
         public DateTime UpdatedAt { get; set; }
 
-        [JsonProperty("expectedArrivalAt")]
-        public DateTime ExpectedArrivalAt { get; set; }
+        [JsonProperty("startTime")]
+        public DateTime StartTime { get; set; }
 
-        [JsonProperty("expectedDepartureAt")]
-        public DateTime ExpectedDepartureAt { get; set; }
+        [JsonProperty("recurrenceRule")]
+        public string RecurrenceRule { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }
+
+        [JsonProperty("notes")]
+        public string Notes { get; set; }
+
+        [JsonProperty("secretToken")]
+        public string SecretToken { get; set; }
 
         [JsonProperty("flowId")]
         public string FlowId { get; set; }
@@ -30,14 +36,8 @@ namespace Envoy.Models
         [JsonProperty("locationId")]
         public string LocationId { get; set; }
 
-        [JsonProperty("approvalStatus")]
-        public string ApprovalStatus { get; set; }
-
-        [JsonProperty("notes")]
-        public string Notes { get; set; }
-
-        [JsonProperty("secretToken")]
-        public string SecretToken { get; set; }
+        [JsonProperty("inviteIds")]
+        public List<string> InviteIds { get; set; }
 
         [JsonProperty("sendEmailToInvitee")]
         public bool SendEmailToInvitee { get; set; }
@@ -49,6 +49,6 @@ namespace Envoy.Models
         public Invitee Invitee { get; set; }
 
         [JsonProperty("host")]
-        public object Host { get; set; }
+        public Host Host { get; set; }
     }
 }

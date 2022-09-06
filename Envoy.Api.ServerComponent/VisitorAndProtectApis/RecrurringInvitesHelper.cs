@@ -10,12 +10,12 @@ namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
     {
         private const string recurringInvitesUri = "recurring-invites";
 
-        public async Task<InviteResponse> GetRecurringInviteByIdAsync(int id)
+        public async Task<RecurringInviteResponse> GetRecurringInviteByIdAsync(int id)
         {
             try
             {
                 var responseString = await GetAsync($"{recurringInvitesUri}/{id}");
-                return JsonConvert.DeserializeObject<InviteResponse>(responseString);
+                return JsonConvert.DeserializeObject<RecurringInviteResponse>(responseString);
             }
             catch (Exception ex)
             {
@@ -24,7 +24,7 @@ namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
             }
         }
 
-        public async Task<InviteResponse> UpdateRecurringInviteAsync(int id)
+        public async Task<RecurringInviteResponse> UpdateRecurringInviteAsync(int id)
         {
             //var client = new RestClient("https://api.envoy.com/v1/recurring-invites/id");
             //var request = new RestRequest(Method.POST);
@@ -35,7 +35,7 @@ namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
             return null;
         }
 
-        public async Task<InviteResponse> CreateRecurringInviteAsync()
+        public async Task<RecurringInviteResponse> CreateRecurringInviteAsync()
         {
             //var client = new RestClient("https://api.envoy.com/v1/recurring-invites");
             //var request = new RestRequest(Method.POST);

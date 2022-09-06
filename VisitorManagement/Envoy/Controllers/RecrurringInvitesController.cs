@@ -17,21 +17,21 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("recurring-invites/{id}")]
-        public async Task<InviteResponse> GetRecurringInviteByIdAsync(int id)
+        public async Task<RecurringInviteResponse> GetRecurringInviteByIdAsync(int id)
         {
             return await _recurringInvitesHelper.GetRecurringInviteByIdAsync(id);
         }
 
         [HttpPost]
         [Route("recurring-invites/{id}")]
-        public async Task<InviteResponse> UpdateRecurringInviteAsync(int id)
+        public async Task<RecurringInviteResponse> UpdateRecurringInviteAsync(int id)
         {
             return await _recurringInvitesHelper.UpdateRecurringInviteAsync(id);
         }
 
         [HttpPost]
         [Route("recurring-invites")]
-        public async Task<InviteResponse> CreateRecurringInviteAsync()
+        public async Task<RecurringInviteResponse> CreateRecurringInviteAsync()
         {
             return await _recurringInvitesHelper.CreateRecurringInviteAsync();
         }
