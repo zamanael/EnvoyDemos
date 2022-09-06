@@ -16,7 +16,7 @@ namespace Envoy.Api.ServerComponent
                 client.BaseAddress = new Uri(AppSettings.ENVOY_API_URL);
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 SetAuthorization(client);
-                HttpResponseMessage response = await client.GetAsync("companies");
+                HttpResponseMessage response = await client.GetAsync(requesUri);
                 response.EnsureSuccessStatusCode();
                 return await response.Content.ReadAsStringAsync();
             }
