@@ -45,11 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Company.cs" />
+    <Compile Include="CompanyResponse.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Flow.cs" />
     <Compile Include="Invite.cs" />
     <Compile Include="Location.cs" />
+    <Compile Include="Meta.cs" />
     <Compile Include="Option.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

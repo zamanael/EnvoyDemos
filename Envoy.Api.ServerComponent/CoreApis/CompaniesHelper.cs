@@ -1,18 +1,27 @@
 ﻿using Envoy.Models;
-using System.Collections.Generic;
+using Newtonsoft.Json;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Envoy.Api.ServerComponent.CoreApis
 {
     public class CompaniesHelper : BaseHelper
     {
-        public IEnumerable<Company> GetCompanies()
-        {
-            //var client = new RestClient("https://api.envoy.com/rest/v1/companies");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("Accept", "application/json");
-            //IRestResponse response = client.Execute(request);
+        private const string companiesUri = "companies";
 
-            return null;
+        public async Task<CompanyResponse> GetCompaniesAsync()
+        {
+            try
+            {
+                var responseString = await GetAsync(companiesUri);
+                return JsonConvert.DeserializeObject<CompanyResponse>(responseString);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw new Exception("An error occured");
+            }
         }
     }
 }

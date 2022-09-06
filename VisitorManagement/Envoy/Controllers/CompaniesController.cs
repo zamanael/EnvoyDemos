@@ -1,6 +1,6 @@
 ﻿using Envoy.Api.ServerComponent.CoreApis;
 using Envoy.Models;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
@@ -18,9 +18,9 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("companies")]
-        public IEnumerable<Company> GetCompanies()
+        public async Task<CompanyResponse> GetCompaniesAsync()
         {
-            return _companiesHelper.GetCompanies();
+            return await _companiesHelper.GetCompaniesAsync();
         }
     }
 }
