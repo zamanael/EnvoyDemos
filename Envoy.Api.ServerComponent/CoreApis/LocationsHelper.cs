@@ -1,13 +1,13 @@
 ﻿using Envoy.Models;
 using System.Collections.Generic;
 
-namespace Envoy.Api.ServerComponent
+namespace Envoy.Api.ServerComponent.CoreApis
 {
-    public class SpacesHelper : BaseHelper
+    public class LocationsHelper : BaseHelper
     {
-        public IEnumerable<Space> GetSpaces()
+        public IEnumerable<Location> GetLocations()
         {
-            //var client = new RestClient("https://api.envoy.com/v1/spaces?type=DESK&page=1&perPage=250");
+            //var client = new RestClient("https://api.envoy.com/rest/v1/locations");
             //var request = new RestRequest(Method.GET);
             //request.AddHeader("Accept", "application/json");
             //IRestResponse response = client.Execute(request);
@@ -15,9 +15,9 @@ namespace Envoy.Api.ServerComponent
             return null;
         }
 
-        public IEnumerable<Space> GetSpaceById(int id)
+        public IEnumerable<Location> GetLocationById(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/v1/spaces/id");
+            //var client = new RestClient("https://api.envoy.com/rest/v1/locations/id");
             //var request = new RestRequest(Method.GET);
             //request.AddHeader("Accept", "application/json");
             //IRestResponse response = client.Execute(request);

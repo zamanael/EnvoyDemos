@@ -1,4 +1,4 @@
-﻿using Envoy.Api.ServerComponent;
+﻿using Envoy.Api.ServerComponent.VisitorAndProtectApis;
 using Envoy.Models;
 using System.Collections.Generic;
 using System.Web.Http;

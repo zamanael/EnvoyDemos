@@ -1,13 +1,13 @@
 ﻿using Envoy.Models;
 using System.Collections.Generic;
 
-namespace Envoy.Api.ServerComponent
+namespace Envoy.Api.ServerComponent.SpacesApis
 {
-    public class WorkSchedulesHelper : BaseHelper
+    public class ReservationsHelper : BaseHelper
     {
-        public IEnumerable<Invite> GetWorkSchedules()
+        public IEnumerable<Reservation> GetReservation()
         {
-            //var client = new RestClient("https://api.envoy.com/v1/work-schedules?page=1&perPage=100");
+            //var client = new RestClient("https://api.envoy.com/v1/reservations");
             //var request = new RestRequest(Method.GET);
             //request.AddHeader("Accept", "application/json");
             //IRestResponse response = client.Execute(request);
@@ -15,9 +15,9 @@ namespace Envoy.Api.ServerComponent
             return null;
         }
 
-        public IEnumerable<Invite> GetWorkScheduleById(int id)
+        public IEnumerable<Reservation> GetReservationById(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/v1/work-schedules/id");
+            //var client = new RestClient("https://api.envoy.com/v1/reservations/id");
             //var request = new RestRequest(Method.GET);
             //request.AddHeader("Accept", "application/json");
             //IRestResponse response = client.Execute(request);
@@ -25,27 +25,27 @@ namespace Envoy.Api.ServerComponent
             return null;
         }
 
-        public IEnumerable<Invite> CheckinWorkSchedule(int id)
+        public IEnumerable<Reservation> UpdateReservationCheckin(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/v1/work-schedules/id/checkin");
+            //var client = new RestClient("https://api.envoy.com/v1/reservations/Id/checkin");
             //var request = new RestRequest(Method.POST);
             //IRestResponse response = client.Execute(request);
 
             return null;
         }
 
-        public IEnumerable<Invite> CheckoutWorkSchedule(int id)
+        public IEnumerable<Reservation> UpdateReservationCheckout(int id)
         {
-            //var client = new RestClient("https://api.envoy.com/v1/work-schedules/id/checkout");
+            //var client = new RestClient("https://api.envoy.com/v1/reservations/id/checkout");
             //var request = new RestRequest(Method.POST);
             //IRestResponse response = client.Execute(request);
 
             return null;
         }
 
-        public IEnumerable<Invite> CreateWorkSchedule()
+        public IEnumerable<Reservation> CreateReservation()
         {
-            //var client = new RestClient("https://api.envoy.com/v1/work-schedules");
+            //var client = new RestClient("https://api.envoy.com/v1/reservations");
             //var request = new RestRequest(Method.POST);
             //request.AddHeader("Accept", "application/json");
             //request.AddHeader("Content-Type", "application/json");
@@ -54,10 +54,10 @@ namespace Envoy.Api.ServerComponent
             return null;
         }
 
-        public IEnumerable<Invite> DeleteWorkSchedule()
+        public IEnumerable<Reservation> CancelReservation()
         {
-            //var client = new RestClient("https://api.envoy.com/v1/work-schedules/id");
-            //var request = new RestRequest(Method.DELETE);
+            //var client = new RestClient("https://api.envoy.com/v1/reservations/id/cancel");
+            //var request = new RestRequest(Method.POST);
             //IRestResponse response = client.Execute(request);
 
             return null;

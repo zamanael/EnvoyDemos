@@ -1,7 +1,7 @@
 ﻿using Envoy.Models;
 using System.Collections.Generic;
 
-namespace Envoy.Api.ServerComponent
+namespace Envoy.Api.ServerComponent.CoreApis
 {
     public class CompaniesHelper : BaseHelper
     {

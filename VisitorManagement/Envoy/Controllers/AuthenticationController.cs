@@ -1,4 +1,4 @@
-﻿using Envoy.Api.ServerComponent;
+﻿using Envoy.Api.ServerComponent.CoreApis;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers

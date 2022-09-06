@@ -42,19 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseHelper.cs" />
-    <Compile Include="AuthenticationHelper.cs" />
-    <Compile Include="CompaniesHelper.cs" />
-    <Compile Include="EmployeesHelper.cs" />
-    <Compile Include="EntriesHelper.cs" />
-    <Compile Include="FlowsHelper.cs" />
-    <Compile Include="InvitesHelper.cs" />
-    <Compile Include="LocationsHelper.cs" />
+    <Compile Include="CoreApis\AuthenticationHelper.cs" />
+    <Compile Include="CoreApis\CompaniesHelper.cs" />
+    <Compile Include="VisitorAndProtectApis\EmployeesHelper.cs" />
+    <Compile Include="VisitorAndProtectApis\EntriesHelper.cs" />
+    <Compile Include="VisitorAndProtectApis\FlowsHelper.cs" />
+    <Compile Include="VisitorAndProtectApis\InvitesHelper.cs" />
+    <Compile Include="CoreApis\LocationsHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecrurringInvitesHelper.cs" />
-    <Compile Include="ReservationsHelper.cs" />
-    <Compile Include="SpacesHelper.cs" />
-    <Compile Include="VisitorsHelper.cs" />
-    <Compile Include="WorkSchedulesHelper.cs" />
+    <Compile Include="VisitorAndProtectApis\RecrurringInvitesHelper.cs" />
+    <Compile Include="SpacesApis\ReservationsHelper.cs" />
+    <Compile Include="SpacesApis\SpacesHelper.cs" />
+    <Compile Include="VisitorAndProtectApis\VisitorsHelper.cs" />
+    <Compile Include="VisitorAndProtectApis\WorkSchedulesHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Envoy.Models\Envoy.Models.csproj">
