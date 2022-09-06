@@ -11,7 +11,7 @@
         // (Visitors) Entry block-list denied
         public const string EntryblockListDenied = "entry_block_list_denied";
         // (Visitors) Invite created
-        public const string Invitecreated = "invite_created";
+        public const string InviteCreated = "invite_created";
         // (Visitors) Invite updated
         public const string InviteUpdated = "invite_updated";
         // (Visitors) Invite removed

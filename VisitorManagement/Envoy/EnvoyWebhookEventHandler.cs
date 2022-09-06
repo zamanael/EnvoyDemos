@@ -42,7 +42,7 @@ namespace VisitorManagement.Envoy
                     break;
                 case EnvoyWebhookEvents.EntrySignOut:
                     break;
-                case EnvoyWebhookEvents.Invitecreated:
+                case EnvoyWebhookEvents.InviteCreated:
                     break;
                 case EnvoyWebhookEvents.InviteQRCodeSent:
                     break;

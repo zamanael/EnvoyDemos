@@ -1,0 +1,253 @@
+[
+  {
+    "event": "entry_sign_out",
+    "meta": {
+      "location": {
+        "id": "176803",
+        "type": "locations",
+        "attributes": {
+          "name": "Head Office",
+          "company-name-override": null,
+          "time-zone": "Asia/Dhaka",
+          "timezone": "Asia/Dhaka",
+          "locale": "en",
+          "address": "Adaptive Enterprise Ltd (AEL), Q998+3W4, Dhaka",
+          "address-line-one": null,
+          "address-line-two": "Gaznabi Road",
+          "city": "Dhaka",
+          "state": "Dhaka Division",
+          "country": "BD",
+          "zip": null,
+          "longitude": 90.36733389999999,
+          "latitude": 23.7676351,
+          "created-at": "2022-08-26T05:04:45.434Z"
+        },
+        "relationships": {
+          "company": {
+            "data": {
+              "id": "135430",
+              "type": "companies"
+            }
+          }
+        }
+      },
+      "company": {
+        "id": "135430",
+        "type": "companies",
+        "attributes": {
+          "name": "AEL",
+          "plan-intent": "premium",
+          "buy-intent": false,
+          "active": true,
+          "created-at": "2022-08-26T05:04:45.404Z"
+        }
+      }
+    },
+    "payload": {
+      "id": "139611583",
+      "type": "entries",
+      "attributes": {
+        "agreements-status": "not_signed",
+        "checked-in-at": null,
+        "full-name": "Sohel Rana",
+        "email": "sohelrana@gmail.com",
+        "employee-screening-flow": false,
+        "host": "Titu 200",
+        "host-email": "titucse200@gmail.com",
+        "private-notes": "Call me when arrived.",
+        "signed-in-at": "2022-09-03 14:45:00 UTC",
+        "device-session-uuid": null,
+        "signed-in-via": "Dashboard",
+        "signed-in-by": "Titu 700",
+        "signed-out-via": "Dashboard",
+        "signed-out-by": "Titu 700",
+        "signed-out-at": "2022-09-03 14:37:09 UTC",
+        "thumbnails": {
+          "large": null,
+          "original": null,
+          "small": null
+        },
+        "flow-name": "Visitor",
+        "original-nda-sign-date": null,
+        "group-name": null,
+        "id-check-status": "",
+        "is-delivery": false,
+        "agreement-refused": false,
+        "locality": {
+          "place-id": ""
+        },
+        "pov-key": "Purpose of visit",
+        "user-data": [
+          {
+            "field": "Host",
+            "value": "Titu 200"
+          },
+          {
+            "field": "Your Full Name",
+            "value": "Sohel Rana"
+          },
+          {
+            "field": "Purpose of visit",
+            "value": "Visitor"
+          },
+          {
+            "field": "Your Email Address",
+            "value": "sohelrana@gmail.com"
+          }
+        ],
+        "sms-status": "not_sent",
+        "approval-status": {
+          "status": "approved",
+          "auto-approved": false,
+          "report": [
+            {
+              "reason": "",
+              "result": "pass",
+              "source": "capacity-screening",
+              "messages": {
+                "failure": {
+                  "text": "Someone will be with you shortly.",
+                  "header": "Please wait here while we review your responses."
+                }
+              }
+            }
+          ],
+          "reviewer-id": null,
+          "reviewer-name": null,
+          "review-note": null,
+          "reviewed-at": null
+        },
+        "failure-message-markdown": "# Please wait here while we review your responses.\n\nSomeone will be with you shortly.",
+        "custom-deny-markdown": "",
+        "push-status": "not_sent",
+        "email-status": "not_sent"
+      },
+      "relationships": {
+        "location": {
+          "data": {
+            "type": "locations",
+            "id": "176803"
+          }
+        },
+        "employee": {
+          "data": {
+            "type": "employees",
+            "id": "97839878"
+          }
+        },
+        "invite-multi-tenancy-visitor-notification-logs": {
+          "links": {
+            "related": "https://app.envoy.com/api/v2/entries/139611583?include=invite-multi-tenancy-visitor-notification-logs"
+          }
+        },
+        "flow": {
+          "data": {
+            "type": "flows",
+            "id": "357665"
+          }
+        },
+        "recurring-entry": {
+          "data": {
+            "type": "entries",
+            "id": "139379241"
+          }
+        },
+        "previous-entries": {
+          "links": {
+            "related": "https://app.envoy.com/api/v3/entries/139611583/previous-entries"
+          }
+        },
+        "platform-jobs": {
+          "links": {
+            "related": "https://app.envoy.com/api/v3/entries/139611583/platform-jobs"
+          }
+        },
+        "agreeable-ndas": {
+          "data": [
+            {
+              "type": "agreeable-ndas",
+              "id": "72520258"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "event": "location_capacity_updated",
+    "meta": {
+      "location": {
+        "id": "176803",
+        "type": "locations",
+        "attributes": {
+          "name": "Head Office",
+          "company-name-override": null,
+          "time-zone": "Asia/Dhaka",
+          "timezone": "Asia/Dhaka",
+          "locale": "en",
+          "address": "Adaptive Enterprise Ltd (AEL), Q998+3W4, Dhaka",
+          "address-line-one": null,
+          "address-line-two": "Gaznabi Road",
+          "city": "Dhaka",
+          "state": "Dhaka Division",
+          "country": "BD",
+          "zip": null,
+          "longitude": 90.36733389999999,
+          "latitude": 23.7676351,
+          "created-at": "2022-08-26T05:04:45.434Z"
+        },
+        "relationships": {
+          "company": {
+            "data": {
+              "id": "135430",
+              "type": "companies"
+            }
+          }
+        }
+      },
+      "company": {
+        "id": "135430",
+        "type": "companies",
+        "attributes": {
+          "name": "AEL",
+          "plan-intent": "premium",
+          "buy-intent": false,
+          "active": true,
+          "created-at": "2022-08-26T05:04:45.404Z"
+        }
+      }
+    },
+    "payload": {
+      "id": "5216109",
+      "type": "locations-capacities",
+      "links": {
+        "self": "/api/v3/locations-capacities/5216109"
+      },
+      "attributes": {
+        "capacity-date": "2022-09-03",
+        "capacity-limit": 500,
+        "on-site-count": 0,
+        "expected-count": 0,
+        "employees-registered-count": 0,
+        "in-count": 1,
+        "out-count": 1,
+        "capacity-reached": false,
+        "capacity-enabled": true
+      },
+      "relationships": {
+        "location": {
+          "links": {
+            "self": "/api/v3/locations-capacities/5216109/relationships/location",
+            "related": "/api/v3/locations-capacities/5216109/location"
+          }
+        },
+        "company": {
+          "links": {
+            "self": "/api/v3/locations-capacities/5216109/relationships/company",
+            "related": "/api/v3/locations-capacities/5216109/company"
+          }
+        }
+      }
+    }
+  }
+]
