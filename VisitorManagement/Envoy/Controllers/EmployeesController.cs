@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("employees")]
-        public async Task<EmployeeResponse> GetEmployeesAsync()
+        public async Task<EmployeesResponse> GetEmployeesAsync()
         {
             return await _employeesHelper.GetEmployeesAsync();
         }

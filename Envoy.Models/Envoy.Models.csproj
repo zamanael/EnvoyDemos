@@ -47,6 +47,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="CompanyResponse.cs" />
+    <Compile Include="EmployeesResponse.cs" />
     <Compile Include="EmployeeResponse.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EntryResponse.cs" />

@@ -34,7 +34,7 @@ namespace Envoy.Api.ServerComponent.CoreApis
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                throw;
+                throw new Exception("An error occured");
             }
         }
     }
