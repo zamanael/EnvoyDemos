@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("flows")]
-        public async Task<FlowResponse> GetLocationsAsync()
+        public async Task<FlowsResponse> GetFlowsAsync()
         {
             return await _flowsHelper.GetFlowsAsync();
         }

@@ -52,6 +52,7 @@
     <Compile Include="Employee.cs" />
     <Compile Include="EntryResponse.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="FlowsResponse.cs" />
     <Compile Include="FlowResponse.cs" />
     <Compile Include="Flow.cs" />
     <Compile Include="InviteResponse.cs" />

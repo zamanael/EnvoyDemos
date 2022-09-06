@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Envoy.Models
 {
-    public class FlowResponse
+    public class FlowsResponse
     {
         [JsonProperty("data")]
-        public Flow Flow { get; set; }
+        public List<Flow> Flow { get; set; }
 
         [JsonProperty("meta")]
         public Meta Meta { get; set; }

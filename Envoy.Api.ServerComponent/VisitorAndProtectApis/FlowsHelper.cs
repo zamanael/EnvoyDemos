@@ -10,12 +10,12 @@ namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
     {
         private const string flowsUri = "flows";
 
-        public async Task<FlowResponse> GetFlowsAsync()
+        public async Task<FlowsResponse> GetFlowsAsync()
         {
             try
             {
                 var responseString = await GetAsync(flowsUri);
-                return JsonConvert.DeserializeObject<FlowResponse>(responseString);
+                return JsonConvert.DeserializeObject<FlowsResponse>(responseString);
             }
             catch (Exception ex)
             {
