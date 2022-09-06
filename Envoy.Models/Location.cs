@@ -11,12 +11,6 @@ namespace Envoy.Models
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("createdAt")]
-        public DateTime? CreatedAt { get; set; }
-
-        [JsonProperty("updatedAt")]
-        public DateTime? UpdatedAt { get; set; }
-
         [JsonProperty("enabled")]
         public bool? Enabled { get; set; }
 
@@ -34,6 +28,12 @@ namespace Envoy.Models
 
         [JsonProperty("capacityLimit")]
         public int? CapacityLimit { get; set; }
+
+        [JsonProperty("createdAt")]
+        public DateTime? CreatedAt { get; set; }
+
+        [JsonProperty("updatedAt")]
+        public DateTime? UpdatedAt { get; set; }
 
         [JsonProperty("address")]
         public Address Address { get; set; }
