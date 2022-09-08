@@ -74,6 +74,7 @@
     <Compile Include="ScheduledFor.cs" />
     <Compile Include="SpaceResponse.cs" />
     <Compile Include="Space.cs" />
+    <Compile Include="TokenResponse.cs" />
     <Compile Include="WorkSchedule.cs" />
     <Compile Include="WorkSchedulesResponse.cs" />
     <Compile Include="WorkScheduleResponse.cs" />
