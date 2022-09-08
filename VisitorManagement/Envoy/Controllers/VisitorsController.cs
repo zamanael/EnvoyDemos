@@ -16,6 +16,18 @@ namespace VisitorManagement.Envoy.Controllers
         }
 
         [HttpPost]
+        [Route("access-groups-options")]
+        public IEnumerable<Option> AccessGroupsOption()
+        {
+            return new Option[]
+            {
+                new Option{Label = "Hello", Value = "Hello"},
+                new Option{Label = "Hola", Value = "Hola"},
+                new Option{Label = "Aloha", Value = "Aloha"},
+            };
+        }
+
+        [HttpPost]
         [Route("hello-options")]
         public IEnumerable<Option> GetHelloOption()
         {
