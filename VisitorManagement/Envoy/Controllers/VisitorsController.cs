@@ -16,7 +16,7 @@ namespace VisitorManagement.Envoy.Controllers
         }
 
         [HttpPost]
-        [Route("access-groups-options")]
+        [Route("access-group-options")]
         public IEnumerable<Option> AccessGroupsOption()
         {
             return _visitorsHelper.GetAccessGroupOption();
