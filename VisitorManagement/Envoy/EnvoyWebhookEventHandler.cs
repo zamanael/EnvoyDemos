@@ -9,7 +9,7 @@ namespace VisitorManagement.Envoy
     /// <summary>
     /// This is a generic json webhook handler to receive Envoy events
     /// An entry added to Web.config file <add key="MS_WebHookReceiverSecret_GenericJson" value="80ad19e357b01a04fe767067df7cd31b96a844e1" />
-    /// You can test this using postman with url {{base_address}}/api/webhooks/incoming/GenericJson?code=80ad19e357b01a04fe767067df7cd31b96a844e1
+    /// You can test this using postman with url {{webhook_base_url}}/api/webhooks/incoming/GenericJson?code=80ad19e357b01a04fe767067df7cd31b96a844e1
     /// Method: POST; Json Body: {"event": "foo","foo":"bar"}
     /// </summary>
     public class EnvoyWebhookEventHandler : WebHookHandler
@@ -63,20 +63,6 @@ namespace VisitorManagement.Envoy
                 default:
                     break;
             }
-
-            //switch (context.Id)
-            //{
-            //    case "i":
-            //        context.Response = context.Request.CreateResponse();
-            //        context.Response.Content = new StringContent("Hello slash command!");
-            //        break;
-            //    case "z":
-            //        context.Response = context.Request.CreateResponse();
-            //        context.Response.Content = new StringContent("Hello slash command!");
-            //        break;
-            //    default:
-            //        break;
-            //}
 
             var hubContext = GlobalHost.ConnectionManager.GetHubContext<EnvoyWebhookEventHub>();
             hubContext.Clients.All.notifyEnvoyWebhookEvent(@event, JsonConvert.SerializeObject(data));
