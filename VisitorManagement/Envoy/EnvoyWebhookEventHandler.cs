@@ -2,6 +2,7 @@
 using Microsoft.AspNet.WebHooks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Threading.Tasks;
 
 namespace VisitorManagement.Envoy
@@ -22,10 +23,22 @@ namespace VisitorManagement.Envoy
         public override Task ExecuteAsync(string generator, WebHookHandlerContext context)
         {
             JObject data = context.GetDataOrDefault<JObject>();
-            string @event = (string)data["event"];
+            string @event = (string)data["meta"]["event"];
 
             switch (@event)
             {
+                case EnvoyWebhookEvents.LocationCapacityUpdated:
+                    break;
+                case EnvoyWebhookEvents.EntryScreened:
+                    break;
+                case EnvoyWebhookEvents.NDAFileSigned:
+                    break;
+                case EnvoyWebhookEvents.EntrySignIn:
+                    break;
+                case EnvoyWebhookEvents.EntrySignOut:
+                    break;
+
+
                 case EnvoyWebhookEvents.EmployeeCheckInCreated:
                     break;
                 case EnvoyWebhookEvents.EmployeeCheckInUpdated:
@@ -38,10 +51,6 @@ namespace VisitorManagement.Envoy
                     break;
                 case EnvoyWebhookEvents.EntryBlockListReview:
                     break;
-                case EnvoyWebhookEvents.EntrySignIn:
-                    break;
-                case EnvoyWebhookEvents.EntrySignOut:
-                    break;
                 case EnvoyWebhookEvents.InviteCreated:
                     break;
                 case EnvoyWebhookEvents.InviteQRCodeSent:
@@ -49,8 +58,6 @@ namespace VisitorManagement.Envoy
                 case EnvoyWebhookEvents.InviteRemoved:
                     break;
                 case EnvoyWebhookEvents.InviteUpdated:
-                    break;
-                case EnvoyWebhookEvents.LocationCapacityUpdated:
                     break;
                 case EnvoyWebhookEvents.SignIn:
                     break;
@@ -61,7 +68,8 @@ namespace VisitorManagement.Envoy
                 case EnvoyWebhookEvents.UpcomingInvitedVisit:
                     break;
                 default:
-                    break;
+                    throw new NotImplementedException();
+                    //break;
             }
 
             var hubContext = GlobalHost.ConnectionManager.GetHubContext<EnvoyWebhookEventHub>();

@@ -2,10 +2,20 @@
 {
     public static class EnvoyWebhookEvents
     {
+        //(Protect) Location capacity updated
+        public const string LocationCapacityUpdated = "location_capacity_updated";
+        // (Visitors) Entry screened (Beta)
+        public const string EntryScreened = "entry_screened";
+        // (Visitors) NDA file signed
+        public const string NDAFileSigned = "nda_file";
         // (Visitors) Entry sign-in
         public const string EntrySignIn = "entry_sign_in";
         // (Visitors) Entry sign-out
         public const string EntrySignOut = "entry_sign_out";
+
+
+
+
         // (Visitors) Entry block-list review
         public const string EntryBlockListReview = "entry_block_list_review";
         // (Visitors) Entry block-list denied
@@ -30,8 +40,7 @@
         public const string EmployeeEntrySignIn = "employee_entry_sign_in";
         // (Protect) Employee entry sign-out
         public const string EmployeeEntrySignOut = "employee_entry_sign_out";
-        //(Protect) Location capacity updated
-        public const string LocationCapacityUpdated = "location_capacity_updated";
+
         //(Protect) Ticket created - Beta
         public const string TicketCreated = "ticket_created";
         // (Desks) Sign-in - Beta
