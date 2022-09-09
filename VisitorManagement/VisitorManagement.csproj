@@ -409,9 +409,9 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EnvoyDotNetSdk\EnvoyDotNetSdk.csproj">
-      <Project>{7c6bfbbd-d7a7-42dd-8d30-ce659d4b67d2}</Project>
-      <Name>EnvoyDotNetSdk</Name>
+    <ProjectReference Include="..\EnvoyNetFrameworkSdk\EnvoyNetFrameworkSdk.csproj">
+      <Project>{03c22b08-226b-4887-b383-084cefe07978}</Project>
+      <Name>EnvoyNetFrameworkSdk</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitorManagement", "Visito
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "envoy-plugin-example-access-control", "envoy-plugin-example-access-control\envoy-plugin-example-access-control.njsproj", "{12DA6E0F-7863-4320-B30A-2613AC5AB17F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvoyDotNetSdk", "EnvoyDotNetSdk\EnvoyDotNetSdk.csproj", "{7C6BFBBD-D7A7-42DD-8D30-CE659D4B67D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvoyNetFrameworkSdk", "EnvoyNetFrameworkSdk\EnvoyNetFrameworkSdk.csproj", "{03C22B08-226B-4887-B383-084CEFE07978}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{12DA6E0F-7863-4320-B30A-2613AC5AB17F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12DA6E0F-7863-4320-B30A-2613AC5AB17F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12DA6E0F-7863-4320-B30A-2613AC5AB17F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C6BFBBD-D7A7-42DD-8D30-CE659D4B67D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C6BFBBD-D7A7-42DD-8D30-CE659D4B67D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C6BFBBD-D7A7-42DD-8D30-CE659D4B67D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C6BFBBD-D7A7-42DD-8D30-CE659D4B67D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03C22B08-226B-4887-B383-084CEFE07978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C22B08-226B-4887-B383-084CEFE07978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C22B08-226B-4887-B383-084CEFE07978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C22B08-226B-4887-B383-084CEFE07978}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
