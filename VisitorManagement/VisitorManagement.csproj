@@ -72,8 +72,8 @@
     <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -403,20 +403,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Envoy.Api.ServerComponent\Envoy.Api.ServerComponent.csproj">
-      <Project>{7de1fa0d-bfad-4e46-81dd-ec2bce540349}</Project>
-      <Name>Envoy.Api.ServerComponent</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Envoy.Models\Envoy.Models.csproj">
-      <Project>{076be4c9-d6aa-4d77-88c5-7398ab9ee4a2}</Project>
-      <Name>Envoy.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnvoyDotNetSdk\EnvoyDotNetSdk.csproj">
+      <Project>{7c6bfbbd-d7a7-42dd-8d30-ce659d4b67d2}</Project>
+      <Name>EnvoyDotNetSdk</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

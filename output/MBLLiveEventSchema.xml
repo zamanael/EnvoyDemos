@@ -1,0 +1,842 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<schema>
+  <screens>
+    <eventsgrid maintable="event" hostcallback="false" sendtoallpanels="false" key1name="Seqno" operation="0">
+      <tables>
+        <table>Event</table>
+      </tables>
+    </eventsgrid>
+    <EventsScreen maintable="EventClassCategoryDefs" hostcallback="False" sendtoallpanels="False" operation="0">
+      <tables>
+        <table>EventClassCategoryDefs</table>
+        <table>EventClassDefs</table>
+      </tables>
+    </EventsScreen>
+    <HistoryGrid maintable="Event" hostcallback="false" sendtoallpanels="false" operation="0">
+      <tables>
+        <table>Event</table>
+      </tables>
+    </HistoryGrid>
+    <StationScreen maintable="Station" hostcallback="false" sendtoallpanels="false" operation="0">
+      <tables>
+        <table>Station</table>
+      </tables>
+    </StationScreen>
+    <StatusScreen maintable="Status" hostcallback="false" sendtoallpanels="false" operation="0">
+      <tables>
+        <table>Status</table>
+      </tables>
+    </StatusScreen>
+  </screens>
+  <tables>
+    <Event>
+      <primarykeyfields>
+        <primarykeyfield type="String">Seqno</primarykeyfield>
+      </primarykeyfields>
+      <keyfields>
+        <keyfield type="String">EDate</keyfield>
+      </keyfields>
+      <datafields>
+        <datafield type="Int32">AckOpr</datafield>
+        <datafield type="DateTime">AckTStamp</datafield>
+        <datafield type="String">Actions</datafield>
+        <datafield type="Int32">Arch</datafield>
+        <datafield type="String">Badge</datafield>
+        <datafield type="Guid" null="false">caObjectID</datafield>
+        <datafield type="Int32">Cat</datafield>
+        <datafield type="String">Class</datafield>
+        <datafield type="String">Description</datafield>
+        <datafield type="Int32">DeviceNo</datafield>
+        <datafield type="DateTime">EDate</datafield>
+        <datafield type="Int32">Facno</datafield>
+        <datafield type="Boolean" null="false" default="False">HasPhoto</datafield>
+        <datafield type="Int32">HasVideo</datafield>
+        <datafield type="String">Name</datafield>
+        <datafield type="Boolean" default="False">Pending</datafield>
+        <datafield type="Int32">PnlNo</datafield>
+        <datafield type="Int32">Priority</datafield>
+        <datafield type="Boolean" default="False">RespReq</datafield>
+        <datafield type="Guid" null="false">Seqno</datafield>
+        <datafield type="Int32">Status</datafield>
+        <datafield type="String">Tag</datafield>
+      </datafields>
+    </Event>
+    <EventClassCategoryDefs>
+      <keyfields>
+        <keyfield type="String">EventClassCatID</keyfield>
+      </keyfields>
+      <datafields>
+        <datafield type="Int32" null="false">EventClassCatID</datafield>
+        <datafield type="String" null="false">EventClassCatName</datafield>
+      </datafields>
+    </EventClassCategoryDefs>
+    <EventClassDefs>
+      <keyfields>
+        <keyfield type="String">EventClassID</keyfield>
+      </keyfields>
+      <datafields>
+        <datafield type="Int32">DeviceCode</datafield>
+        <datafield type="Int32" null="false">EventClassCategoryID</datafield>
+        <datafield type="Int32" null="false">EventClassID</datafield>
+        <datafield type="String" null="false">EventClassName</datafield>
+        <datafield type="Int32">Status</datafield>
+      </datafields>
+    </EventClassDefs>
+    <EventResponse ismaster="False">
+      <primarykeyfields>
+        <primarykeyfield type="Guid">EventSeqNo</primarykeyfield>
+      </primarykeyfields>
+      <datafields>
+        <datafield type="String" null="false">EventDescription</datafield>
+        <datafield type="DateTime" null="false">EventEDate</datafield>
+        <datafield type="String" null="false">EventEventType</datafield>
+        <datafield type="String" null="false">EventLocation</datafield>
+        <datafield type="Int32" null="false">EventPriority</datafield>
+        <datafield type="String" null="false">EventResponse</datafield>
+        <datafield type="DateTime" null="false">EventResponseDateTime</datafield>
+        <datafield type="Guid" null="false">EventResponseID</datafield>
+        <datafield type="Guid" null="false">EventSeqNo</datafield>
+        <datafield type="String" null="false">Operator</datafield>
+        <datafield type="String" null="false">WorkstationName</datafield>
+        <datafield type="String" null="false">WorkstationNumber</datafield>
+      </datafields>
+    </EventResponse>
+    <Station ismaster="False">
+      <datafields>
+        <datafield type="Int32" null="false">Device</datafield>
+        <datafield type="DateTime">LastUpdated</datafield>
+        <datafield type="Boolean" default="False">LoggedOn</datafield>
+        <datafield type="DateTime">LoggedOnTime</datafield>
+        <datafield type="Int32" null="false">NetStationId</datafield>
+        <datafield type="String">Operator</datafield>
+        <datafield type="String">UNCName</datafield>
+      </datafields>
+    </Station>
+    <Status ismaster="False">
+      <datafields>
+        <datafield type="Int32" null="false">Device</datafield>
+        <datafield type="Int32">ExpMem</datafield>
+        <datafield type="Int32">GroupNo</datafield>
+        <datafield type="Int32">HCSNo</datafield>
+        <datafield type="Int32">MaxAG</datafield>
+        <datafield type="Int32">MaxCards</datafield>
+        <datafield type="Int32">MaxXact</datafield>
+        <datafield type="Int32" null="false">Panel</datafield>
+        <datafield type="DateTime">SDate</datafield>
+        <datafield type="Int32">State</datafield>
+        <datafield type="Int32">Status</datafield>
+        <datafield type="Int32" null="false">Type</datafield>
+        <datafield type="Int32">UsedAG</datafield>
+        <datafield type="Int32">UsedCards</datafield>
+        <datafield type="String">Version</datafield>
+      </datafields>
+    </Status>
+  </tables>
+  <queries>
+    <alertsgrid partitioned="False">
+      SELECT [Seqno]
+      ,[Priority]
+      ,[Cat]
+      ,[PnlNo]
+      ,[EDate]
+      ,[DeviceNo]
+      ,[Status]
+      ,[Facno]
+      ,[Badge]
+      ,[Class]
+      ,[Description]
+      ,[Name]
+      ,[Arch]
+      ,[AckOpr]
+      ,[AckTStamp]
+      ,[Actions]
+      ,[RespReq]
+      ,[caObjectID]
+      ,[Tag]
+      ,[HasPhoto]
+      ,[HasVideo]
+      ,[Pending]
+      ,[UTCOffset]
+      FROM [dbo].[Event] WHERE [Pending] &gt; 0 Order By Edate
+		</alertsgrid>
+    <DeviceStatusSelect partitioned="False">select Panel, Type, Device, Status from Status</DeviceStatusSelect>
+    <eventclasscategorydefs partitioned="False">
+      SELECT [EventClassCatID]
+      ,[EventClassCatName]
+      ,[LangEventClassCatName]
+      ,[caObjectID]
+      FROM [dbo].[EventClassCategoryDefs]
+      ORDER BY CASE [EventClassCatID] WHEN 0 THEN [EventClassCatID] END DESC, CASE [EventClassCatID] WHEN 101 THEN [EventClassCatID] END DESC, [EventClassCatName] ASC
+    </eventclasscategorydefs>
+    <eventclasscategorydefsForScript partitioned="False">
+      SELECT [EventClassCatID]
+      ,[EventClassCatName]
+      ,[LangEventClassCatName]
+      ,[caObjectID]
+      FROM [dbo].[EventClassCategoryDefs]
+      where [EventClassCatID] NOT IN(0, 1, 25, 45)
+      AND [EventClassCatID] IN (Select [EventClassCategoryID] from [EventClassDefs])
+      Order By [EventClassCatID]
+    </eventclasscategorydefsForScript>
+    <eventclassdefs partitioned="False">
+      SELECT EventClassID
+      ,EventClassName
+      ,EventDescription
+      ,MenuKey
+      ,Status
+      ,DeviceCode
+      ,DeviceFilter1
+      ,DeviceFilter2
+      ,EventClassCategoryID
+      ,EventCode
+      ,LangEventClassName
+      ,LangEventDescription
+      ,PanelStatus
+      ,PriorityIndex
+      FROM EventClassDefs Order By EventClassID
+    </eventclassdefs>
+    <operatorlinkeventclassdefs partitioned="False">
+      SELECT [EventClassID]
+      ,[EventClassName]
+      ,[EventDescription]
+      ,[LangEventDescription]
+      ,[Status]
+      ,[DeviceCode]
+      ,[EventClassCategoryID]
+      FROM [dbo].[EventClassDefs]
+      where DeviceCode in (30,31,32,33) and EventClassCategoryID in(30,31,32,33)
+      Order By [EventClassID]
+    </operatorlinkeventclassdefs>
+    <EventClassLookup partitioned="False">
+			SELECT     *
+			FROM         EventClassDefs
+		</EventClassLookup>
+    <eventclassname partitioned="False">
+      SELECT [EventClassName],[EventClassID]
+      FROM [dbo].[EventClassDefs]
+      WHERE Status = @Status AND DeviceCode = @DeviceCode
+    </eventclassname>
+    <eventclassnamebyid partitioned="False">
+      SELECT [EventClassID]
+      ,[EventClassName]
+      ,[EventDescription]
+      ,[Status]
+      ,[DeviceCode]
+      ,[EventClassCategoryID]
+      ,[LangEventClassName]
+      ,[LangEventDescription]
+      FROM [dbo].[EventClassDefs]
+      WHERE EventClassCategoryID= @CategoryID
+      Order By [EventClassID]
+    </eventclassnamebyid>
+    <eventphoto partitioned="False">select 
+ PhotoID
+,Seqno                                
+,PhotoDate as 'Capture Date'
+,Class as 'Event Type'                                           
+,Description                                                      
+,Name                                              
+,PhotoData
+from ca_vw_EventPhotos
+where Seqno = @seqNo</eventphoto>
+    <EventSelect partitioned="False">select *, EDate AS UTCDate from Event WHERE (pending = 1) OR (pending = 1 AND (Cat = 6 OR Cat = 45 OR Cat = 29)) order by edate desc </EventSelect>
+    <eventsgrid partitioned="False">
+      SELECT
+      [Seqno]
+      ,[Priority]
+      ,[Cat]
+      ,[PnlNo]
+      ,[EDate]as Panel_DateTime
+      ,[DeviceNo]
+      ,[Status]
+      ,[Facno]
+      ,[Badge]
+      ,[Class]
+      ,[Description]
+      ,[Name]as Location
+      ,[Arch]
+      ,[AckOpr]as Operator
+      ,[AckTStamp]as Ack_DateTime
+      ,[Actions]
+      ,[RespReq]
+      ,[caObjectID]
+      ,[Tag]
+      ,[HasPhoto]
+      ,[HasVideo]
+      ,[Pending]
+      ,[UTCOffset]
+      ,[EDate]
+      ,[AckTStamp]
+      FROM [dbo].[Event] WHERE [Pending] = 0 OR (pending = 0 AND (Cat = 6 OR Cat = 45 OR Cat = 29)) Order By Edate
+    </eventsgrid>
+    <APIeventsgrid partitioned="False">
+      SELECT
+      [Class]
+      ,[Description]
+      ,[Name]as Location
+      ,[EDate] as 'Panel DateTime'
+      ,[AckTStamp]as 'Ack DateTime'
+      ,[AckOpr]
+      ,[Name] as Operator
+      ,[Priority]
+      ,[UTCOffset]
+      FROM [dbo].[Event] WHERE [Pending] = 0 Order By Edate
+    </APIeventsgrid>
+    <APIalertsgrid partitioned="False">
+      SELECT
+      [Class]
+      ,[Description]
+      ,[Name]
+      ,[EDate] AS 'Alert DateTime'
+      ,[Priority]
+      ,[UTCOffset]
+      FROM [dbo].[Event] WHERE [Pending] &gt; 0 Order By Edate
+    </APIalertsgrid>
+    <GetEvents partitioned="False">
+      exec ca_sp_GetEvents @SvrName, @DBName, @OperatorID, @AckOperatorID, @SelectQuery, @TableName, @IsPending, @Count, @Cat, @Status, @OrderBy, @caObjectId, @Badge, @Facility, @Type
+    </GetEvents>
+    <eventstatus_devicecodebyid partitioned="False">
+			SELECT [Status]
+			,[DeviceCode]
+			FROM [dbo].[EventClassDefs]
+			WHERE caObjectID = @caObjectID
+		</eventstatus_devicecodebyid>
+    <GetComDbDataEventClassDefs>
+      SELECT EventClassID
+      ,EventClassName
+      ,EventDescription
+      ,MenuKey
+      ,Status
+      ,DeviceCode
+      ,DeviceFilter1
+      ,DeviceFilter2
+      ,EventClassCategoryID
+      ,EventCode
+      ,LangEventClassName
+      ,LangEventDescription
+      ,PanelStatus
+      ,PriorityIndex
+      FROM EventClassDefs
+    </GetComDbDataEventClassDefs>
+    <geteventresponse partitioned="False">
+      SELECT [EventResponseID]
+      ,[EventResponse]
+      ,[EventSeqNo]
+      ,[EventDescription]
+      ,[EventLocation]
+      ,[EventEventType]
+      ,[EventEDate]
+      ,[EventPriority]
+      ,[Operator]
+      ,[WorkstationName]
+      ,[WorkstationNumber]
+      ,[EventResponseDateTime]
+      FROM [dbo].[EventResponse]
+      WHERE EventSeqNo = @EventSeqNo
+      order by EventResponseDateTime
+    </geteventresponse>
+    <getrecentresponse partitioned="False">
+      SELECT EventResponse.EventResponseID,
+      EventResponse.EventResponse,
+      EventResponse.EventSeqNo,
+      EventResponse.EventDescription,
+      EventResponse.EventLocation,
+      EventResponse.EventEventType,
+      EventResponse.EventEDate,
+      EventResponse.EventPriority,
+      EventResponse.Operator,
+      EventResponse.EventResponseDateTime,
+      EventResponse.WorkstationName,
+      Event.AckTStamp as EventAckEDate
+      FROM  Event inner JOIN EventResponse on Event.Seqno= EventResponse.EventSeqNo
+      where CONVERT(char(11), DATEADD(MINUTE, 12, EventResponseDateTime), @sqlCultureNo) =CONVERT(char(11), DATEADD(MINUTE, 12, GetUTCDate()), @sqlCultureNo)
+      and EventResponse.EventSeqNo = @EventSeqNo
+      order by EventResponseDateTime
+    </getrecentresponse>
+    <getUsedWorkstationSlotCount partitioned="False">
+      SELECT COUNT(*) as cnt FROM [dbo].[Station] WHERE Device = 0 AND UNCName &lt;&gt; @uncName AND LoggedOn &lt;&gt; 0
+    </getUsedWorkstationSlotCount>
+    <getUsedWorkstationSlotCountWeb partitioned="False">
+      SELECT COUNT(*) as cnt FROM [dbo].[Station] WHERE Device = 0 AND UNCName &lt;&gt; @uncName AND LoggedOn &lt;&gt; 0
+    </getUsedWorkstationSlotCountWeb>
+    <UpdateWorkstationSlot partitioned="False">
+      if @reset = 0
+      update Station set LastUpdated = getdate() where NetStationId = @workstationNumber and UNCName=@uncName and Operator=@Operator
+      else
+      update Station set LoggedOn = 0 where NetStationId = @workstationNumber and UNCName=@uncName and Operator=@Operator
+    </UpdateWorkstationSlot>
+    <UpdateServerStatus partitioned="False">
+      if exists(select * from Servers where Device = @device and UNCName = @uncName)
+      update Servers set LoggedOn = @loggedOn, Operator = @operator, LoggedOnTime = getdate(), LastUpdated = getdate(),NetStationId = @workstationNumber where UNCName = @uncName and Device = @device;
+      else
+      insert into Servers (NetStationId, Device, UNCName, LoggedOn, Operator, LoggedOnTime, LastUpdated) values  (@workstationNumber, @device, @uncName, @loggedOn, @operator, getdate(), getDate());
+    </UpdateServerStatus>
+    <deleteserverstatus partitioned="False">
+      delete Servers where NetStationId=@NetStationId and Device=@Device
+    </deleteserverstatus>
+    <UpdateServerLoggedOnStatus partitioned="False">
+      IF EXISTS(SELECT * FROM Servers WHERE Device = @device AND UNCName = @uncName)
+      BEGIN
+      UPDATE Servers SET LoggedOn = @loggedOn, Operator = @operator, LoggedOnTime = getdate(), LastUpdated = getdate()
+      WHERE UNCName = @uncName AND Device = @device;
+      END
+    </UpdateServerLoggedOnStatus>    
+    <GetWorkstationId partitioned="False" notificationtable="Station">select NetStationId from dbo.Station
+where Device=@Device and UNCName = @UNCName</GetWorkstationId>
+    <HistoryGrid partitioned="False">			SELECT [seqno],[Priority],[Cat],[EDate]as Panel_DateTime,[DeviceNo],[Status],[Facno],[Badge],[Class]
+			,[Description],[Name]as Location,[Arch],[AckOpr], [Name] as Operator,[AckTStamp]as Ack_DateTime	,[Actions],[caObjectID],[Tag],[HasPhoto],[HasVideo],[UTCOffset],[EDate],[AckTStamp]	FROM [dbo].[Event] WHERE [Pending] = 0 Order By Edate </HistoryGrid>
+    <APIHistoryGrid partitioned="False">
+      SELECT [Class],[Description],[Name]as Location,[EDate]as Panel_DateTime,[AckOpr],[Name] as Operator,[AckTStamp]as Ack_DateTime,[Priority],[UTCOffset]	FROM [dbo].[Event] WHERE [Pending] = 0 Order By Edate
+    </APIHistoryGrid>
+    <napcostatusgrid partitioned="False">
+      SELECT s.alarmPanelID as PanelNo,
+      s.deviceType as Type,
+      CASE s.deviceType WHEN 20 Then 'Panels'
+      WHEN 21 then 'Areas'
+      WHEN 22 then 'Zones'
+      WHEN 23 then 'Relays'
+      ELSE 'Unknown'
+      END as 'Group Name',
+      s.DeviceID as 'Dev No',
+      '' as 'Device Name',
+      '' as 'Panel Name',
+      d.StatusName as Description,
+      lastUpdate as 'Last Change',
+      lastUpdate as 'Local Date',
+      caObjectId
+      FROM dbo.napcoDeviceStatus s
+      Left join dbo.napcoDeviceStatusDefs d on s.deviceStatus = d.deviceStatus
+      Order By s.deviceType,s.DeviceID
+    </napcostatusgrid>
+    <apinapcostatusgrid partitioned="False">
+      SELECT s.alarmPanelID as PanelNo,
+      s.deviceType as Type,
+      CASE s.deviceType WHEN 20 Then 'Panels'
+      WHEN 21 then 'Areas'
+      WHEN 22 then 'Zones'
+      WHEN 23 then 'Relays'
+      ELSE 'Unknown'
+      END as 'Group Name',
+      s.DeviceID as 'Dev No',
+      '' as 'Device Name',
+      '' as 'Panel Name',
+      d.StatusName as Description,
+      lastUpdate as 'Last Change',
+      lastUpdate as 'Local Date',
+      caObjectId
+      FROM dbo.napcoDeviceStatus s
+      Left join dbo.napcoDeviceStatusDefs d on s.deviceStatus = d.deviceStatus
+      Order By s.deviceType,s.DeviceID
+    </apinapcostatusgrid>
+    <napcostatusgrid1 partitioned="False">
+      SELECT s.alarmPanelID as PanelNo,
+      s.deviceType as Type,
+      CASE s.deviceType WHEN 20 Then 'Panels'
+      WHEN 21 then 'Areas'
+      WHEN 22 then 'Zones'
+      WHEN 23 then 'Relays'
+      ELSE 'Unknown'
+      END as 'Group Name',
+      s.DeviceID as 'Dev No',
+      '' as 'Device Name',
+      '' as 'Panel Name',
+      d.StatusName as Description,
+      lastUpdate as 'Last Change',
+      caObjectId
+      FROM dbo.napcoDeviceStatus s
+      Left join dbo.napcoDeviceStatusDefs d on s.deviceStatus = d.deviceStatus
+      WHERE s.deviceType = @Type
+      Order By s.deviceType,s.DeviceID
+    </napcostatusgrid1>
+    <WorkstationCount partitioned="False">
+      SELECT COUNT(*) AS cnt
+      FROM Station
+      WHERE LoggedOn = 1 AND UNCName &lt;&gt; @UNCName
+    </WorkstationCount>
+    <stationgrid partitioned="False">
+      SELECT
+      [NetStationId],
+      [Device],
+      CASE WHEN [Device] = 0 AND [NetStationId] > 0 AND [dbo].[VALIDIP] ([UNCName]) = 0 AND ([UNCName] NOT IN ('::1', '127.0.0.1')) THEN 'Host Server Workstation'
+      WHEN [Device] = 2 AND [NetStationId] > 0 THEN 'HCS Server Workstation'
+      WHEN [Device] = 4 AND [NetStationId] > 0 THEN 'Workstation'
+      WHEN [Device] = 5 AND [NetStationId] > 0 THEN 'Full Server Workstation'
+      ELSE 'Web Workstation'
+      END AS [Station Type]
+      ,CASE WHEN [UNCName] = '::1' OR [UNCName] = '127.0.0.1' THEN 'localhost' ELSE [UNCName] END AS UNCName
+      ,[LoggedOn]
+      ,[Operator]
+      ,[LoggedOnTime]
+      ,[LastUpdated]
+      ,[LoggedOnTime] as LogTime
+      ,[LastUpdated] as LastChange
+      FROM [dbo].[Station] Order By NetStationId,Device
+    </stationgrid>
+    <APIStationGrid partitioned="False">
+      SELECT
+      [NetStationId],
+      [Device],
+      CASE WHEN [Device] = 0 AND [NetStationId] > 0 AND [dbo].[VALIDIP] ([UNCName]) = 0 AND ([UNCName] NOT IN ('::1', '127.0.0.1')) THEN 'Host Server Workstation'
+      WHEN [Device] = 2 AND [NetStationId] > 0 THEN 'HCS Server Workstation'
+      WHEN [Device] = 4 AND [NetStationId] > 0 THEN 'Workstation'
+      WHEN [Device] = 5 AND [NetStationId] > 0 THEN 'Full Server Workstation'
+      ELSE 'Web Workstation'
+      END AS [Station Type]
+      ,CASE WHEN [UNCName] = '::1' OR [UNCName] = '127.0.0.1' THEN 'localhost' ELSE [UNCName] END AS UNCName
+      ,[LoggedOn]
+      ,[Operator]
+      ,[LoggedOnTime]
+      ,[LastUpdated]
+      ,[LoggedOnTime] as LogTime
+      ,[LastUpdated] as LastChange
+      FROM [dbo].[Station] Order By NetStationId,Device
+    </APIStationGrid>
+    <servergrid partitioned="False">
+      SELECT
+      [NetStationId],
+      [Device],
+      CASE
+      WHEN [Device] = 100 AND [NetStationId] = 1 THEN 'Host HCS Service'
+      WHEN [Device] = 100 AND [NetStationId] >= 1 THEN 'HCS Service'
+      WHEN [Device] = 110 AND [NetStationId] >= 1 THEN 'Wireless Lock Service'
+      WHEN [Device] = 120 AND ([NetStationId] &lt; 1 OR [NetStationId] >= 1) THEN 'Napco Integration Service'
+      WHEN [Device] = 130 AND ([NetStationId] &lt; 1 OR [NetStationId] >= 1) THEN 'Scripting Service'
+      WHEN [Device] = 140 AND [NetStationId] >= 1 THEN 'Video Service'
+      ELSE 'Unknown Server'
+      END AS [Station Type]
+      ,CASE WHEN [UNCName] = '::1' OR [UNCName] = '127.0.0.1' THEN 'localhost' ELSE [UNCName] END AS UNCName
+      ,[LoggedOn]
+      ,[Operator]
+      ,[LoggedOnTime]
+      ,[LastUpdated]
+      ,[LoggedOnTime] as LogTime
+      ,[LastUpdated] as LastChange
+      FROM [dbo].[Servers] Order By NetStationId,Device
+    </servergrid>
+    <APIServerGrid partitioned="False">
+      SELECT
+      [NetStationId],
+      [Device],
+      CASE
+      WHEN [Device] = 100 AND [NetStationId] = 1 THEN 'Host HCS Service'
+      WHEN [Device] = 100 AND [NetStationId] >= 1 THEN 'HCS Service'
+      WHEN [Device] = 110 AND [NetStationId] >= 1 THEN 'Wireless Lock Service'
+      WHEN [Device] = 120 AND ([NetStationId] &lt; 1 OR [NetStationId] >= 1) THEN 'Napco Integration Service'
+      WHEN [Device] = 130 AND ([NetStationId] &lt; 1 OR [NetStationId] >= 1) THEN 'Scripting Service'
+      WHEN [Device] = 140 AND [NetStationId] >= 1 THEN 'Video Service'
+      ELSE 'Unknown Server'
+      END AS [Station Type]
+      ,CASE WHEN [UNCName] = '::1' OR [UNCName] = '127.0.0.1' THEN 'localhost' ELSE [UNCName] END AS UNCName
+      ,[LoggedOn]
+      ,[Operator]
+      ,[LoggedOnTime]
+      ,[LastUpdated]
+      ,[LoggedOnTime] as LogTime
+      ,[LastUpdated] as LastChange
+      FROM [dbo].[Servers] Order By NetStationId,Device
+    </APIServerGrid>
+    <WorkstationIdFromUnc partitioned="False">
+      SELECT [NetStationId],[Device]  FROM [dbo].[Station] where [UNCName]=@UNCName Order By NetStationId,Device
+    </WorkstationIdFromUnc>
+    <GetPendingEventsForScript partitioned="False">
+      SELECT top 1000 * FROM [dbo].[Event] where EDate > dateadd(minute, -60, GETUTCDATE()) and (Sphere is null or (Sphere &#38; POWER(2, @WorkstationId - 1)) &lt;&gt; POWER(2, @WorkstationId - 1))
+    </GetPendingEventsForScript>
+    <UpdateExecutedState partitioned="False">
+      Update [dbo].[Event] set Sphere = (ISNULL(Sphere, 0) | POWER(2, @WorkstationId - 1)) where Seqno = @SeqNo
+    </UpdateExecutedState>
+    <UpdateInlist>
+      if exists(select 1 from [Inlist] where Badge = @Badge and Facility= @Facility)
+      BEGIN
+      UPDATE [Inlist] set
+      Name=@Name,
+      Badge=@Badge,
+      Reader=@Reader,
+      PnlNo=@PnlNo,
+      RdrNo=@RdrNo,
+      Facility=@Facility,
+      APBArea=@APBArea,
+      APBIn=ISNULL(@APBIn, ISNULL(APBIn, 0)),
+      TAIn=ISNULL(@TAIn, ISNULL(TAIn, 0)),
+      UTCOffset=@UTCOffset,
+      ZoneID=@ZoneID,
+      PanelTime=@PanelTime,
+      PersonId=@PersonId
+      where Badge=@Badge and Facility=@Facility AND PanelTime &lt;= @PanelTime
+      END
+      ELSE
+      BEGIN
+      INSERT INTO [Inlist]
+      (Name,Badge,Reader,PnlNo,RdrNo,Facility,APBArea,APBIn,TAIn,UTCOffset,ZoneID,PanelTime,PersonId)  VALUES
+      (@Name,@Badge,@Reader,@PnlNo,@RdrNo,@Facility,@APBArea,ISNULL(@APBIn,0),ISNULL(@TAIn,0),@utcoffset,@ZoneID,@PanelTime,@PersonId)
+      END
+    </UpdateInlist>
+    <UpdateStatus>
+      IF exists(SELECT 1 FROM [Status] WHERE Panel = @Panel and Type = @Type and Device = @Device)
+      BEGIN
+      UPDATE [Status] SET
+      HCSNo = @HCSNo,
+      Status = @Status,
+      SDate = @SDate,
+      State = @State,
+      MaxCards=@MaxCards,
+      UsedCards = @UsedCards,
+      ExpMem = @ExpMem,
+      MaxXact=@MaxXact,
+      Xact= @Xact,
+      MaxAG=@MaxAG,
+      UsedAG= @UsedAG,
+      MaxAlp=@MaxAlp,
+      ExpIo=@ExpIo,
+      Version=@Version
+      WHERE Panel = @Panel AND Type = @Type AND Device = @Device
+      END
+      ELSE
+      BEGIN
+      INSERT INTO [Status] (Panel, Type, Device, HCSNo, Status, SDate, State, MaxCards, UsedCards, ExpMem, MaxXact, Xact, MaxAG, UsedAG, MaxAlp,ExpIo,Version) VALUES
+      (@Panel, @Type, @Device, @HCSNo, @Status, @SDate, @State,@MaxCards, @UsedCards,@ExpMem, @MaxXact, @Xact , @MaxAG, @UsedAG ,@MaxAlp, @ExpIo,@Version)
+      END
+    </UpdateStatus>
+    <ApiEventClassDefs partitioned="False">
+      SELECT EventClassID
+      ,EventClassName
+      ,EventDescription
+      ,MenuKey
+      ,Status
+      ,DeviceCode
+      ,DeviceFilter1
+      ,DeviceFilter2
+      ,EventClassCategoryID
+      ,EventCode
+      ,LangEventClassName
+      ,LangEventDescription
+      ,PanelStatus
+      ,PriorityIndex
+      FROM EventClassDefs Order By EventClassID
+    </ApiEventClassDefs>
+    <GetStatusDef>
+      SELECT [StatusDescription],[StatusType], 0 AS [IsWireless] FROM [StatusDefs]
+    </GetStatusDef>
+    <GetStatusByType>
+      IF @Type = 0
+      SELECT [Panel],[Type],[Device],[HCSNo],[Status],[SDate],[State],[Version],[MaxCards],[UsedCards],[ExpMem],[MaxXact],[Xact],[MaxAG],[UsedAG],[MaxAlp],[ExpIo] FROM [Status]
+      else
+      SELECT [Panel],[Type],[Device],[HCSNo],[Status],[SDate],[State],[Version],[MaxCards],[UsedCards],[ExpMem],[MaxXact],[Xact],[MaxAG],[UsedAG],[MaxAlp],[ExpIo] FROM [Status] WHERE Type = @Type
+    </GetStatusByType>
+    <getstationbystatus partitioned="False">
+      SELECT
+      [NetStationId]
+      ,[Device]
+      ,[UNCName]
+      ,[LoggedOn]
+      ,[Operator]
+      ,[LoggedOnTime]
+      ,[LastUpdated]
+      ,[LoggedOnTime] as LogTime
+      ,[LastUpdated] as LastChange
+      FROM [dbo].[Station] 
+      WHERE LoggedOn = 1 AND DATEDIFF(minute, [LastUpdated], GETDATE()) >= @minutes 
+      Order By NetStationId,Device
+    </getstationbystatus>
+    <GetStationsWithoutIP partitioned="False">
+      SELECT [NetStationId]
+      ,[Device]
+      ,[UNCName]
+      ,(CASE WHEN [NetStationId] = 1 THEN 'HostPC: ' ELSE 'Workstation: '
+      END) + [UNCName] AS [DisplayMember]
+      ,[LoggedOn]
+      ,[Operator]
+      ,[LoggedOnTime]
+      ,[LastUpdated]
+      FROM [dbo].[Station]
+      WHERE [dbo].[VALIDIP] ([UNCName])  = 0 AND [UNCName] != '::1'
+      Order By NetStationId,Device
+    </GetStationsWithoutIP>
+    <GetWorkStationsWithoutIP partitioned="False">
+      SELECT [NetStationId]
+      ,[Device]
+      ,[UNCName]
+      ,(CASE WHEN [NetStationId] = 1 THEN 'HostPC: ' ELSE 'Workstation: '
+      END) + [UNCName] AS [DisplayMember]
+      ,[LoggedOn]
+      ,[Operator]
+      ,[LoggedOnTime]
+      ,[LastUpdated]
+      FROM [dbo].[Station]
+      WHERE [dbo].[VALIDIP] ([UNCName])  = 0 AND [UNCName] != '::1' and Device=4
+      Order By NetStationId,Device
+    </GetWorkStationsWithoutIP>
+    <stationgridweb partitioned="False">
+      SELECT NetStationId, Device, UNCName, LoggedOn, Operator, LoggedOnTime, LastUpdated
+      FROM [dbo].[Station]
+      WHERE (LoggedOn = 1) AND ((dbo.VALIDIP(UNCName) = 1) OR UNCName = '::1' OR UNCName = '127.0.0.1')
+    </stationgridweb>
+    <userexistsstationweb partitioned="False">
+      SELECT NetStationId, Device, UNCName, LoggedOn, Operator, LoggedOnTime, LastUpdated
+      FROM [dbo].[Station]
+      WHERE (UNCName = '::1' OR dbo.VALIDIP(UNCName) = 1) AND UNCName = @UNCName AND Operator = @Operator
+    </userexistsstationweb>
+    <userexistsstationweb1 partitioned="False">
+      SELECT NetStationId, Device, UNCName, LoggedOn, Operator, LoggedOnTime, LastUpdated
+      FROM [dbo].[Station]
+      WHERE (UNCName = '::1' OR dbo.VALIDIP(UNCName) = 1) AND LoggedOn = @LoggedOn AND Operator = @Operator
+    </userexistsstationweb1>
+    <statusgrid partitioned="False">
+      SELECT s.Type,
+      CASE s.Type
+      WHEN 1 Then 'Inputs'
+      WHEN 2 then 'Relays'
+      WHEN 4 then 'Panels'
+      WHEN 5 then 'Doors'
+      ELSE 'Unknown'
+      END as 'Group Name',
+      d.StatusDescription as Description,
+      '' as 'Device Name',
+      '' as 'Panel Name',
+      s.Panel as PanelNo,
+      s.Device as 'Dev No',
+      SDate as 'Last Change',
+      SDate as 'Local Date',
+      s.Version,s.MaxCards,s.UsedCards,s.ExpMem,s.MaxAg,s.UsedAg,s.caObjectId
+      FROM Status s
+      Left join statusdefs d on s.status = d.StatusType
+      Order By s.Type,s.Device
+    </statusgrid>
+    <APIStatusGrid partitioned="False">
+      SELECT s.Type,
+      CASE s.Type
+      WHEN 1 Then 'Inputs'
+      WHEN 2 then 'Relays'
+      WHEN 4 then 'Panels'
+      WHEN 5 then 'Doors'
+      ELSE 'Unknown'
+      END as 'Group Name',
+      d.StatusDescription as Description,
+      '' as 'Device Name',
+      '' as 'Panel Name',
+      s.Panel as PanelNo,
+      s.Device as 'Dev No',
+      SDate as 'Last Change',
+      SDate as 'Local Date',
+      s.Version,s.MaxCards,s.UsedCards,s.ExpMem,s.MaxAg,s.UsedAg,s.caObjectId
+      FROM Status s
+      Left join statusdefs d on s.status = d.StatusType
+      Order By s.Type,s.Device
+    </APIStatusGrid>
+    <statusgrid1 partitioned="False">
+      SELECT  s.Type,
+      CASE s.Type
+      WHEN 1 Then 'Inputs'
+      WHEN 2 then 'Relays'
+      WHEN 4 then 'Panels'
+      WHEN 5 then 'Doors'
+      ELSE 'Unknown'
+      END as 'Group Name',
+      d.StatusDescription as Description,
+      '' as 'Device Name',
+      '' as 'Panel Name',
+      s.Panel as PanelNo,
+      s.Device as 'Dev No',
+      SDate as 'Last Change',
+      SDate as 'Local Date',
+      s.Version,s.MaxCards,s.UsedCards,s.ExpMem,s.MaxAg,s.UsedAg,s.caObjectId
+      FROM Status s
+      Left join statusdefs d on s.status = d.StatusType
+      WHERE s.Type = @Type
+      Order By s.Type,s.Device
+    </statusgrid1>
+    <GetPanelStatus partitioned="False">select Version,Status, MaxCards, UsedCards,MaxAG, UsedAG,MaxXact,SDate  From Status where Type = 4 AND Panel=@PnlRef and HCSNo=@Hcsno</GetPanelStatus>
+    <GetAllPanelsStatus partitioned="False">
+      SELECT [Panel]
+      ,[Version]
+      ,[State]
+      ,0 AS TzBlks
+      ,[MaxCards]
+      ,[UsedCards] AS CardCnt
+      ,[MaxXact]
+      ,[Xact] AS Xacts
+      ,[MaxAG]
+      ,[UsedAG] AS AgBlks
+      ,[ExpMem]
+      ,ExpIo
+      ,0 AS Retries
+      ,[Status].[MaxAlp]
+      ,0 AS RetryFail
+      ,NULL AS ThreadCount
+      ,NULL AS PPS
+      ,0 AS Flag
+      From Status where Type = 4 AND HCSNo=@Hcsno
+    </GetAllPanelsStatus>
+    <APIGetAllPanelsStatus partitioned="False">
+      SELECT [Panel]
+      ,[Version]
+      ,'' as PanelName
+      ,0 as ComPort
+      ,0 as PanelAddress
+      ,'' as Workstation
+      ,[UsedCards] AS CardCnt
+      ,[Xact] AS Xacts
+      ,[UsedAG] AS AgBlks
+      ,[ExpMem]
+      ,ExpIo
+      ,NULL AS ThreadCount
+      ,NULL AS PPS
+      From Status where Type = 4
+    </APIGetAllPanelsStatus>
+    <GetAuditTrailDetail partitioned="False">
+      exec ca_sp_AuditTrailDetail @SvrName, @DBName, @ParentAuditId
+    </GetAuditTrailDetail>
+  </queries>
+  <lists />
+  <pagedqueries>
+    <eventgrid partitioned="True" objectidcolumnname="caObjectID">
+      <finalorderby>Edate</finalorderby>
+      <orderby>Edate</orderby>
+      <select>
+        Seqno,Class,Description,Name,EDate,AckTStamp,Priority,UTCOffset,AckOpr,Cat,Status,Facno,Badge,HasPhoto,Arch,PnlNo,RespReq,Tag,HasVideo,DeviceNo,Pending,caObjectID
+      </select>
+      <finalselect>
+        1,Seqno,Class,Facno,Badge,EDate as Panel_DateTime,AckOpr as Operator,0,HasPhoto,Priority,Cat,EDate,AckTStamp,Status,Description,Name as Location,AckTStamp as Ack_DateTime,UTCOffset,Arch,PnlNo,RespReq,Tag,HasVideo,DeviceNo AS Number,Pending,caObjectID
+      </finalselect>
+      <where>Pending = 0 </where>
+      <table>Event</table>
+    </eventgrid>
+    <audittrailgrid partitioned="False" objectidcolumnname="caObjectID">
+      <finalorderby>revisionstamp desc</finalorderby>
+      <orderby>revisionstamp desc</orderby>
+      <select>
+        AuditId,TableName,revisionstamp,OperatorName,StationName,Actions,Description,OldData,NewData,ChangedColumns,LastOperator,caObjectID,UTCOffset
+      </select>
+      <finalselect>
+        1
+        ,NewId()
+        ,TableName
+        ,AuditId
+        ,NULL
+        ,revisionstamp
+        ,OperatorName
+        ,1
+        ,NULL
+        ,StationName
+        ,CASE Actions
+        WHEN ('L') THEN 'Log'
+        WHEN ('I') THEN 'Insert'
+        WHEN ('U') THEN 'Edit'
+        WHEN ('D') THEN 'Delete'
+        ELSE 'None'
+        END as Action
+        ,Description
+        ,OldData
+        ,NewData
+        ,ChangedColumns
+        ,LastOperator
+        ,caObjectID
+        ,UTCOffset
+      </finalselect>
+      <where>
+        (ParentAuditId IS NULL OR AuditId = ParentAuditId)
+      </where>
+      <table>dbaudit</table>
+    </audittrailgrid>
+  </pagedqueries>
+  <reports />
+</schema>

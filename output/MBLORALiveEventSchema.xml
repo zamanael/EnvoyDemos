@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<schema>
+  <screens>
+	  
+    <eventsgrid maintable="event" hostcallback="false" sendtoallpanels="false" key1name="Seqno" operation="0">
+      <tables>
+        <table>Event</table>
+      </tables>
+    </eventsgrid>
+    <EventsScreen maintable="EventClassCategoryDefs" hostcallback="false" sendtoallpanels="false" operation="0">
+      <tables>
+        <table>EventClassCategoryDefs</table>
+        <table>EventClassDefs</table>
+      </tables>
+    </EventsScreen>
+    <StationScreen maintable="Station" hostcallback="false" sendtoallpanels="false" operation="0">
+      <tables>
+        <table>Station</table>
+      </tables>
+    </StationScreen>
+    <StatusScreen maintable="Status" hostcallback="false" sendtoallpanels="false" operation="0">
+      <tables>
+        <table>Status</table>
+      </tables>
+    </StatusScreen>
+	  
+  </screens>
+	
+  <tables>
+	  <Event>
+		  <primarykeyfields>
+			  <primarykeyfield type="String">Seqno</primarykeyfield>
+		  </primarykeyfields>
+		  <keyfields>
+			  <keyfield type="String">EDate</keyfield>
+		  </keyfields>
+		  <datafields>
+			  <datafield type="Int32">AckOpr</datafield>
+			  <datafield type="DateTime">AckTStamp</datafield>
+			  <datafield type="String">Actions</datafield>
+			  <datafield type="Int32">Arch</datafield>
+			  <datafield type="String">Badge</datafield>
+			  <datafield type="String" null="false">caObjectID</datafield>
+			  <datafield type="Int32">Cat</datafield>
+			  <datafield type="String">Class</datafield>
+			  <datafield type="String">Description</datafield>
+			  <datafield type="Int32">DeviceNo</datafield>
+			  <datafield type="DateTime">EDate</datafield>
+			  <datafield type="Int32">Facno</datafield>
+			  <datafield type="Boolean" null="false" default="False">HasPhoto</datafield>
+			  <datafield type="Int32">HasVideo</datafield>
+			  <datafield type="String">Name</datafield>
+			  <datafield type="Boolean" default="False">Pending</datafield>
+			  <datafield type="Int32">PnlNo</datafield>
+			  <datafield type="Int32">Priority</datafield>
+			  <datafield type="Boolean" default="False">RespReq</datafield>
+			  <datafield type="String" null="false">Seqno</datafield>
+			  <datafield type="Int32">Status</datafield>
+			  <datafield type="String">Tag</datafield>
+		  </datafields>
+	  </Event>
+	  
+    <EventClassCategoryDefs>
+      <keyfields>
+        <keyfield type="String">EventClassCatID</keyfield>
+      </keyfields>
+      <datafields>
+        <datafield type="Int32" null="false">EventClassCatID</datafield>
+        <datafield type="String" null="false">EventClassCatName</datafield>
+      </datafields>
+    </EventClassCategoryDefs>
+	  
+    <EventClassDefs>
+      <keyfields>
+        <keyfield type="String">EventClassID</keyfield>
+      </keyfields>
+      <datafields>
+        <datafield type="Int32">DeviceCode</datafield>
+        <datafield type="Int32" null="false">EventClassCategoryID</datafield>
+        <datafield type="Int32" null="false">EventClassID</datafield>
+        <datafield type="String" null="false">EventClassName</datafield>
+        <datafield type="Int32">Status</datafield>
+      </datafields>
+    </EventClassDefs>
+	  
+    <EventResponse ismaster="False">
+      <primarykeyfields>
+        <primarykeyfield type="String">EventSeqNo</primarykeyfield>
+      </primarykeyfields>
+      <datafields>
+        <datafield type="String" null="false">EventDescription</datafield>
+        <datafield type="DateTime" null="false">EventEDate</datafield>
+        <datafield type="String" null="false">EventEventType</datafield>
+        <datafield type="String" null="false">EventLocation</datafield>
+        <datafield type="Int32" null="false">EventPriority</datafield>
+        <datafield type="String" null="false">EventResponse</datafield>
+        <datafield type="DateTime" null="false">EventResponseDateTime</datafield>
+        <datafield type="String" null="false">EventResponseID</datafield>
+        <datafield type="String" null="false">EventSeqNo</datafield>
+        <datafield type="String" null="false">Operator</datafield>
+        <datafield type="String" null="false">WorkstationName</datafield>
+        <datafield type="String" null="false">WorkstationNumber</datafield>
+      </datafields>
+    </EventResponse>
+	  
+    <Station ismaster="False">
+      <datafields>
+        <datafield type="Int32" null="false">Device</datafield>
+        <datafield type="DateTime">LastUpdated</datafield>
+        <datafield type="Boolean" default="False">LoggedOn</datafield>
+        <datafield type="DateTime">LoggedOnTime</datafield>
+        <datafield type="Int32" null="false">NetStationId</datafield>
+        <datafield type="String">Operator</datafield>
+        <datafield type="String">UNCName</datafield>
+      </datafields>
+    </Station>
+	  
+    <Status ismaster="False">
+      <datafields>
+        <datafield type="Int32" null="false">Device</datafield>
+        <datafield type="Int32">ExpMem</datafield>
+        <datafield type="Boolean" default="False">Flag</datafield>
+        <datafield type="Int32">GroupNo</datafield>
+        <datafield type="Int32">HCSNo</datafield>
+        <datafield type="Int32">MaxAG</datafield>
+        <datafield type="Int32">MaxCards</datafield>
+        <datafield type="Int32">MaxXact</datafield>
+        <datafield type="Int32" null="false">Panel</datafield>
+        <datafield type="DateTime">SDate</datafield>
+        <datafield type="Int32">State</datafield>
+        <datafield type="Int32">Status</datafield>
+        <datafield type="Int32" null="false">Type</datafield>
+        <datafield type="Int32">UsedAG</datafield>
+        <datafield type="Int32">UsedCards</datafield>
+        <datafield type="String">Version</datafield>
+      </datafields>
+    </Status>
+	  
+  </tables>
+	
+  <queries>
+	  
+    <alertsgrid partitioned="False">
+      SELECT Seqno
+      ,Priority
+      ,Cat
+      ,PnlNo
+      ,EDate
+      ,DeviceNo
+      ,Status
+      ,Facno
+      ,Badge
+      ,Class
+      ,Description
+      ,Name
+      ,Arch
+      ,AckOpr
+      ,AckTStamp
+      ,Actions
+      ,RespReq
+      ,caObjectID
+      ,Tag
+      ,HasPhoto
+      ,HasVideo
+      ,Pending
+      FROM Event WHERE Pending &gt; 0 Order By Edate
+    </alertsgrid>
+	  
+    <eventclasscategorydefs partitioned="False">
+      SELECT EventClassCatID
+      ,EventClassCatName
+      ,caObjectID
+      FROM EventClassCategoryDefs Order By EventClassCatID
+    </eventclasscategorydefs>
+	  
+    <eventclassdefs partitioned="False">
+      SELECT EventClassID
+      ,EventClassName
+      ,Status
+      ,DeviceCode
+      ,EventClassCategoryID
+      FROM EventClassDefs Order By EventClassID
+    </eventclassdefs>
+	  
+    <EventClassLookup partitioned="False">
+      SELECT     *
+      FROM         EventClassDefs
+    </EventClassLookup>   
+	  
+    <eventclassname partitioned="False">
+      SELECT EventClassName
+      FROM EventClassDefs
+      WHERE Status = :Status AND DeviceCode = :DeviceCode
+    </eventclassname>
+	  
+    <eventclassnamebyid partitioned="False">
+      SELECT EventClassID
+      ,EventClassName
+      ,Status
+      ,DeviceCode
+      ,EventClassCategoryID
+      ,caObjectID
+      ,CategoryID
+      FROM EventClassDefs
+      WHERE CategoryID= :CategoryID
+      Order By EventClassID
+    </eventclassnamebyid>
+	  
+    <eventsgrid partitioned="False">
+      SELECT Seqno
+      ,Class
+      ,Description
+      ,Name as Location
+      ,EDate as Panel_DateTime
+      ,AckOpr as Operator
+      ,AckTStamp as Ack_DateTime
+      ,Priority
+      ,HasPhoto
+      ,HasVideo
+      ,Pending
+	  ,UTCOffset
+	  ,EDate
+	  ,AckTStamp
+      FROM Event WHERE Pending = 0 Order By Edate
+    </eventsgrid>
+	  
+    <eventstatus_devicecodebyid partitioned="False">
+      SELECT Status
+      ,DeviceCode
+      FROM EventClassDefs
+      WHERE caObjectID = :caObjectID
+    </eventstatus_devicecodebyid>
+	  
+	  <geteventresponse partitioned="False">
+		  SELECT EventResponseID
+		  ,EventResponse
+		  ,EventSeqNo
+		  ,EventDescription
+		  ,EventLocation
+		  ,EventEventType
+		  ,EventEDate
+		  ,EventPriority
+		  ,Operator
+		  ,WorkstationName
+		  ,WorkstationNumber
+		  ,EventResponseDateTime
+		  FROM EventResponse
+		  WHERE EventSeqNo = :EventSeqNo
+	  </geteventresponse>
+	  
+    <stationgrid partitioned="False">
+      SELECT
+      [NetStationId],
+      [Device],
+      CASE WHEN [Device] = 0 AND [NetStationId] = 1 THEN 'Master Server'
+      WHEN [Device] = 2 AND [NetStationId] > 1 THEN 'HCS Server'
+      WHEN [Device] = 4 AND [NetStationId] > 1 THEN 'Workstation'
+      WHEN [Device] = 5 AND [NetStationId] > 1 THEN 'Full Server'
+      END AS [Station Type]
+      ,[UNCName]
+      ,[LoggedOn]
+      ,[Operator]
+      ,[LoggedOnTime]
+      ,[LastUpdated]
+      ,[LoggedOnTime] as LogTime
+      ,[LastUpdated] as LastChange
+      FROM [dbo].[Station] Order By NetStationId,Device
+    </stationgrid>
+	  
+    <statusgrid partitioned="False">
+      SELECT Panel
+      ,Type
+      ,Device
+      ,HCSNo
+      ,Status
+      ,SDate
+      ,State
+      ,GroupNo
+      ,Version
+      ,MaxCards
+      ,UsedCards
+      ,ExpMem
+      ,MaxXact
+      ,MaxAG
+      ,UsedAG
+      ,Flag
+      FROM Status Order By Panel,Type,Device
+    </statusgrid>
+	  
+  </queries>
+  <lists />
+</schema>

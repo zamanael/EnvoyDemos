@@ -34,6 +34,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CardAccess.API">
+      <HintPath>..\output\CardAccess.API.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -63,12 +66,6 @@
     <Compile Include="SpacesApis\SpacesHelper.cs" />
     <Compile Include="VisitorAndProtectApis\VisitorsHelper.cs" />
     <Compile Include="VisitorAndProtectApis\WorkSchedulesHelper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Envoy.Models\Envoy.Models.csproj">
-      <Project>{076be4c9-d6aa-4d77-88c5-7398ab9ee4a2}</Project>
-      <Name>Envoy.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

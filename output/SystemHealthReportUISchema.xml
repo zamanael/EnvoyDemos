@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SystemHealthSchema>
+  <UISection>
+    <Criteria name="String_System_Information" type="Info" required="1" enable="true">
+      <Item marked="0" qindex="0" qname="WorkstationCount" name="SystemHealth_Total_Workstation"/>
+      <Item marked="0" qindex="1" qname="ComServerCount" name="SystemHealth_Total_Com_Server"/>
+      <Item marked="0" qindex="2" qname="PanelCount" name="SystemHealth_Total_Panel"/>
+      <Item marked="0" qindex="3" qname="ComLossCount" name="SystemHealth_Total_Com_Loss"/>
+      <Item marked="0" qindex="4" qname="ReaderCount" name="SystemHealth_Reader"/>
+      <Item marked="0" qindex="5" qname="BadgeCount" name="SystemHealth_Total_Badge"/>
+      <Item marked="0" qindex="21" qname="LiveEventCount" name="SystemHealth_Total_Live_Event_Count"/>
+      <Item marked="0" qindex="20" qname="ArchiveEventCount" name="SystemHealth_Total_Archive_Event_Count"/>
+    </Criteria>
+    <Criteria name="String_Access_Detail" type="Detail" required="1" enable="true">
+      <Item marked="0" qindex="6" qname="AccessCount" name="SystemHealth_Total_Access"/>
+      <Item marked="0" qindex="9" qname="BadgeAccessCount" name="SystemHealth_Total_Badge_Access"/>
+      <Item marked="0" qindex="10" qname="TagAccessCount" name="SystemHealth_Total_Tag_Access"/>
+      <Item marked="0" qindex="11" qname="ReaderMaxAccess" name="SystemHealth_Reader_with_Max_Access"/>
+      <Item marked="0" qindex="12" qname="PanelMaxAccess" name="SystemHealth_Panel_with_Max_Access"/>
+      <Item marked="0" qindex="13" qname="ComMaxAccess" name="SystemHealth_Com_Server_with_Max_Access"/>
+      <Item marked="0" qindex="7" qname="ValidAccessCount" name="SystemHealth_Total_Valid_Access"/>
+      <Item marked="0" qindex="14" qname="ValidBadgeAccessCount" name="SystemHealth_Total_Valid_Badge_Access"/>
+      <Item marked="0" qindex="15" qname="ValidTagAccessCount" name="SystemHealth_Total_Valid_Tag_Access"/>
+      <Item marked="0" qindex="16" qname="ReaderMaxValidAccess" name="SystemHealth_Reader_with_Max_Valid_Access"/>
+      <Item marked="0" qindex="8" qname="AccessViolationCount" name="SystemHealth_Total_Access_Violation"/>
+      <Item marked="0" qindex="17" qname="BadgeAccessViolationCount" name="SystemHealth_Total_Badge_Access_Violation"/>
+      <Item marked="0" qindex="18" qname="TagAccessViolationCount" name="SystemHealth_Total_Tag_Access_Violation"/>
+      <Item marked="0" qindex="19" qname="ReaderMaxAccessViolation" name="SystemHealth_Reader_with_Max_Access_Violation"/>
+    </Criteria>
+    <Criteria name="String_Com_Loss_Detail" type="Detail" required="1" enable="false">
+      <Item marked="0" qindex="-1" qname="" name="Total Com Loss"/>
+      <Item marked="0" qindex="-1" qname="" name="Com Server with Max Com Loss"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Com Loss"/>
+      <Item marked="0" qindex="-1" qname="" name="Max Duration of Com Loss"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Duration of Com Loss"/>
+      <Item marked="0" qindex="-1" qname="" name="Average Duration of Com Loss"/>
+    </Criteria>
+    <Criteria name="String_Data_Loss_Detail" type="Detail" required="1" enable="false">
+      <Item marked="0" qindex="-1" qname="" name="Total Data Loss"/>
+      <Item marked="0" qindex="-1" qname="" name="Total Data Overflow"/>
+      <Item marked="0" qindex="-1" qname="" name="Com Server with Max Data Loss"/>
+      <Item marked="0" qindex="-1" qname="" name="Com Server with Max Data Overflow"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel Server with Max Data Loss"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel Server with Max Data Overflow"/>
+    </Criteria>
+    <Criteria name="String_Fail_Detail" type="Detail" required="1" enable="false">
+      <Item marked="0" qindex="-1" qname="" name="Total Fail"/>
+      <Item marked="0" qindex="-1" qname="" name="Total COM Port Open Failed"/>
+      <Item marked="0" qindex="-1" qname="" name="Total Self Test Fail"/>
+      <Item marked="0" qindex="-1" qname="" name="Total AC Power Fail"/>
+      <Item marked="0" qindex="-1" qname="" name="Total Initialize Failed"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Fail"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max COM Port Open Failed"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Self Test Fail"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max AC Power Fail"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Initialize Failed"/>
+    </Criteria>
+    <Criteria name="String_Tamper_Detail" type="Detail" required="1" enable="false">
+      <Item marked="0" qindex="-1" qname="" name="Total Tamper"/>
+      <Item marked="0" qindex="-1" qname="" name="Total INPUT Tamper Abnormal"/>
+      <Item marked="0" qindex="-1" qname="" name="Total INPUT Tamper Normal"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max INPUT Tamper Abnormal"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max INPUT Tamper Normal"/>
+    </Criteria>
+    <Criteria name="String_Other_Trouble_Detail" type="Detail" required="1" enable="false">
+      <Item marked="0" qindex="-1" qname="" name="Total Other Trouble"/>
+      <Item marked="0" qindex="-1" qname="" name="Total PANEL Trouble - No Response"/>
+      <Item marked="0" qindex="-1" qname="" name="Total PANEL Trouble - Still No Response"/>
+      <Item marked="0" qindex="-1" qname="" name="Total PANEL Trouble - Password Violation"/>
+      <Item marked="0" qindex="-1" qname="" name="Total PANEL Trouble - Unknown Event"/>
+      <Item marked="0" qindex="-1" qname="" name="Total INPUT Trouble - Gnd Fault"/>
+      <Item marked="0" qindex="-1" qname="" name="Total INPUT Trouble - Line Open"/>
+      <Item marked="0" qindex="-1" qname="" name="Total INPUT Trouble - Line Short"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Other Trouble - PANEL"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max No Response"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Still No Response"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Password Violation"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Unknown Event"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Other Trouble - INPUT"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Gnd Fault"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Line Open"/>
+      <Item marked="0" qindex="-1" qname="" name="Panel with Max Line Short"/>
+    </Criteria>
+    <Criteria name="String_Data_Lost_Overflow_Events" type="Event" required="1" enable="false">
+      <Item marked="0" devcode="04" name="Badge Data Lost"/>
+      <Item marked="0" devcode="04" name="Badge Data Overflow"/>
+      <Item marked="0" devcode="04" name="Time Schedule Data Lost"/>
+      <Item marked="0" devcode="04" name="Time Schedule Data Overflow"/>
+      <Item marked="0" devcode="04" name="Access Group Data Lost"/>
+      <Item marked="0" devcode="04" name="Access Group Data Overflow"/>
+      <Item marked="0" devcode="04" name="Holiday Data Lost"/>
+      <Item marked="0" devcode="04" name="Holiday Data Overflow"/>
+    </Criteria>
+    <Criteria name="String_Badge_Tag_Events" type="Event" required="1" enable="false">
+      <Item marked="0" devcode="00" name="BADGE Valid"/>
+      <Item marked="0" devcode="00" name="BADGE Violate Void"/>
+      <Item marked="0" devcode="00" name="BADGE Violate Facility"/>
+      <Item marked="0" devcode="00" name="BADGE Violate PIN"/>
+      <Item marked="0" devcode="00" name="BADGE Violate Unauthorized"/>
+      <Item marked="0" devcode="00" name="BADGE Violate Time of Day"/>
+      <Item marked="0" devcode="00" name="BADGE Violate APB"/>
+      <Item marked="0" devcode="00" name="BADGE Violate Tag No Match"/>
+      <Item marked="0" devcode="00" name="BADGE Violate Category No Match"/>
+      <Item marked="0" devcode="00" name="BADGE Violate Interact T.O."/>
+      <Item marked="0" devcode="00" name="BADGE Denied NAPCO Arm Permission"/>
+      <Item marked="0" devcode="00" name="BADGE Denied NAPCO Disarm Permission"/>
+      <Item marked="0" devcode="08" name="BADGE/TAG Valid"/>
+      <Item marked="0" devcode="08" name="TAG Violate Void"/>
+      <Item marked="0" devcode="08" name="TAG Violate Facility"/>
+      <Item marked="0" devcode="08" name="TAG Violate Unauthorized"/>
+      <Item marked="0" devcode="08" name="TAG Violate Time of Day"/>
+      <Item marked="0" devcode="08" name="TAG Violate APB"/>
+      <Item marked="0" devcode="08" name="TAG Violate Interact T.O."/>
+      <Item marked="0" devcode="08" name="TAG Violate No Match"/>
+    </Criteria>
+    <Criteria name="String_Panel_Events" type="Event" required="1" enable="false">
+      <Item marked="0" devcode="04" name="Panel Trouble"/>
+      <Item marked="0" devcode="04" name="Initialize Failed"/>
+      <Item marked="0" devcode="04" name="Self Test Fail"/>
+      <Item marked="0" devcode="04" name="No Response"/>
+      <Item marked="0" devcode="04" name="Still No Response"/>
+      <Item marked="0" devcode="04" name="Password Violation"/>
+      <Item marked="0" devcode="04" name="AC Power Fail"/>
+      <Item marked="0" devcode="04" name="Unknown Event"/>
+    </Criteria>
+    <Criteria name="String_Reader_Door_Events" type="Event" required="1" enable="false">
+      <Item marked="0" devcode="05" name="DOOR Bypass"/>
+      <Item marked="0" devcode="05" name="DOOR Forced Open"/>
+      <Item marked="0" devcode="05" name="DOOR Open too Long"/>
+      <Item marked="0" devcode="05" name="DOOR Manual Lock"/>
+      <Item marked="0" devcode="05" name="DOOR Manual Unlock"/>
+      <Item marked="0" devcode="05" name="DOOR Manual Disable"/>
+      <Item marked="0" devcode="05" name="DOOR Manual Enable"/>
+    </Criteria>
+    <Criteria name="String_Input_Events" type="Event" required="1" enable="false">
+      <Item marked="0" devcode="01" name="INPUT Abnormal"/>
+      <Item marked="0" devcode="01" name="INPUT Tamper Abnormal"/>
+      <Item marked="0" devcode="01" name="INPUT Tamper Normal"/>
+      <Item marked="0" devcode="01" name="INPUT Trouble Gnd Fault"/>
+      <Item marked="0" devcode="01" name="INPUT Trouble Line Open"/>
+      <Item marked="0" devcode="01" name="INPUT Trouble Line Short"/>
+    </Criteria>
+    <Criteria name="String_Miscellaneous_Event" type="Event" required="1" enable="false">
+      <Item marked="0" devcode="06" name="COM Port Open Failed"/>
+      <Item marked="0" devcode="13" name="Area Lockdown"/>
+      <Item marked="0" devcode="13" name="Area Locked By Schedule"/>
+      <item marked="0" devcode="13" name="Area Locked By Operator"/>
+      <Item marked="0" devcode="15" name="Threat Level Change"/>
+      <Item marked="0" devcode="41" name="Script Execution Error"/>
+    </Criteria>
+    <Criteria name="String_Napco_Panel_Events" type="Event" required="1" enable="false">
+      <Item marked="0" devcode="30" name="AC Fail"/>
+      <Item marked="0" devcode="30" name="Access Denied"/>
+      <Item marked="0" devcode="30" name="ACM AC Failure"/>
+      <Item marked="0" devcode="30" name="ACM Door Adjar"/>
+      <Item marked="0" devcode="30" name="ACM Failed Panel Polling"/>
+      <Item marked="0" devcode="30" name="ACM Memory Fail"/>
+      <Item marked="0" devcode="30" name="ACM Tamper"/>
+      <Item marked="0" devcode="30" name="Bus 2 Fail"/>
+      <Item marked="0" devcode="30" name="Failure to communicate"/>
+      <Item marked="0" devcode="30" name="RBM Fail"/>
+      <Item marked="0" devcode="30" name="RBM Sig Circuit fault"/>
+      <Item marked="0" devcode="30" name="EZM Fail"/>
+      <Item marked="0" devcode="30" name="FEZM Tamper"/>
+      <Item marked="0" devcode="30" name="RFEZM Fail"/>
+      <Item marked="0" devcode="30" name="RFEZM Tamper"/>
+      <Item marked="0" devcode="30" name="RFEZM receiver Jam"/>
+      <Item marked="0" devcode="30" name="Guard Tour Fail"/>
+      <Item marked="0" devcode="30" name="Keypad Ambush"/>
+      <Item marked="0" devcode="30" name="Keypad bus fail"/>
+      <Item marked="0" devcode="30" name="Keypad Download Failure"/>
+      <Item marked="0" devcode="30" name="Keypad Fire"/>
+      <Item marked="0" devcode="30" name="Keypad Medical"/>
+      <Item marked="0" devcode="30" name="Keypad Panic"/>
+      <Item marked="0" devcode="30" name="Keypad Tamper"/>
+      <Item marked="0" devcode="30" name="KP Fail"/>
+      <Item marked="0" devcode="30" name="Panel Ground fault"/>
+      <Item marked="0" devcode="30" name="Panel Signal ckt fault"/>
+      <Item marked="0" devcode="30" name="Program change"/>
+      <Item marked="0" devcode="30" name="Self Test Failure"/>
+      <Item marked="0" devcode="30" name="Smoke Detector Dirty Trouble"/>
+      <Item marked="0" devcode="30" name="TCP/IP Communication Failure"/>
+      <Item marked="0" devcode="30" name="Telco 1 fail"/>
+      <Item marked="0" devcode="30" name="Telco 2 fail"/>
+      <Item marked="0" devcode="30" name="Telemetry Failure"/>
+      <Item marked="0" devcode="30" name="Telemetry Trouble"/>
+      <Item marked="0" devcode="30" name="V61:FEZM Ground fault"/>
+    </Criteria>
+    <Criteria name="String_Napco_Area_Events" type="Event" required="1" enable="false">
+      <Item marked="0" devcode="31" name="Area Armed"/>
+      <Item marked="0" devcode="31" name="Area Disarmed"/>
+      <Item marked="0" devcode="31" name="Building Automation Armed"/>
+      <Item marked="0" devcode="31" name="Building Automation Disarmed"/>
+      <Item marked="0" devcode="31" name="Auto-arm delayed 1 hour"/>
+      <Item marked="0" devcode="31" name="Auto-arm delayed 2 hours"/>
+      <Item marked="0" devcode="31" name="Auto-arm delayed 3 hours"/>
+      <Item marked="0" devcode="31" name="Auto-arm delayed 4 hours"/>
+      <Item marked="0" devcode="31" name="Fire"/>
+      <Item marked="0" devcode="31" name="Fire TBL"/>
+      <Item marked="0" devcode="31" name="Fail to Open"/>
+      <Item marked="0" devcode="31" name="Fail to Close"/>
+      <Item marked="0" devcode="31" name="Trouble"/>
+    </Criteria>
+    <Criteria name="String_Napco_Zone_Events" type="Event" required="1" enable="false">
+      <Item marked="0" devcode="32" name="Alarm"/>
+      <Item marked="0" devcode="32" name="Day zone Alarm"/>
+      <Item marked="0" devcode="32" name="Day zone TBL"/>
+      <Item marked="0" devcode="32" name="RF Tx Supv Fail"/>
+      <Item marked="0" devcode="32" name="RF Tx Tamper"/>
+      <Item marked="0" devcode="32" name="RF Tx Low Bat"/>
+      <Item marked="0" devcode="32" name="Zone OPEN"/>
+      <Item marked="0" devcode="32" name="Zone SHORT"/>
+    </Criteria>
+  </UISection>
+  <QuerySection>
+    <Query index="0" name="WorkstationCount" dtrange="0">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @configDB.WorkStationSettings
+      </SQL>
+    </Query>
+    <Query index="1" name="ComServerCount" dtrange="0">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @configDB.MCom
+      </SQL>
+    </Query>
+    <Query index="2" name="PanelCount" dtrange="0">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @configDB.Panel
+      </SQL>
+    </Query>
+    <Query index="3" name="ComLossCount" dtrange="1">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @eventDB.Event
+        WHERE Cat=6 and Status=1 @dateRange
+      </SQL>
+    </Query>
+    <Query index="4" name="ReaderCount" dtrange="0">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @configDB.Reader
+      </SQL>
+    </Query>
+    <Query index="5" name="BadgeCount" dtrange="0">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @configDB.Badge
+      </SQL>
+    </Query>
+    <Query index="6" name="AccessCount" dtrange="1">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @eventDB.Event
+        WHERE (Cat=0 OR Cat=8) @dateRange
+      </SQL>
+    </Query>
+    <Query index="7" name="ValidAccessCount" dtrange="1">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @eventDB.Event
+        WHERE (Cat=0 OR Cat=8) AND Status BETWEEN 1 AND 22 @dateRange
+      </SQL>
+    </Query>
+    <Query index="8" name="AccessViolationCount" dtrange="1">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @eventDB.Event
+        WHERE (Class LIKE '%BADGE Violate%' OR Class LIKE '%TAG Violate%') @dateRange
+      </SQL>
+    </Query>
+    <Query index="9" name="BadgeAccessCount" dtrange="1">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @eventDB.Event
+        WHERE Cat=0 @dateRange
+      </SQL>
+    </Query>
+    <Query index="10" name="TagAccessCount" dtrange="1">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @eventDB.Event
+        WHERE Cat=8 @dateRange
+      </SQL>
+    </Query>
+    <Query index="11" name="ReaderMaxAccess" dtrange="1">
+      <SQL>
+        SELECT TOP 1 Name
+        FROM @eventDB.Event
+        WHERE (Cat=0 OR Cat=8) @dateRange
+        GROUP BY DeviceNo, Name
+        ORDER BY COUNT(*) DESC
+      </SQL>
+    </Query>
+    <Query index="12" name="PanelMaxAccess" dtrange="1">
+      <SQL>
+        SELECT TOP 1 P.PanelName
+        FROM @eventDB.Event as E INNER JOIN @configDB.Panel AS P on E.PnlNo = P.PnlNo
+        WHERE (Cat=0 OR Cat=8) @dateRange
+        GROUP BY P.PanelName
+        ORDER BY COUNT(*) DESC
+      </SQL>
+    </Query>
+    <Query index="13" name="ComMaxAccess" dtrange="1">
+      <SQL>
+        SELECT TOP 1 M.Description
+        FROM @eventDB.Event as E INNER JOIN @configDB.Panel AS P on E.PnlNo = P.PnlNo INNER JOIN @configDB.MCom AS M on M.HCSNo = P.HCSNo
+        WHERE (Cat=0 OR Cat=8) @dateRange
+        GROUP BY M.Description
+        ORDER BY COUNT(*) DESC
+      </SQL>
+    </Query>
+    <Query index="14" name="ValidBadgeAccessCount" dtrange="1">
+      <SQL>
+        SELECT Total= COUNT(*)
+        FROM @eventDB.Event
+        WHERE (Cat=0)
+        AND Status BETWEEN 1 AND 22 @dateRange
+      </SQL>
+    </Query>
+    <Query index="15" name="ValidTagAccessCount" dtrange="1">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @eventDB.Event
+        WHERE (Cat=8)
+        AND Status BETWEEN 1 AND 22 @dateRange
+      </SQL>
+    </Query>
+    <Query index="16" name="ReaderMaxValidAccess" dtrange="1">
+      <SQL>
+        SELECT TOP 1 Name
+        FROM @eventDB.Event
+        WHERE (Class LIKE '%BADGE Valid%' OR Class LIKE '%BADGE/TAG Valid%') @dateRange
+        GROUP BY DeviceNo, Name
+        ORDER BY COUNT(*) DESC
+      </SQL>
+    </Query>
+    <Query index="17" name="BadgeAccessViolationCount" dtrange="1">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @eventDB.Event
+        WHERE Class LIKE '%BADGE Violate%' @dateRange
+      </SQL>
+    </Query>
+    <Query index="18" name="TagAccessViolationCount" dtrange="1">
+      <SQL>
+        SELECT Total=COUNT(*)
+        FROM @eventDB.Event
+        WHERE Class LIKE '%TAG Violate%'
+      </SQL>
+    </Query>
+    <Query index="19" name="ReaderMaxAccessViolation" dtrange="1">
+      <SQL>
+        SELECT TOP (1) Name
+        FROM @eventDB.Event
+        WHERE (Class LIKE '%BADGE Violate%' OR Class LIKE '%TAG Violate%') @dateRange
+        GROUP BY DeviceNo, Name
+        ORDER BY COUNT(*) DESC
+      </SQL>
+    </Query>
+    <Query index="20" name="ArchiveEventCount" dtrange="1">
+      <SQL>
+        SELECT Total=Count(*) FROM @ArchiveEventDB.Event
+      </SQL>
+    </Query>
+    <Query index="21" name="LiveEventCount" dtrange="1">
+      <SQL>
+        SELECT Total=Count(*) FROM @eventDB.Event
+      </SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="" name="" dtrange="1">
+      <SQL></SQL>
+    </Query>
+    <Query index="-1" name="EventsQuery" dtrange="1">
+      <SQL>
+        SELECT Category=Cat, Class=Class, Description=Description, Total=Count(*)
+        FROM @eventDB.Event @dateRange
+        GROUP BY Cat, Class, Description
+        ORDER BY Cat
+      </SQL>
+    </Query>
+    
+  </QuerySection>
+</SystemHealthSchema>

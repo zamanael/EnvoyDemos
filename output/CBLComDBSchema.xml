@@ -1,0 +1,723 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<schema>
+  <screens />
+  <tables />
+  <queries>
+    <EventClassDefs>
+      SELECT EventClassID
+      ,EventClassName
+      ,EventDescription
+      ,MenuKey
+      ,Status
+      ,DeviceCode
+      ,DeviceFilter1
+      ,DeviceFilter2
+      ,EventClassCategoryID
+      ,EventCode
+      ,LangEventClassName
+      ,LangEventDescription
+      ,PanelStatus
+      ,PriorityIndex
+      FROM EventClassDefs
+    </EventClassDefs>
+    <APBAreas partitioned="False">
+      select Description,AlertOn,LinkVacant,LinkOccupied,AreaCountUp,LinkOnCountUp,
+      AreaCountDown,LinkOnCountDown,caObjectID FROM APBAreas
+      WHERE AreaNo=@AreaNo
+    </APBAreas>
+    <categorycounters partitioned="False">
+      select c.CatNo, c.Description, c.Priority, c.RespReq, p.Description AS PanelName
+      from CategoryCounters c
+      LEFT JOIN Panel p ON  c.PnlNo=p.PnlNo
+      where c.PnlNo=@PnlNo AND c.CatNo = @CatNo
+    </categorycounters>
+    <EnableBadge partitioned="False">
+      UPDATE badge SET Enabled = 1 WHERE Facility = @Facility  AND Badge = @Badge
+    </EnableBadge>
+    <DisableBadge partitioned="False">
+      UPDATE badge SET Enabled = 0 WHERE Facility = @Facility  AND Badge = @Badge
+    </DisableBadge>
+    <UpdatePhoto partitioned="False">
+      UPDATE Badge SET HasPhoto = @HasPhoto WHERE PersonID = @PersonID
+    </UpdatePhoto>
+    <TrackUnTrackBadge partitioned="False">
+      UPDATE Badge SET Track = @Track WHERE Facility = @Facility  AND Badge = @Badge
+    </TrackUnTrackBadge>
+    <checkbadgecount partitioned="False">
+      SELECT Count(*)as count FROM Commun WHERE operation = 5 AND PnlNo = @PnlNo
+    </checkbadgecount>
+    <clearcommunstatus partitioned="False">Update WirelessCommun set Counter=1 where Counter=2</clearcommunstatus>
+    <deletebadgeupdates partitioned="False">
+      DELETE FROM Commun  WHERE operation= 5 AND PnlNo = @PnlNo
+    </deletebadgeupdates>
+    <DeleteWirelessById partitioned="False">Delete from Wireless where PktNum=@PktNum</DeleteWirelessById>
+    <DeleteWirelessByLock partitioned="False">Delete from Wireless where PnlNo=@LockNo</DeleteWirelessByLock>
+    <DeleteWlcommunById partitioned="False">Delete from WirelessCommun where PktNum=@PktNum</DeleteWlcommunById>
+    <DeleteWlcommunByLock partitioned="False">Delete from WirelessCommun where LockNo=@LockNo</DeleteWlcommunByLock>
+    <DeleteWirelessBadgeEditByLock partitioned="False">
+      Delete from Wireless where PnlNo = @PnlNo and PktNum &lt; @PktNum
+      and Operation not in (1,2,3,4,25,21,23,27,28,29,34,36,75)
+    </DeleteWirelessBadgeEditByLock>
+    <getbadge partitioned="False">
+      Select Badge,Facility,Enabled,LastName,FrstName,Track,HasPhoto,PersonID,APBSet,ActvDate,ExprDate,BadgeType From Badge WITH (NOLOCK)
+      WHERE Facility=@Facility and Badge=@Badge
+    </getbadge>
+    <getpivibadge partitioned="False">
+      Select Badge,Facility,Enabled,LastName,FrstName,Track,Pivi,BadgeType From Badge
+      WHERE PIVI=@Pivi
+    </getpivibadge>
+    <getcommundata partitioned="False">
+      SELECT TOP 1 id FROM Commun WHERE PnlNo = @PnlNo
+      ORDER BY id
+    </getcommundata>
+    <GetPanelLocalTime partitioned="False">exec ca_sp_GetZoneLocalTime @zoneid, @HostZoneId, @IsDayLightSavingTime</GetPanelLocalTime>
+    <GetZones>
+      SELECT ZoneId
+      ,Description
+      ,StandardName
+      ,UTCBias
+      ,sBias
+      ,sMonth
+      ,sDay
+      ,sHour
+      ,sMinute
+      ,sSecond
+      ,dBias
+      ,dMonth
+      ,dDay
+      ,dHour
+      ,dMinute
+      ,dSecond
+      ,CAST(DATEADD(MINUTE, UTCBias, dStart) AS smalldatetime) AS dStart
+      ,CAST(DATEADD(MINUTE, UTCBias + dBias, sStart) AS smalldatetime) AS sStart
+      FROM Zones
+    </GetZones>
+    <OptimizeGetWireless partitioned="False">
+      IF EXISTS(SELECT TOP 1 1 from Wireless WITH (NOLOCK))
+      BEGIN
+      IF OBJECT_ID('tempdb..#tmpWireless') IS NOT NULL DROP TABLE #tmpWireless
+
+      CREATE TABLE [dbo].[#tmpWireless](
+      [PnlNo] [int] NULL,
+      [Operation] [int] NULL,
+      [IsDelete] [bit] NULL,
+      [Val1] [int] NULL,
+      [Val2] [bigint] NULL,
+      [Val3] [int] NULL,
+      [Val4] [bigint] NULL,
+      [Val5] [int] NULL,
+      [TimeStamp] [datetime] NULL,
+      [UTCExecTime] [int] NULL,
+      [Cluster] [int] NULL
+      )
+
+      INSERT INTO [#tmpWireless]
+      SELECT PnlNo, Operation, [IsDelete], [Val1], [Val2], [Val3], [Val4], [Val5], [TimeStamp], [UTCExecTime], [Cluster]
+      FROM Wireless WITH (NOLOCK) WHERE Operation IN (5, 15, 16)
+
+      INSERT INTO Wireless
+      (PnlNo, Operation, IsDelete, Val1, Val2, Val3, Val4, Val5,TimeStamp, UTCExecTime, Cluster, MetadataType, Metadata)
+      SELECT PnlNo, 1, 0, 3, 1, 1, -1, -1, GetDate(), DATEPART(HOUR, GETUTCDATE ()), [Cluster], '', ''  FROM [#tmpWireless] WHERE Operation IN (5, 16) AND PnlNo &lt;&gt; 0 GROUP BY PnlNo, [Cluster] HAVING COUNT(*) &gt; 10
+
+      INSERT INTO Wireless
+      (PnlNo, Operation, IsDelete, Val1, Val2, Val3, Val4, Val5,TimeStamp, UTCExecTime, Cluster, MetadataType, Metadata)
+      SELECT DISTINCT PnlNo, Operation, 0, Val1, -1, 1, -1, -1, GetDate(), DATEPART(HOUR, GETUTCDATE ()), [Cluster], '', ''  FROM [#tmpWireless] WHERE Operation IN (15) GROUP BY Operation, [Cluster], PnlNo, Val1 HAVING COUNT(*) &gt; 1
+
+      DELETE FROM DW
+      FROM Wireless DW
+      WHERE 1 = CASE WHEN DW.Operation IN (5, 16) AND EXISTS (Select 1 FROM [#tmpWireless] tW WHERE tW.PnlNo = DW.PnlNo AND tW.Operation IN (5, 16) AND tw.PnlNo &lt;&gt; 0 GROUP BY tW.PnlNo HAVING COUNT(*) &gt; 10) THEN 1
+      WHEN DW.Operation = 1 AND DW.Val1 = 3 AND DW.Val3 = 1 AND  DW.PktNum NOT IN (Select MAX(W.PktNum) FROM Wireless W WITH (NOLOCK) WHERE W.Operation = 1 AND W.Val1 = 3 AND W.Val3 = 1 group by W.Cluster,W.PnlNo) THEN 1
+      WHEN DW.Operation = 15 AND DW.PktNum NOT IN (Select MAX(W.PktNum) FROM [Wireless] W WITH (NOLOCK) where W.Operation = 15  group by W.Operation, [Cluster], PnlNo, Val1) THEN 1
+      ELSE 0 END
+
+      IF OBJECT_ID('tempdb..#tmpWireless') IS NOT NULL DROP TABLE [#tmpWireless]
+      END
+    </OptimizeGetWireless>
+    <getwireless partitioned="False">
+      SELECT TOP 1000  PktNum,PnlNo,Operation,val1,val2,val3,val4,val5,IsDelete,Cluster, MetadataType, Metadata FROM Wireless WITH (NOLOCK) WHERE UTCExecTime IS NULL OR (UTCExecTime &lt; GetUTCDate()) ORDER BY PktNum
+    </getwireless>
+    <getwirelessbyPktNum partitioned="False">
+      Select PktNum, PnlNo, Operation, Val1, Val2, Val3, Val4, Val5, IsDelete, TimeStamp, UTCExecTime, MetadataType, Metadata From Wireless  Where Cluster=@Cluster And PktNum = @PktNum
+    </getwirelessbyPktNum>
+    <getwirelessbyoperation partitioned="False">
+      Select PktNum, PnlNo, Operation, Val1, Val2, Val3, Val4, Val5, IsDelete, TimeStamp, UTCExecTime, MetadataType, Metadata From Wireless  Where Cluster=@Cluster And (Operation=@Operation1 Or Operation=@Operation2 Or Operation=@Operation3 Or Operation=@Operation4 or Operation=@Operation5)
+    </getwirelessbyoperation>
+    <getwirelessbyoperationandval partitioned="False">
+      Select PktNum, PnlNo, Operation, Val1, Val2, Val3, Val4, Val5, IsDelete, TimeStamp, UTCExecTime, MetadataType, Metadata From Wireless  Where Cluster=@Cluster And Operation = @Operation AND Val1 = @Val4
+    </getwirelessbyoperationandval>
+    <getwirelesscommunbyoperation>
+      Select PktNum, LockNo, Operation, Val1, Val2, Val3, Val4, val5, LastUpdated, TimeStamp, UTCExecTime, Flag, Counter From WirelessCommun Where Cluster=@Cluster @Where
+    </getwirelesscommunbyoperation>
+    <GetWirelessCommunByLock partitioned="False">
+      INSERT INTO WirelessCommun
+      (LockNo, Operation, Val1,Val2, Val3, Val4, Val5, LastUpdated, TimeStamp, UTCExecTime, Flag, Counter, Cluster)
+      SELECT DISTINCT LockNo, 1, 15, -1, -1, -1, -1, GetDate(), GetDate(), DATEPART(HOUR, GETUTCDATE ()), 1, 1, @Cluster FROM WirelessCommun
+      WHERE LockNo &lt;&gt; 0
+      GROUP BY LockNo, Cluster HAVING COUNT(*) &gt; 10
+
+      DELETE FROM WirelessCommun
+      WHERE
+      Operation &lt;&gt; 1 AND
+      LockNo IN (Select DISTINCT LockNo FROM WirelessCommun WHERE LockNo &lt;&gt; 0 GROUP BY LockNo HAVING COUNT(*) &gt; 10)
+
+      select PktNum,LockNo,Operation,val1,val2,val3,val4,val5,Cluster,Counter,TimeStamp from WirelessCommun where Cluster=@Cluster And LockNo &gt;= @LockNo
+      Order by PktNum,LockNo
+    </GetWirelessCommunByLock>
+    <GetWirelessCommunByCom partitioned="False">
+      select PktNum,LockNo,Operation,val1,val2,val3,val4,val5,Cluster,Counter,TimeStamp from WirelessCommun where Cluster=@Cluster
+      Order by PktNum
+    </GetWirelessCommunByCom>
+    <GetWirelessCommunByPkt partitioned="False">
+      select PktNum,LockNo,Operation,val1,val2,val3,val4,val5 from WirelessCommun where PktNum &gt;= @PktNum
+      Order by PktNum,LockNo
+    </GetWirelessCommunByPkt>
+    <GetWirelessCommunByPkt2 partitioned="False">
+      select PktNum,LockNo,Operation,val1,val2,val3,val4,val5 from WirelessCommun where PktNum = @PktNum
+      Order by PktNum,LockNo
+    </GetWirelessCommunByPkt2>
+    <Inlist partitioned="False">select areano from InList where APBArea=@APBArea</Inlist>
+    <input partitioned="False">
+      select  i.PnlRef,i.InpNo,i.Description,i.NoXact,i.Priority,i.RespReq
+      ,i.DvrServerID,i.VideoEventType,i.EnableRecording
+      ,i.caObjectID, p.Description as PanelName from Input i
+      LEFT JOIN Panel p ON i.PnlRef=p.PnlNo where pnlref = @PnlRef and InpNo = @InpNo
+    </input>
+    <insertcommun partitioned="False">
+      IF @PnlNo=0 OR EXISTS(SELECT 1 from Panel WHERE  PnlNo= @PnlNo AND PanelType &lt; 101)
+      begin
+      IF  @Operation = 28
+      BEGIN
+      IF EXISTS
+      (
+      SELECT 1
+      FROM Commun
+      WHERE
+      PnlNo = @PnlNo AND
+      Operation = 28 AND
+      IsDelete = @IsDelete AND
+      Key1 = @Key1 AND
+      Key2 = @Key2 AND
+      Key3 = @Key3 AND
+      Key4 = @Key4 AND
+      Key5 = @Key5
+      )
+      BEGIN
+      Delete from Commun
+      WHERE   PnlNo = @PnlNo AND
+      Operation = @Operation AND
+      IsDelete = @IsDelete AND
+      Key1 = @Key1 AND
+      Key2 = @Key2 AND
+      Key3 = @Key3 AND
+      Key4 = @Key4
+      END
+      END
+      INSERT INTO Commun (PnlNo, Operation, IsDelete, Key1, Key2, Key3, Key4,  Key5, TimStamp, MetadataType, Metadata)
+      VALUES ( @PnlNo, @Operation, @IsDelete, @Key1, @Key2, @Key3, @Key4,  @Key5, @TimStamp, @MetadataType, @Metadata)
+      END
+      ELSE
+      BEGIN
+      IF @IsDelete = 1
+      BEGIN
+      INSERT INTO Commun (PnlNo, Operation, IsDelete, Key1, Key2, Key3, Key4,  Key5, TimStamp, MetadataType, Metadata)
+      VALUES ( @PnlNo, @Operation, @IsDelete, @Key1, @Key2, @Key3, @Key4,  @Key5, @TimStamp, @MetadataType, @Metadata)
+      END
+      END
+    </insertcommun>
+    <insertintocommun partitioned="False">
+      IF @PnlNo=0 OR EXISTS(SELECT 1 from Panel WHERE  PnlNo= @PnlNo AND PanelType &lt; 101)
+      begin
+      INSERT INTO Commun(
+      PnlNo,Operation,IsDelete,Key1,Key2,Key3,Key4  ,TimStamp
+      )VALUES(
+      @PnlNo,@Operation,@IsDelete,@Key1,@Key2,@Key3,@Key4,@TimStamp
+      )
+      end
+    </insertintocommun>
+    <InsertIntoLog partitioned="False">
+      INSERT INTO Log (TimStamp, Description) VALUES (GetDate(), @Description)
+    </InsertIntoLog>
+    <insertnextintocommun partitioned="False">
+      INSERT INTO Commun
+      (
+      PnlNo,Operation,IsDelete,Key1,Key2,Key3,Key4  ,TimStamp
+      )
+      SELECT
+      PnlNo*2048,
+      @Operation,
+      @IsDelete,@Key1,@Key2,@Key3,@Key4,GetDate()
+      FROM Panel p
+    </insertnextintocommun>
+    <InsertWirelessCommand partitioned="False">
+      IF  @Operation = 28
+      BEGIN
+      IF NOT EXISTS
+      (
+      SELECT 1
+      FROM Wireless
+      WHERE
+      PnlNo = @PnlNo AND
+      Operation = 28 AND
+      val1 = @val1 AND
+      val2 = @val2 AND
+      val3 = @val3 AND
+      val4 = @val4 AND
+      val5 = @val5 AND
+      IsDelete = @IsDelete AND
+      Cluster = @Cluster
+      )
+      BEGIN
+      INSERT INTO Wireless(PnlNo,Operation,Val1,Val2,Val3,Val4,Val5,IsDelete,TimeStamp,UTCExecTime,Cluster,MetadataType, Metadata)
+      VALUES(@PnlNo,@Operation,@val1,@val2,@val3,@val4,@val5,@IsDelete,GetDate(),@When,@Cluster, @MetadataType, @Metadata)
+      END
+      END
+      ELSE
+      BEGIN
+      IF @PnlNo=0 OR EXISTS(SELECT 1 from Panel WHERE  PnlNo= @PnlNo AND PanelType &gt; 100)
+      BEGIN
+      Delete FROM Wireless WHERE
+      PnlNo = @PnlNo AND
+      Operation = @Operation AND
+      val1 = @val1 AND
+      val2 = @val2 AND
+      val3 = @val3 AND
+      val4 = @val4 AND
+      val5 = @val5 AND
+      IsDelete = @IsDelete AND
+      Cluster = @Cluster
+      INSERT INTO Wireless(PnlNo,Operation,Val1,Val2,Val3,Val4,Val5,IsDelete,TimeStamp,UTCExecTime,Cluster,MetadataType, Metadata)
+      VALUES(@PnlNo,@Operation,@val1,@val2,@val3,@val4,@val5,@IsDelete,GetDate(),@When,@Cluster, @MetadataType, @Metadata)
+      END
+      END
+    </InsertWirelessCommand>
+    <InsertWirelessCommun partitioned="False">
+      Delete from WirelessCommun WHERE
+      LockNo = @LockNo AND
+      Operation = @Operation AND
+      val1 = @val1 AND
+      val2 = @val2 AND
+      val3 = @val3 AND
+      val4 = @val4 AND
+      val5 = @val5 AND
+      Cluster = @cluster
+
+      INSERT INTO WirelessCommun(
+      LockNo,Operation,Val1,Val2,Val3,Val4,Val5,TimeStamp,Cluster,Counter,Flag,UTCExecTime
+      )VALUES(
+      @LockNo,@Operation,@val1,@val2,@val3,@val4,@val5,GetDate(),@cluster,1,1,@When
+      )
+    </InsertWirelessCommun>
+    <link partitioned="False">
+      select l.PnlRef, l.ProgNo, l.Description, l.RptXact, l.LnkPnl, l.LnkProg, l.Priority,
+      l.caObjectID, l.RespReq, p.Description as PanelName  from Link l
+      LEFT JOIN Panel p ON l.PnlRef=p.PnlNo
+      where l.pnlref = @PnlRef and l.ProgNo = @ProgNo
+    </link>
+    <mactivelinks partitioned="False">
+      select m.PnlRef, m.ProgNo, m.Description, m.Priority, m.caObjectID, m.RespReq,
+      p.Description as PanelName  from MActiveLinks m
+      LEFT JOIN Panel p ON m.PnlRef=p.PnlNo
+      where pnlref = @PnlRef and ProgNo = @ProgNo
+    </mactivelinks>
+    <panel partitioned="False">
+      select PnlNo,Description AS PanelName,
+      CommPrior,DwnLoadPrior,PwrPrior,ModemPrior,
+      RespOffOnLine,RespDownloads,RespACPowerFail,RespModemActivity,ComPort,Enabled,PanelType,
+      caObjectID,ZoneId from panel where pnlno = @PnlNo
+    </panel>
+    <panelall partitioned="False">
+      select pnlno from panel where enabled = 1
+      order by pnlno
+    </panelall>
+    <locksall partitioned="False">
+      select pnlno from panel where enabled = 1 and paneltype &gt; 99
+      order by pnlno
+    </locksall>
+    <gellockreaderbyareano>
+      SELECT DISTINCT r.PnlRef AS [pnlno]
+      FROM Reader AS r LEFT OUTER JOIN
+      Panel AS p ON r.PnlRef = p.PnlNo
+      WHERE (r.APBEntry = @AreaNo OR r.APBExit = @AreaNo) AND (r.Type >= 3)
+    </gellockreaderbyareano>
+    <getpanelbyareano>
+      SELECT DISTINCT r.PnlRef
+      FROM Reader AS r LEFT OUTER JOIN
+      Panel AS p ON r.PnlRef = p.PnlNo
+      WHERE (r.APBEntry = @AreaNo OR r.APBExit = @AreaNo) AND (r.Type &lt; 3)
+    </getpanelbyareano>
+    <reader partitioned="False">
+      select r.PnlRef, r.RdrNo, r.Description, r.APBEntry, r.APBExit, r.APBType,
+      r.FDPrior, r.OTLPrior, r.DuPrior, r.TrkPrior	, r.VPrior, r.APBPrior, r.OTHPrior, r.ManPrior, r.BypPrior, r.FreePrior, r.PINPrior, r.RespForcedDoor, r.RespOTL, r.RespDuress, r.RespTrackedBadge,
+      r.RespVoidBadge, r.RespAPBViolate, r.RespOtherDenied, r.RespBypass,r.BadgeUseRegister,
+      r.RespFreeAccess, r.RespManualDoorCtrl, r.RespCommonCode, r.RespValidAccess,
+      r.AckBypass, r.AckFreeAccess, r.AckManualDoorCtrl, r.AckCommonCode, r.AckValidAccess,
+      r.ValidPrior,	/*,CCTVFlags*/
+      r.DvrServerID, r.VideoPriorityFrom, r.VideoPriorityTo, r.Type, r.caObjectID,r.ExtShunt,
+      p.Description as PanelName,BadgeUseRegister from Reader r
+      LEFT JOIN Panel p ON r.PnlRef=p.PnlNo
+      where pnlref = @PnlRef and RdrNo = @RdrNo
+    </reader>
+    <relay partitioned="False">
+      select r.PnlRef, r.RelNo,r.Description, r.Priority, r.RespReq, r.XactRpt,r.caObjectID,
+      p.Description AS PanelName  from Relay r
+      LEFT JOIN Panel p ON r.PnlRef=p.PnlNo
+      where pnlref = @PnlRef and RelNo = @RelNo
+    </relay>
+    <setcommunstatus partitioned="False">Update WirelessCommun set Counter=2 where PktNum = @PktNum</setcommunstatus>
+    <updatecommunstatus partitioned="False">Update WirelessCommun set Counter=1 where PktNum = @PktNum</updatecommunstatus>
+    <ResetAllCommuneCmdStatus partitioned="False">Update WirelessCommun set Counter=1 where Counter &lt;&gt; 1</ResetAllCommuneCmdStatus>
+    <GetAbortCommByPanel partitioned="False">SELECT TOP 1 * FROM Commun WHERE PnlNo = @Panel AND Operation = 1 AND Key1 = 0</GetAbortCommByPanel>
+    <GetAbortAnyComm partitioned="False">SELECT TOP 1 * FROM Commun WITH (NOLOCK) WHERE Operation = 1 AND Key1 = 0</GetAbortAnyComm>
+    <DeleteExpiredCommunCommand>DELETE FROM Commun WHERE [TimStamp] &lt; DATEADD(hh, -48, GETUTCDATE())</DeleteExpiredCommunCommand>
+    <DeleteExpiredWirelessCommunCommand>
+      DELETE FROM [Wireless] WHERE [TimeStamp] &lt; DATEADD(hh, -48, GETUTCDATE()); DELETE FROM [WirelessCommun] WHERE [TimeStamp] &lt; DATEADD(hh, -48, GETUTCDATE());
+    </DeleteExpiredWirelessCommunCommand>
+    <UpdatePanelType partitioned="False">UPDATE Panel SET PanelType=@PanelType WHERE PnlNo=@PnlNo</UpdatePanelType>
+    <GetStatus>
+      SELECT TOP 1000
+      Panel,
+      Type,
+      Device,
+      HCSNo,
+      Status,
+      SDate,
+      State,
+      MaxCards,
+      UsedCards,
+      ExpMem,
+      MaxXact,
+      Xact,
+      MaxAG,
+      UsedAG,
+      MaxAlp,
+      ExpIo,
+      Version
+      FROM [Status]
+    </GetStatus>
+    <GetInlistData>
+      SELECT TOP 1000 
+      InListID
+      ,Name
+      ,PersonID
+      ,Badge
+      ,Facility
+      ,Reader
+      ,PnlNo
+      ,RdrNo
+      ,APBArea
+      ,APBIn
+      ,TAin
+      ,PanelTime
+      ,UTCOffset
+      ,ZoneId
+      FROM [InList]
+    </GetInlistData>
+    <GetTopEventsFromHostEvent>
+      SELECT TOP 1000 
+      Seqno
+      ,Priority
+      ,Cat
+      ,PnlNo
+      ,EDate
+      ,DeviceNo
+      ,Status
+      ,Facno
+      ,Badge
+      ,Class
+      ,Description
+      ,Name
+      ,Arch
+      ,AckOpr
+      ,AckTStamp
+      ,Actions
+      ,RespReq
+      ,caObjectID
+      ,Tag
+      ,HasPhoto
+      ,HasVideo
+      ,Pending
+      ,UTCOffset
+      ,Sphere
+      FROM [HostEvent] ORDER BY AckTStamp
+    </GetTopEventsFromHostEvent>
+    <GetTopBadgeUpdate>
+      SELECT TOP 1000 
+      PersonID
+      ,Badge
+      ,Facility
+      ,LVPnl
+      ,LVRdr
+      ,LVDate
+      ,Enabled
+      ,APBSet
+      ,APBArea
+      ,UseCount
+      ,LastOperator
+      ,LastWorkStation
+      FROM [BadgeUpdate]
+    </GetTopBadgeUpdate>
+    <UpdateBadge>
+      BEGIN TRANSACTION [Tran1]
+      BEGIN TRY
+      IF (@OldBadge &gt; 0) AND ((@OldBadge &lt;&gt; @Badge) OR (@OldFacility &lt;&gt; @Facility))
+      BEGIN
+      DELETE FROM [Badge] WHERE Badge=@OldBadge and Facility=@OldFacility
+      END
+      ELSE
+      BEGIN
+      DELETE FROM [Badge] WHERE Badge=@Badge and Facility=@Facility
+      END
+
+      IF @IsDelete = 0
+      BEGIN
+      INSERT INTO [Badge] (PersonID,Badge,Facility,Enabled,Pivi,LastName,FrstName,APBSet,UseCount,APBArea,ActvDate,ExprDate,Shunt,ShuntID,Track,HasPhoto,BadgeType,caObjectID)
+      VALUES (@PersonID,@Badge,@Facility,@Enabled,@Pivi,@LastName,@FrstName,@APBSet,@UseCount,@APBArea,@ActvDate,@ExprDate,@Shunt,@ShuntID,@Track,@HasPhoto,@BadgeType,@caObjectID)
+      END
+      COMMIT TRANSACTION [Tran1]
+      END TRY
+      BEGIN CATCH
+      ROLLBACK TRANSACTION [Tran1]
+      END CATCH
+    </UpdateBadge>
+    <UpdatePanel>
+      IF @IsDelete = 1
+      BEGIN
+      DELETE FROM [ActiveLinks] WHERE PnlRef= @PnlNo
+      DELETE FROM [Link] WHERE PnlRef= @PnlNo
+      DELETE FROM [Input] WHERE PnlRef= @PnlNo
+      DELETE FROM [Relay] WHERE PnlRef= @PnlNo
+      DELETE FROM [Reader] WHERE PnlRef=@PnlNo
+      DELETE FROM [Panel] WHERE PnlNo= @PnlNo
+      END
+      ELSE
+      BEGIN
+      IF NOT EXISTS ( SELECT 1 FROM [Panel] WHERE PnlNo= @PnlNo)
+      BEGIN
+      insert into [Panel] (PnlNo,Description,CommPrior,DwnLoadPrior, PwrPrior,RespOffOnLine ,	RespDownloads ,	RespACPowerFail, 	RespModemActivity,ModemPrior,enabled,ComPort,caObjectId,ZoneId,PanelType)
+      VALUES (@PnlNo,@Description,@CommPrior,@DwnLoadPrior, @PwrPrior,@RespOffOnLine,@RespDownloads,@RespACPowerFail,	@RespModemActivity,@ModemPrior,@enabled,@ComPort,@caObjectId,@ZoneId,@PanelType)
+      END
+      ELSE
+      BEGIN
+      UPDATE [Panel] SET Description=@Description,CommPrior=@CommPrior,DwnLoadPrior=@DwnLoadPrior, PwrPrior=@PwrPrior,RespOffOnLine=@RespOffOnLine,RespDownloads=@RespDownloads,
+      RespACPowerFail=@RespACPowerFail,	RespModemActivity=@RespModemActivity,ModemPrior=@ModemPrior,enabled=@enabled,ComPort=@ComPort,caObjectId=@caObjectId,ZoneId=@ZoneId,PanelType=@PanelType
+      WHERE PnlNo=@PnlNo
+      END
+      END
+    </UpdatePanel>
+    <UpdateReader>
+      IF @IsDelete = 1
+      BEGIN
+      DELETE FROM [Reader] WHERE PnlRef=@PnlRef AND RdrNo=@RdrNo
+      END
+      ELSE
+      BEGIN
+      IF NOT EXISTS ( SELECT 1 FROM [Reader] WHERE PnlRef=@PnlRef AND RdrNo=@RdrNo )
+      BEGIN
+      INSERT INTO [Reader] (PnlRef,  RdrNo,  Description, APBEntry,APBExit,APBType,ExtShunt,RespForcedDoor,RespOTL,RespDuress,RespTrackedBadge,RespVoidBadge,
+      RespAPBViolate,RespOtherDenied,RespBypass,RespFreeAccess,RespManualDoorCtrl,RespCommonCode,RespValidAccess,AckBypass,AckFreeAccess,
+      AckManualDoorCtrl,AckCommonCode,AckValidAccess, BadgeUseRegister,FDPrior,  OTLPrior,  DuPrior,  TrkPrior,  VPrior  , APBPrior,
+      OTHPrior, ManPrior,  BypPrior,  FreePrior,  PINPrior,  ValidPrior,DvrServerId,VideoPriorityFrom,VideoPriorityTo,Type,caObjectID)
+      VALUES (
+      @PnlRef,  @RdrNo,  @Description, @APBEntry, @APBExit, @APBType, @ExtShunt, @RespForcedDoor, @RespOTL, @RespDuress, @RespTrackedBadge, @RespVoidBadge,
+      @RespAPBViolate, @RespOtherDenied, @RespBypass, @RespFreeAccess, @RespManualDoorCtrl, @RespCommonCode, @RespValidAccess, @AckBypass, @AckFreeAccess,
+      @AckManualDoorCtrl, @AckCommonCode, @AckValidAccess, @BadgeUseRegister, @FDPrior, @OTLPrior, @DuPrior, @TrkPrior, @VPrior, @APBPrior,
+      @OTHPrior, @ManPrior, @BypPrior, @FreePrior, @PINPrior, @ValidPrior, @DvrServerId, @VideoPriorityFrom, @VideoPriorityTo, @Type, @caObjectID)
+      END
+      ELSE
+      BEGIN
+      UPDATE [Reader] SET Description=@Description, APBEntry=@APBEntry, APBExit=@APBExit, APBType=@APBType, ExtShunt=@ExtShunt, RespForcedDoor=@RespForcedDoor, RespOTL=@RespOTL, RespDuress=@RespDuress, RespTrackedBadge=@RespTrackedBadge ,RespVoidBadge=@RespVoidBadge,
+      RespAPBViolate=@RespAPBViolate, RespOtherDenied=@RespOtherDenied, RespBypass=@RespBypass, RespFreeAccess=@RespFreeAccess, RespManualDoorCtrl=@RespManualDoorCtrl, RespCommonCode=@RespCommonCode, RespValidAccess=@RespValidAccess, AckBypass=@AckBypass, AckFreeAccess=@AckFreeAccess,
+      AckManualDoorCtrl=@AckManualDoorCtrl, AckCommonCode=@AckCommonCode, AckValidAccess=@AckValidAccess, BadgeUseRegister=@BadgeUseRegister, FDPrior=@FDPrior, OTLPrior=@OTLPrior, DuPrior=@DuPrior, TrkPrior=@TrkPrior, VPrior=@VPrior, APBPrior=@APBPrior,
+      OTHPrior=@OTHPrior, ManPrior=@ManPrior, BypPrior=@BypPrior, FreePrior=@FreePrior, PINPrior=@PINPrior, ValidPrior=@ValidPrior, DvrServerId=@DvrServerId, VideoPriorityFrom=@VideoPriorityFrom, VideoPriorityTo=@VideoPriorityTo, Type=@Type, caObjectID=@caObjectID
+      WHERE PnlRef=@PnlRef AND RdrNo=@RdrNo
+      END
+      END
+    </UpdateReader>
+    <UpdateInput>
+      IF @IsDelete = 1
+      BEGIN
+      DELETE FROM [Input] WHERE PnlRef= @PnlRef AND InpNo=@InpNo
+      END
+      ELSE
+      BEGIN
+      IF NOT EXISTS ( SELECT 1 FROM [Input] WHERE PnlRef= @PnlRef AND InpNo=@InpNo)
+      BEGIN
+      INSERT INTO [Input] (PnlRef, InpNo, Description, NoXact, Priority, RespReq, DvrServerID, VideoEventType, EnableRecording, caObjectID)
+      VALUES (@PnlRef, @InpNo, @Description, @NoXact, @Priority, @RespReq, @DvrServerID, @VideoEventType, @EnableRecording, @caObjectID)
+      END
+      ELSE
+      BEGIN
+      UPDATE [Input] SET Description=@Description, NoXact=@NoXact, Priority=@Priority, RespReq=@RespReq, DvrServerID=@DvrServerID, VideoEventType=@VideoEventType, EnableRecording=@EnableRecording, caObjectID=@caObjectID
+      WHERE PnlRef= @PnlRef AND InpNo=@InpNo
+      END
+      END
+    </UpdateInput>
+    <UpdateLink>
+      IF @IsDelete = 1
+      BEGIN
+      DELETE FROM [Link] WHERE PnlRef= @PnlRef AND ProgNo=@ProgNo
+      END
+      ELSE
+      BEGIN
+      IF NOT EXISTS ( SELECT 1 FROM [Link] WHERE PnlRef= @PnlRef AND ProgNo=@ProgNo)
+      BEGIN
+      INSERT INTO [Link] (PnlRef, ProgNo, Description, RptXact, LnkPnl, LnkProg, Priority, RespReq, caObjectID)
+      VALUES (@PnlRef, @ProgNo, @Description, @RptXact, @LnkPnl, @LnkProg, @Priority, @RespReq, @caObjectID)
+      END
+      ELSE
+      BEGIN
+      UPDATE [Link] SET Description=@Description, RptXact=@RptXact, LnkPnl=@LnkPnl, LnkProg=@LnkProg, Priority=@Priority, RespReq=@RespReq, caObjectID=@caObjectID
+      WHERE PnlRef= @PnlRef AND ProgNo=@ProgNo
+      END
+      END
+    </UpdateLink>
+    <UpdateRelay>
+      IF @IsDelete = 1
+      BEGIN
+      DELETE FROM [Relay] WHERE PnlRef= @PnlRef AND RelNo=@RelNo
+      END
+      ELSE
+      BEGIN
+      IF NOT EXISTS ( SELECT 1 FROM [Relay] WHERE PnlRef= @PnlRef AND RelNo=@RelNo)
+      BEGIN
+      INSERT INTO [Relay] (PnlRef, RelNo, Description, Priority, RespReq, XactRpt, caObjectID)
+      VALUES (@PnlRef, @RelNo, @Description, @Priority, @RespReq, @XactRpt, @caObjectID)
+      END
+      ELSE
+      BEGIN
+      UPDATE [Relay] SET Description=@Description, Priority=@Priority, RespReq=@RespReq, XactRpt=@XactRpt, caObjectID=@caObjectID
+      WHERE PnlRef= @PnlRef AND RelNo=@RelNo
+      END
+      END
+    </UpdateRelay>
+    <UpdateCategoryCounters>
+      IF @IsDelete = 1
+      BEGIN
+      DELETE FROM [CategoryCounters] WHERE PnlNo= @PnlNo
+      END
+      ELSE
+      BEGIN
+      IF NOT EXISTS ( SELECT 1 FROM [CategoryCounters] WHERE PnlNo= @PnlNo AND CatNo=@CatNo)
+      BEGIN
+      INSERT INTO [CategoryCounters] (PnlNo, CatNo, Description, Priority, RespReq)
+      VALUES (@PnlNo, @CatNo, @Description, @Priority, @RespReq)
+      END
+      ELSE
+      BEGIN
+      UPDATE [CategoryCounters] SET Description=@Description, Priority=@Priority, RespReq=@RespReq
+      WHERE PnlNo= @PnlNo AND CatNo=@CatNo
+      END
+      END
+    </UpdateCategoryCounters>
+    <UpdateActiveLinks>
+      IF @IsDelete = 1
+      BEGIN
+      DELETE FROM [MActiveLinks] WHERE PnlRef= @MPnlRef AND ProgNo=@MProgNo
+      DELETE FROM [ActiveLinks] WHERE ALPId= @ALPId AND PnlRef=@PnlRef AND ProgNo=@ProgNo
+      END
+      ELSE
+      BEGIN
+      IF NOT EXISTS (SELECT 1 FROM [MActiveLinks] WHERE PnlRef= @MPnlRef AND ProgNo=@MProgNo)
+      BEGIN
+      INSERT INTO [MActiveLinks] (PnlRef, ProgNo, Description, Priority, RespReq, caObjectID)
+      VALUES (@MPnlRef, @MProgNo, @MDescription, @MPriority, @MRespReq, @McaObjectID)
+      END
+      ELSE
+      BEGIN
+      UPDATE [MActiveLinks] SET Description=@MDescription, Priority=@MPriority, RespReq=@MRespReq, caObjectID=@McaObjectID
+      WHERE PnlRef= @MPnlRef AND ProgNo=@MProgNo
+      END
+
+      IF NOT EXISTS (SELECT 1 FROM [ActiveLinks] WHERE ALPId= @ALPId AND PnlRef=@PnlRef AND ProgNo=@ProgNo)
+      BEGIN
+      INSERT INTO [ActiveLinks] (ALPId, PnlRef, ProgNo, PnlNo, RelNo, InpNo, RdrNo, CatNo, Control, Active, CatReader, caObjectID)
+      VALUES (@ALPId, @PnlRef, @ProgNo, @PnlNo, @RelNo, @InpNo, @RdrNo, @CatNo, @Control, @Active, @CatReader, @caObjectID)
+      END
+      ELSE
+      BEGIN
+      UPDATE [ActiveLinks] SET PnlNo=@PnlNo, RelNo=@RelNo, InpNo=@InpNo, RdrNo=@RdrNo, CatNo=@CatNo, Control=@Control, Active=@Active, CatReader=@CatReader, caObjectID=@caObjectID
+      WHERE ALPId= @ALPId AND PnlRef=@PnlRef AND ProgNo=@ProgNo
+      END
+      END
+    </UpdateActiveLinks>
+    <UpdateAPBAreas>
+      IF @IsDelete = 1
+      BEGIN
+      UPDATE [Reader] SET APBEntry=0, APBExit=0 WHERE APBEntry=@AreaNo OR APBExit=@AreaNo
+      UPDATE [Badge] SET APBArea=255 WHERE APBArea=@AreaNo
+      UPDATE [APBAreas] SET ParentArea=0 WHERE ParentArea=@Areano
+      DELETE FROM [APBAreas] WHERE AreaNo= @AreaNo
+      END
+      ELSE
+      BEGIN
+      IF NOT EXISTS ( SELECT 1 FROM [APBAreas] WHERE AreaNo= @AreaNo)
+      BEGIN
+      INSERT INTO [APBAreas] (AreaNo, Description, ParentArea, AlertOn, LinkVacant, LinkOccupied, AreaCountUp, LinkOnCountUp, AreaCountDown, LinkOnCountDown, Active, caObjectId)
+      VALUES (@AreaNo, @Description, @ParentArea, @AlertOn, @LinkVacant, @LinkOccupied, @AreaCountUp, @LinkOnCountUp, @AreaCountDown, @LinkOnCountDown, @Active, @caObjectId)
+      END
+      ELSE
+      BEGIN
+      UPDATE [APBAreas] SET Description=@Description, ParentArea=@ParentArea, AlertOn=@AlertOn, LinkVacant=@LinkVacant, LinkOccupied=@LinkOccupied, AreaCountUp=@AreaCountUp, LinkOnCountUp=@LinkOnCountUp, AreaCountDown=@AreaCountDown, LinkOnCountDown=@LinkOnCountDown, Active=@Active, caObjectId=@caObjectId
+      WHERE AreaNo= @AreaNo
+      END
+      END
+    </UpdateAPBAreas>
+    <UpdateReaderDvrInfo>
+      UPDATE Reader SET DvrServerID = NULL WHERE PnlRef=@PnlRef AND RdrNo=@RdrNo
+    </UpdateReaderDvrInfo>
+    <UpdateInputDvrInfo>
+      UPDATE Input SET DvrServerID = NULL WHERE PnlRef=@PnlRef AND InpNo=@InpNo
+    </UpdateInputDvrInfo>
+    <DeleteBadge>
+      DELETE FROM Badge
+    </DeleteBadge>
+    <DeletePanel>
+      DELETE FROM Panel WHERE (@PnlNo &gt; 0 AND PnlNo = @PnlNo) OR (@PnlNo &lt;= 0 AND PnlNo &lt;&gt; @PnlNo )
+    </DeletePanel>
+    <DeleteRelay>
+      DELETE FROM Relay WHERE (@PnlNo &gt; 0 AND PnlRef = @PnlNo) OR (@PnlNo &lt;= 0 AND PnlRef &lt;&gt; @PnlNo )
+    </DeleteRelay>
+    <DeleteReader>
+      DELETE FROM Reader WHERE (@PnlNo &gt; 0 AND PnlRef = @PnlNo) OR (@PnlNo &lt;= 0 AND PnlRef &lt;&gt; @PnlNo )
+    </DeleteReader>
+    <DeleteMActiveLinks>
+      DELETE FROM MActiveLinks WHERE (@PnlNo &gt; 0 AND PnlRef = @PnlNo) OR (@PnlNo &lt;= 0 AND PnlRef &lt;&gt; @PnlNo )
+    </DeleteMActiveLinks>
+    <DeleteActiveLinks>
+      DELETE FROM ActiveLinks WHERE (@PnlNo &gt; 0 AND PnlRef = @PnlNo) OR (@PnlNo &lt;= 0 AND PnlRef &lt;&gt; @PnlNo )
+    </DeleteActiveLinks>
+    <DeleteAPBAreas>
+      DELETE FROM APBAreas
+    </DeleteAPBAreas>
+    <DeleteLink>
+      DELETE FROM Link WHERE (@PnlNo &gt; 0 AND PnlRef = @PnlNo) OR (@PnlNo &lt;= 0 AND PnlRef &lt;&gt; @PnlNo )
+    </DeleteLink>
+    <DeleteInput>
+      DELETE FROM Input WHERE (@PnlNo &gt; 0 AND PnlRef = @PnlNo) OR (@PnlNo &lt;= 0 AND PnlRef &lt;&gt; @PnlNo )
+    </DeleteInput>
+    <DeleteCategoryCounters>
+      DELETE FROM CategoryCounters WHERE (@PnlNo &gt; 0 AND PnlNo = @PnlNo) OR (@PnlNo &lt;= 0 AND PnlNo &lt;&gt; @PnlNo )
+    </DeleteCategoryCounters>
+    <DeleteZones>
+      DELETE FROM Zones
+    </DeleteZones>
+    <DeleteEventClassDefs>
+      DELETE FROM EventClassDefs
+    </DeleteEventClassDefs>
+    <DeleteHostEventBySeqNo>
+      DELETE FROM HostEvent WHERE SeqNo = @SeqNo
+    </DeleteHostEventBySeqNo>
+    <DeleteFromBadgeUpdate>
+      DELETE FROM BadgeUpdate WHERE Badge = @Badge AND Facility = @Facility
+    </DeleteFromBadgeUpdate>
+    <DeleteInList>
+      DELETE FROM Inlist WHERE Badge = @Badge and Facility = @Facility
+    </DeleteInList>
+    <DeleteStatus>
+      DELETE FROM Status  WHERE Panel = @Panel AND Device = @Device AND HCSNo = @HCSNo AND Status = @Status
+    </DeleteStatus>
+  </queries>
+  <lists />
+  <pagedqueries />
+  <reports />
+</schema>
