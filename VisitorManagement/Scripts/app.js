@@ -10,7 +10,7 @@
     var hub = $.connection.envoyWebhookEventHub;
     hub.client.notifyEnvoyWebhookEvent = function (eventName, data) {
         $('#exampleModalLabel').text(eventName);
-        $('#myModal .modal-body pre').append(JSON.stringify(JSON.parse(data), null, 4));
+        $('#myModal .modal-body pre').append(JSON.stringify(JSON.parse(data), null, 4) + '\r\n\r\n' );
         myModal.show();
     };
 
