@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.SignalR;
+﻿//using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.WebHooks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -15,6 +15,8 @@ namespace VisitorManagement.Envoy
     /// </summary>
     public class EnvoyWebhookEventHandler : WebHookHandler
     {
+        public static event Action<(string EventName, string PayLoad)> WebHookEventOccured;
+
         public EnvoyWebhookEventHandler()
         {
             Receiver = "GenericJson";
@@ -72,8 +74,10 @@ namespace VisitorManagement.Envoy
                     //break;
             }
 
-            var hubContext = GlobalHost.ConnectionManager.GetHubContext<EnvoyWebhookEventHub>();
-            hubContext.Clients.All.notifyEnvoyWebhookEvent(@event, JsonConvert.SerializeObject(data));
+            //var hubContext = GlobalHost.ConnectionManager.GetHubContext<EnvoyWebhookEventHub>();
+            //hubContext.Clients.All.notifyEnvoyWebhookEvent(@event, JsonConvert.SerializeObject(data));
+
+            WebHookEventOccured?.Invoke((@event, JsonConvert.SerializeObject(data)));
 
             return Task.FromResult(true);
         }

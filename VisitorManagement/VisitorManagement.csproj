@@ -201,7 +201,6 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Scripts\common.js" />
-    <Content Include="Envoy\EnvoyWebhookResponse.json" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -349,8 +348,6 @@
     <Compile Include="Envoy\Controllers\AuthenticationController.cs" />
     <Compile Include="Envoy\Controllers\VisitorsController.cs" />
     <Compile Include="Envoy\EnvoyWebhookEventHub.cs" />
-    <Compile Include="Envoy\EnvoyWebhookEvents.cs" />
-    <Compile Include="Envoy\EnvoyWebhookEventHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
