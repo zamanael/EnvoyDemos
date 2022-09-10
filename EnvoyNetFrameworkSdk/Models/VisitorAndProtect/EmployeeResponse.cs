@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace EnvoyNetFrameworkSdk.Models
+namespace EnvoyNetFrameworkSdk.Models.VisitorAndProtect
 {
-    public class FlowResponse
+    public class EmployeeResponse
     {
         [JsonProperty("data")]
-        public Flow Flow { get; set; }
+        public Employee Employee { get; set; }
 
         [JsonProperty("meta")]
         public Meta Meta { get; set; }

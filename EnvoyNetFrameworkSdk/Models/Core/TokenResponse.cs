@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace EnvoyNetFrameworkSdk.Models
+namespace EnvoyNetFrameworkSdk.Models.Core
 {
     public class TokenResponse
     {

@@ -1,5 +1,5 @@
 ﻿using EnvoyNetFrameworkSdk.CoreApis;
-using EnvoyNetFrameworkSdk.Models;
+using EnvoyNetFrameworkSdk.Models.Core;
 using System.Threading.Tasks;
 using System.Web.Http;
 

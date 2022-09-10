@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace EnvoyNetFrameworkSdk.Models
+namespace EnvoyNetFrameworkSdk.Models.VisitorAndProtect
 {
-    public class Company
+    public class Employee
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -12,13 +12,16 @@ namespace EnvoyNetFrameworkSdk.Models
         [JsonProperty("name")]
         public string Name { get; set; }
 
+        [JsonProperty("email")]
+        public string Email { get; set; }
+
         [JsonProperty("locationIds")]
         public List<string> LocationIds { get; set; }
 
         [JsonProperty("createdAt")]
-        public DateTime? CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         [JsonProperty("updatedAt")]
-        public DateTime? UpdatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using EnvoyNetFrameworkSdk.Models;
+﻿using EnvoyNetFrameworkSdk.Models.Core;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;

@@ -1,10 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 
-namespace EnvoyNetFrameworkSdk.Models
+namespace EnvoyNetFrameworkSdk.Models.VisitorAndProtect
 {
-    public class Employee
+    public class Flow
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -12,11 +11,14 @@ namespace EnvoyNetFrameworkSdk.Models
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("email")]
-        public string Email { get; set; }
+        [JsonProperty("type")]
+        public string Type { get; set; }
 
-        [JsonProperty("locationIds")]
-        public List<string> LocationIds { get; set; }
+        [JsonProperty("enabled")]
+        public bool Enabled { get; set; }
+
+        [JsonProperty("locationId")]
+        public string LocationId { get; set; }
 
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; }

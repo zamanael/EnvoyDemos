@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace EnvoyNetFrameworkSdk.Models
+namespace EnvoyNetFrameworkSdk.Models.VisitorAndProtect
 {
-    public class CompanyResponse
+    public class WorkSchedulesResponse
     {
         [JsonProperty("data")]
-        public List<Company> Companies { get; set; }
+        public List<WorkSchedule> WorkSchedules { get; set; }
 
         [JsonProperty("meta")]
         public Meta Meta { get; set; }

@@ -1,5 +1,4 @@
 ﻿using EnvoyNetFrameworkSdk.Models;
-using EnvoyNetFrameworkSdk;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;

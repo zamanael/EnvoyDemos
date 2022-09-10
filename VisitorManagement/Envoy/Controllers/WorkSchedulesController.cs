@@ -1,4 +1,4 @@
-﻿using EnvoyNetFrameworkSdk.Models;
+﻿using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
 using EnvoyNetFrameworkSdk.VisitorAndProtectApis;
 using System.Threading.Tasks;
 using System.Web.Http;

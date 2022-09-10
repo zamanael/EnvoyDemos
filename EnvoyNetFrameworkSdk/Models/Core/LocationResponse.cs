@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace EnvoyNetFrameworkSdk.Models
+namespace EnvoyNetFrameworkSdk.Models.Core
 {
-    public class InviteResponse
+    public class LocationResponse
     {
         [JsonProperty("data")]
-        public Invite Invite { get; set; }
+        public Location Locations { get; set; }
 
         [JsonProperty("meta")]
         public Meta Meta { get; set; }

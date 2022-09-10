@@ -1,4 +1,4 @@
-﻿using EnvoyNetFrameworkSdk.Models;
+﻿using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;

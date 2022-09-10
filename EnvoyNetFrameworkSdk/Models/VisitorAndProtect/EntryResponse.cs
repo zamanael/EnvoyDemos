@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace EnvoyNetFrameworkSdk.Models
+namespace EnvoyNetFrameworkSdk.Models.VisitorAndProtect
 {
-    public class Entry
+    public class EntryResponse
     {
     }
 }

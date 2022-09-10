@@ -1,5 +1,6 @@
 ﻿using EnvoyNetFrameworkSdk.CoreApis;
 using EnvoyNetFrameworkSdk.Models;
+using EnvoyNetFrameworkSdk.Models.Core;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;

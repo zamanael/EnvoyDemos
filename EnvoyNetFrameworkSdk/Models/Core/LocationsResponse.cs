@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace EnvoyNetFrameworkSdk.Models
+namespace EnvoyNetFrameworkSdk.Models.Core
 {
-    public class EmployeesResponse
+    public class LocationsResponse
     {
         [JsonProperty("data")]
-        public List<Employee> Employees { get; set; }
+        public List<Location> Locations { get; set; }
 
         [JsonProperty("meta")]
         public Meta Meta { get; set; }

@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace EnvoyNetFrameworkSdk.Models
+namespace EnvoyNetFrameworkSdk.Models.VisitorAndProtect
 {
-    public class RecurringInviteResponse
+    public class InviteResponse
     {
         [JsonProperty("data")]
-        public RecurringInvite RecurringInvite { get; set; }
+        public Invite Invite { get; set; }
 
         [JsonProperty("meta")]
         public Meta Meta { get; set; }
