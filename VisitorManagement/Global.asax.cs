@@ -27,7 +27,26 @@ namespace VisitorManagement
 
                 config.InitializeReceiveGenericJsonWebHooks();
             });
-            EnvoyWebhookEventHandler.WebHookEventOccured += EnvoyWebhookEventHandler_WebHookEventOccured;
+
+            EnvoyWebhookEventHandler.LocationCapacityUpdated += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.EntryScreened += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.NDAFileSigned += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.EntrySignIn += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.EntrySignOut += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.EntryBlockListReview += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.EntryBlockListDenied += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.InviteCreated += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.InviteUpdated += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.InviteRemoved += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.UpcomingInvitedVisit += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.InviteQRCodeSent += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.EmployeeCheckInCreated += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.EmployeeCheckInUpdated += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.UpcomingEmployeeOnSite += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.EmployeeEntrySignIn += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.EmployeeEntrySignOut += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.TicketCreated += EnvoyWebhookEventHandler_WebHookEventOccured;
+            EnvoyWebhookEventHandler.SignIn += EnvoyWebhookEventHandler_WebHookEventOccured;
         }
 
         private void EnvoyWebhookEventHandler_WebHookEventOccured((string EventName, string PayLoad) obj)
