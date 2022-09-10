@@ -11,13 +11,13 @@ namespace Envoy.Models
         public string Access_token { get; set; }
 
         [JsonProperty("expires_in")]
-        public int Expires_in { get; set; }
+        public int? Expires_in { get; set; }
 
         [JsonProperty("refresh_token")]
         public string Refresh_token { get; set; }
 
         [JsonProperty("refresh_token_expires_in")]
-        public int Refresh_token_expires_in { get; set; }
+        public int? Refresh_token_expires_in { get; set; }
 
         [JsonProperty("state")]
         public object State { get; set; }

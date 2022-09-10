@@ -12,7 +12,7 @@ namespace Envoy.Api.ServerComponent.CoreApis
 {
     public class AuthenticationHelper : BaseHelper
     {
-        public async Task<TokenResponse> GetTokenAsync(string userName, string password, string scope)
+        public async Task<TokenResponse> GetTokenAsync(IEnumerable<KeyValuePair<string,string>> formData)
         {
             try
             {
@@ -24,14 +24,7 @@ namespace Envoy.Api.ServerComponent.CoreApis
 
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", encoded);
 
-                    var formContent = new FormUrlEncodedContent(new[]
-                    {
-                    new KeyValuePair<string, string>("username", userName),
-                    new KeyValuePair<string, string>("password", password),
-                    new KeyValuePair<string, string>("scope", scope),
-                    new KeyValuePair<string, string>("grant_type", "password"),
-                });
-
+                    var formContent = new FormUrlEncodedContent(formData);
 
                     HttpResponseMessage response = await client.PostAsync(AppSettings.ENVOY_TOKEN_URL, formContent);
                     response.EnsureSuccessStatusCode();

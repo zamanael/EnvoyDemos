@@ -1,6 +1,11 @@
 ﻿using Envoy.Api.ServerComponent.CoreApis;
 using Envoy.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 
 namespace VisitorManagement.Envoy.Controllers
@@ -19,9 +24,20 @@ namespace VisitorManagement.Envoy.Controllers
         [Route("token")]
         public async Task<TokenResponse> GetTokenAsync()
         {
-            var v = await Request.Content.ReadAsStringAsync();
-            // return await _authenticationHelper.GetTokenAsync();
-            return null;
+            if (!Request.Content.IsMimeMultipartContent())
+            {
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            }
+
+            string root = HttpContext.Current.Server.MapPath("~/App_Data");
+            var provider = new MultipartFormDataStreamProvider(root);
+
+            await Request.Content.ReadAsMultipartAsync(provider);
+
+            var formData = provider.FormData.AllKeys
+                  .Select(k => new KeyValuePair<string, string>(k, provider.FormData.GetValues(k).First()));
+
+            return await _authenticationHelper.GetTokenAsync(formData);
         }
     }
 }
