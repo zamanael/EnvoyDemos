@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Envoy.Models
+namespace EnvoyNetFrameworkSdk.Models
 {
     public class EntryResponse
     {

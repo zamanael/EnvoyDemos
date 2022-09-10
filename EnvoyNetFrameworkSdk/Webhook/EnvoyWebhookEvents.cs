@@ -1,4 +1,4 @@
-﻿namespace VisitorManagement.Envoy
+﻿namespace EnvoyNetFrameworkSdk.Webhook
 {
     public static class EnvoyWebhookEvents
     {

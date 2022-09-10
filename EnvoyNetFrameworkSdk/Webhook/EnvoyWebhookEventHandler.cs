@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Threading.Tasks;
 
-namespace VisitorManagement.Envoy
+namespace EnvoyNetFrameworkSdk.Webhook
 {
     /// <summary>
     /// This is a generic json webhook handler to receive Envoy events
@@ -38,6 +38,7 @@ namespace VisitorManagement.Envoy
         public EnvoyWebhookEventHandler()
         {
             Receiver = "GenericJson";
+            
         }
 
         public override Task ExecuteAsync(string generator, WebHookHandlerContext context)

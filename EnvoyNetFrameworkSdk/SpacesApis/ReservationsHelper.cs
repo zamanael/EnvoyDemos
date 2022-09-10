@@ -1,10 +1,10 @@
-﻿using Envoy.Models;
+﻿using EnvoyNetFrameworkSdk.Models;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Envoy.Api.ServerComponent.SpacesApis
+namespace EnvoyNetFrameworkSdk.SpacesApis
 {
     public class ReservationsHelper : BaseHelper
     {

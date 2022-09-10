@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Envoy.Models
+namespace EnvoyNetFrameworkSdk.Models
 {
     public class Flow
     {

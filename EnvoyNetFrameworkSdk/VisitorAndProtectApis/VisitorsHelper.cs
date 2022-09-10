@@ -1,10 +1,10 @@
-﻿using Envoy.Models;
-using EnvoyDotNetSdk;
+﻿using EnvoyNetFrameworkSdk.Models;
+using EnvoyNetFrameworkSdk;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
+namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
 {
     public class VisitorsHelper : BaseHelper
     {

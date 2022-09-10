@@ -1,10 +1,10 @@
-﻿using Envoy.Models;
+﻿using EnvoyNetFrameworkSdk.Models;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Envoy.Api.ServerComponent.VisitorAndProtectApis
+namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
 {
     public class FlowsHelper : BaseHelper
     {

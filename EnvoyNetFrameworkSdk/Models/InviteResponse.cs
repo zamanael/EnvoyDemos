@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Envoy.Models
+namespace EnvoyNetFrameworkSdk.Models
 {
     public class InviteResponse
     {

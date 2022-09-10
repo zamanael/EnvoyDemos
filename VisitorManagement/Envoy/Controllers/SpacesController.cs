@@ -1,5 +1,5 @@
-﻿using Envoy.Api.ServerComponent.SpacesApis;
-using Envoy.Models;
+﻿using EnvoyNetFrameworkSdk.Models;
+using EnvoyNetFrameworkSdk.SpacesApis;
 using System.Threading.Tasks;
 using System.Web.Http;
 

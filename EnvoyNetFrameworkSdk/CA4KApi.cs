@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace EnvoyDotNetSdk
+namespace EnvoyNetFrameworkSdk
 {
     public sealed class CA4KApi
     {

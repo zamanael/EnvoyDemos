@@ -1,5 +1,5 @@
-﻿using Envoy.Api.ServerComponent.VisitorAndProtectApis;
-using Envoy.Models;
+﻿using EnvoyNetFrameworkSdk.Models;
+using EnvoyNetFrameworkSdk.VisitorAndProtectApis;
 using System.Threading.Tasks;
 using System.Web.Http;
 

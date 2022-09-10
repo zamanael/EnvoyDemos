@@ -1,4 +1,4 @@
-﻿using Envoy.Models;
+﻿using EnvoyNetFrameworkSdk.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Envoy.Api.ServerComponent.CoreApis
+namespace EnvoyNetFrameworkSdk.CoreApis
 {
     public class AuthenticationHelper : BaseHelper
     {

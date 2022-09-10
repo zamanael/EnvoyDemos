@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace Envoy.Api.ServerComponent
+namespace EnvoyNetFrameworkSdk
 {
     public static class AppSettings
     {
