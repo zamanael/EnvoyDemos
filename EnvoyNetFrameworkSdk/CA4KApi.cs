@@ -79,6 +79,11 @@ namespace EnvoyNetFrameworkSdk
                 .Select(e => ulong.Parse(e.GetValue("value")?.ToString() ?? "0"))
                 .FirstOrDefault();
 
+            ushort facility = userData.OfType<JObject>()
+                .Where(e => e.GetValue("field").ToString() == "Facility No")
+                .Select(e => ushort.Parse(e.GetValue("value")?.ToString() ?? "0"))
+                .FirstOrDefault();
+
             string[] nameArray = userData.OfType<JObject>()
                .Where(e => e.GetValue("field").ToString() == "Your Full Name")
                .Select(e => e.GetValue("value")?.ToString() ?? "0")
@@ -88,18 +93,10 @@ namespace EnvoyNetFrameworkSdk
             string firstName = nameArray.FirstOrDefault();
             string lastName = nameArray.LastOrDefault();
             string mi = nameArray.Length > 2 ? nameArray[1] : "";
-
-
-            ushort facility = 0;
             ushort accessGroup = 1;
-
             string pivi = "0";
             ushort operation = 0; //insert;
-
-            //caAccess.UpdateBadgeAccessGroup(facility, badge, new ushort[] { accessGroup });
-
             bool badgeExists = caAccess.BadgeExists((long)badge, facility, pivi);
-
 
             if (badgeExists)
             {
@@ -118,6 +115,11 @@ namespace EnvoyNetFrameworkSdk
                 .Select(e => ulong.Parse(e.GetValue("value")?.ToString() ?? "0"))
                 .FirstOrDefault();
 
+            ushort facility = userData.OfType<JObject>()
+                .Where(e => e.GetValue("field").ToString() == "Facility No")
+                .Select(e => ushort.Parse(e.GetValue("value")?.ToString() ?? "0"))
+                .FirstOrDefault();
+
             string[] nameArray = userData.OfType<JObject>()
                .Where(e => e.GetValue("field").ToString() == "Your Full Name")
                .Select(e => e.GetValue("value")?.ToString() ?? "0")
@@ -127,12 +129,9 @@ namespace EnvoyNetFrameworkSdk
             string firstName = nameArray.FirstOrDefault();
             string lastName = nameArray.LastOrDefault();
             string mi = nameArray.Length > 2 ? nameArray[1] : "";
-
-            ushort facility = 0;
             ushort accessGroup = 1;
             string pivi = "0";
-            ushort operation = 1; // delete;
-
+            ushort operation = 1; //delete;
             bool badgeExists = caAccess.BadgeExists((long)badge, facility, pivi);
 
 
