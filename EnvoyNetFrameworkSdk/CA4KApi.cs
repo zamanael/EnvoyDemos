@@ -73,17 +73,26 @@ namespace EnvoyNetFrameworkSdk
         public void ActivateBadge(JObject data)
         {
             JArray userData = data["payload"]["attributes"]["user-data"] as JArray;
+
             ulong badge = userData.OfType<JObject>()
                 .Where(e => e.GetValue("field").ToString() == "Badge No")
                 .Select(e => ulong.Parse(e.GetValue("value")?.ToString() ?? "0"))
                 .FirstOrDefault();
 
+            string[] nameArray = userData.OfType<JObject>()
+               .Where(e => e.GetValue("field").ToString() == "Your Full Name")
+               .Select(e => e.GetValue("value")?.ToString() ?? "0")
+               .FirstOrDefault()
+               .Split(' ');
+
+            string firstName = nameArray.FirstOrDefault();
+            string lastName = nameArray.LastOrDefault();
+            string mi = nameArray.Length > 2 ? nameArray[1] : "";
+
 
             ushort facility = 0;
             ushort accessGroup = 1;
-            string firstName = "John";
-            string lastName = "Doe";
-            string mi = "";
+
             string pivi = "0";
             ushort operation = 0; //insert;
 
@@ -103,16 +112,24 @@ namespace EnvoyNetFrameworkSdk
         public void DeactivateBadge(JObject data)
         {
             JArray userData = data["payload"]["attributes"]["user-data"] as JArray;
+
             ulong badge = userData.OfType<JObject>()
                 .Where(e => e.GetValue("field").ToString() == "Badge No")
                 .Select(e => ulong.Parse(e.GetValue("value")?.ToString() ?? "0"))
                 .FirstOrDefault();
 
-            ushort facility = 0;           
+            string[] nameArray = userData.OfType<JObject>()
+               .Where(e => e.GetValue("field").ToString() == "Your Full Name")
+               .Select(e => e.GetValue("value")?.ToString() ?? "0")
+               .FirstOrDefault()
+               .Split(' ');
+
+            string firstName = nameArray.FirstOrDefault();
+            string lastName = nameArray.LastOrDefault();
+            string mi = nameArray.Length > 2 ? nameArray[1] : "";
+
+            ushort facility = 0;
             ushort accessGroup = 1;
-            string firstName = "John";
-            string lastName = "Doe";
-            string mi = "";
             string pivi = "0";
             ushort operation = 1; // delete;
 
