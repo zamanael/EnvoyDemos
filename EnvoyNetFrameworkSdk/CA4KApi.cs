@@ -70,10 +70,16 @@ namespace EnvoyNetFrameworkSdk
             return Enumerable.Empty<(string, string)>();
         }
 
-        public void ActivateBadge(JObject signinInfo)
+        public void ActivateBadge(JObject data)
         {
+            JArray userData = data["payload"]["attributes"]["user-data"] as JArray;
+            ulong badge = userData.OfType<JObject>()
+                .Where(e => e.GetValue("field").ToString() == "Badge No")
+                .Select(e => ulong.Parse(e.GetValue("value")?.ToString() ?? "0"))
+                .FirstOrDefault();
+
+
             ushort facility = 0;
-            ulong badge = 52944;
             ushort accessGroup = 1;
             string firstName = "John";
             string lastName = "Doe";
@@ -94,10 +100,15 @@ namespace EnvoyNetFrameworkSdk
             caAccess.BadgeOperation(facility, badge, firstName, lastName, mi, new ushort[] { accessGroup }, operation);
         }
 
-        public void DeactivateBadge(JObject signoutInfo)
+        public void DeactivateBadge(JObject data)
         {
-            ushort facility = 0;
-            ulong badge = 52944;
+            JArray userData = data["payload"]["attributes"]["user-data"] as JArray;
+            ulong badge = userData.OfType<JObject>()
+                .Where(e => e.GetValue("field").ToString() == "Badge No")
+                .Select(e => ulong.Parse(e.GetValue("value")?.ToString() ?? "0"))
+                .FirstOrDefault();
+
+            ushort facility = 0;           
             ushort accessGroup = 1;
             string firstName = "John";
             string lastName = "Doe";
