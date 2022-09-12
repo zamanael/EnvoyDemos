@@ -75,16 +75,43 @@ namespace EnvoyNetFrameworkSdk
             ushort facility = 0;
             ulong badge = 52944;
             ushort accessGroup = 1;
+            string firstName = "John";
+            string lastName = "Doe";
+            string mi = "";
+            string pivi = "0";
+            ushort operation = 0; //insert;
 
-            caAccess.UpdateBadgeAccessGroup(facility, badge, new ushort[] { accessGroup });
+            //caAccess.UpdateBadgeAccessGroup(facility, badge, new ushort[] { accessGroup });
+
+            bool badgeExists = caAccess.BadgeExists((long)badge, facility, pivi);
+
+
+            if (badgeExists)
+            {
+                operation = 2; // update
+            }
+
+            caAccess.BadgeOperation(facility, badge, firstName, lastName, mi, new ushort[] { accessGroup }, operation);
         }
 
         public void DeactivateBadge(JObject signoutInfo)
         {
             ushort facility = 0;
             ulong badge = 52944;
+            ushort accessGroup = 1;
+            string firstName = "John";
+            string lastName = "Doe";
+            string mi = "";
+            string pivi = "0";
+            ushort operation = 1; // delete;
 
-            caAccess.UpdateBadgeAccessGroup(facility, badge, Enumerable.Empty<ushort>().ToArray());
+            bool badgeExists = caAccess.BadgeExists((long)badge, facility, pivi);
+
+
+            if (badgeExists)
+            {
+                caAccess.BadgeOperation(facility, badge, firstName, lastName, mi, new ushort[] { accessGroup }, operation);
+            }
         }
     }
 }
