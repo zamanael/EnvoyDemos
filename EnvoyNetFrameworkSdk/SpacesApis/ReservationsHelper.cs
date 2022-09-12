@@ -1,9 +1,8 @@
 ﻿using CardAccess.Logging;
 using EnvoyNetFrameworkSdk.Extensions;
-using EnvoyNetFrameworkSdk.Models;
+using EnvoyNetFrameworkSdk.Models.Spaces;
 using Newtonsoft.Json;
 using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace EnvoyNetFrameworkSdk.SpacesApis

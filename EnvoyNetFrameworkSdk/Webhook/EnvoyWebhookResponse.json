@@ -1,253 +1,235 @@
-[
-  {
+{
+  "meta": {
     "event": "entry_sign_out",
-    "meta": {
-      "location": {
-        "id": "176803",
-        "type": "locations",
-        "attributes": {
-          "name": "Head Office",
-          "company-name-override": null,
-          "time-zone": "Asia/Dhaka",
-          "timezone": "Asia/Dhaka",
-          "locale": "en",
-          "address": "Adaptive Enterprise Ltd (AEL), Q998+3W4, Dhaka",
-          "address-line-one": null,
-          "address-line-two": "Gaznabi Road",
-          "city": "Dhaka",
-          "state": "Dhaka Division",
-          "country": "BD",
-          "zip": null,
-          "longitude": 90.36733389999999,
-          "latitude": 23.7676351,
-          "created-at": "2022-08-26T05:04:45.434Z"
-        },
-        "relationships": {
-          "company": {
-            "data": {
-              "id": "135430",
-              "type": "companies"
-            }
-          }
-        }
-      },
-      "company": {
-        "id": "135430",
-        "type": "companies",
-        "attributes": {
-          "name": "AEL",
-          "plan-intent": "premium",
-          "buy-intent": false,
-          "active": true,
-          "created-at": "2022-08-26T05:04:45.404Z"
-        }
+    "plugin_id": "f8dd333c-8138-4aee-8c8e-7aa8c0ed36c9",
+    "install_id": "65699",
+    "env": {
+      "accessGroups": "1"
+    },
+    "config": {
+      "accessGroups": "1"
+    },
+    "job": {
+      "id": "5ec03f0e-a3cf-460b-8048-4c3485d61cd7",
+      "name": "entry_sign_out",
+      "identifier": "vr:entry:140205013"
+    },
+    "company": {
+      "id": "136287",
+      "type": "companies",
+      "attributes": {
+        "name": "Adaptive Enterprise Ltd",
+        "plan-intent": "premium",
+        "buy-intent": false,
+        "active": true,
+        "created-at": "2022-09-07T05:59:21.232Z"
       }
     },
-    "payload": {
-      "id": "139611583",
-      "type": "entries",
+    "auth": {
+      "token_type": "Bearer",
+      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjI3MzAxMTYsImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6ImI3NDhmMjcwLTRkYjktNGUwMC04NWUyLWQ1ODc4ZTYzMWFmYiIsImV4cCI6MTY2MjgxNjUxNiwic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.gCSFQFlPJlgN7qIjmmJyz7iR34PSNMh640cNoRZ2dFDGSOywVkDZiTsVN7g7Bucv3NpkvK1A16dtt8HutcqBZV42VCiIDVR_NwtJbNHBgFHN5cGbUWDbNyXvW193srKS",
+      "expires_in": 86400,
+      "refresh_token": null,
+      "refresh_token_expires_in": null,
+      "state": null,
+      "company_id": "136287"
+    },
+    "location": {
+      "id": "177837",
+      "type": "locations",
       "attributes": {
-        "agreements-status": "not_signed",
-        "checked-in-at": null,
-        "full-name": "Sohel Rana",
-        "email": "sohelrana@gmail.com",
-        "employee-screening-flow": false,
-        "host": "Titu 200",
-        "host-email": "titucse200@gmail.com",
-        "private-notes": "Call me when arrived.",
-        "signed-in-at": "2022-09-03 14:45:00 UTC",
-        "device-session-uuid": null,
-        "signed-in-via": "Dashboard",
-        "signed-in-by": "Titu 700",
-        "signed-out-via": "Dashboard",
-        "signed-out-by": "Titu 700",
-        "signed-out-at": "2022-09-03 14:37:09 UTC",
-        "thumbnails": {
-          "large": null,
-          "original": null,
-          "small": null
-        },
-        "flow-name": "Visitor",
-        "original-nda-sign-date": null,
-        "group-name": null,
-        "id-check-status": "",
-        "is-delivery": false,
-        "agreement-refused": false,
-        "locality": {
-          "place-id": ""
-        },
-        "pov-key": "Purpose of visit",
-        "user-data": [
-          {
-            "field": "Host",
-            "value": "Titu 200"
-          },
-          {
-            "field": "Your Full Name",
-            "value": "Sohel Rana"
-          },
-          {
-            "field": "Purpose of visit",
-            "value": "Visitor"
-          },
-          {
-            "field": "Your Email Address",
-            "value": "sohelrana@gmail.com"
-          }
-        ],
-        "sms-status": "not_sent",
-        "approval-status": {
-          "status": "approved",
-          "auto-approved": false,
-          "report": [
-            {
-              "reason": "",
-              "result": "pass",
-              "source": "capacity-screening",
-              "messages": {
-                "failure": {
-                  "text": "Someone will be with you shortly.",
-                  "header": "Please wait here while we review your responses."
-                }
-              }
-            }
-          ],
-          "reviewer-id": null,
-          "reviewer-name": null,
-          "review-note": null,
-          "reviewed-at": null
-        },
-        "failure-message-markdown": "# Please wait here while we review your responses.\n\nSomeone will be with you shortly.",
-        "custom-deny-markdown": "",
-        "push-status": "not_sent",
-        "email-status": "not_sent"
+        "name": "Head Office",
+        "company-name-override": null,
+        "time-zone": "Asia/Dhaka",
+        "timezone": "Asia/Dhaka",
+        "locale": "en",
+        "address": "Mohammadpur, Dhaka, Bangladesh",
+        "address-line-one": null,
+        "address-line-two": "Gaznabi Road",
+        "city": "Dhaka",
+        "state": "Dhaka Division",
+        "country": "BD",
+        "zip": null,
+        "longitude": 90.3588734,
+        "latitude": 23.7661639,
+        "created-at": "2022-09-07T05:59:21.265Z"
       },
       "relationships": {
-        "location": {
+        "company": {
           "data": {
-            "type": "locations",
-            "id": "176803"
+            "id": "136287",
+            "type": "companies"
           }
-        },
-        "employee": {
-          "data": {
-            "type": "employees",
-            "id": "97839878"
-          }
-        },
-        "invite-multi-tenancy-visitor-notification-logs": {
-          "links": {
-            "related": "https://app.envoy.com/api/v2/entries/139611583?include=invite-multi-tenancy-visitor-notification-logs"
-          }
-        },
-        "flow": {
-          "data": {
-            "type": "flows",
-            "id": "357665"
-          }
-        },
-        "recurring-entry": {
-          "data": {
-            "type": "entries",
-            "id": "139379241"
-          }
-        },
-        "previous-entries": {
-          "links": {
-            "related": "https://app.envoy.com/api/v3/entries/139611583/previous-entries"
-          }
-        },
-        "platform-jobs": {
-          "links": {
-            "related": "https://app.envoy.com/api/v3/entries/139611583/platform-jobs"
-          }
-        },
-        "agreeable-ndas": {
-          "data": [
-            {
-              "type": "agreeable-ndas",
-              "id": "72520258"
-            }
-          ]
         }
       }
     }
   },
-  {
-    "event": "location_capacity_updated",
-    "meta": {
-      "location": {
-        "id": "176803",
-        "type": "locations",
-        "attributes": {
-          "name": "Head Office",
-          "company-name-override": null,
-          "time-zone": "Asia/Dhaka",
-          "timezone": "Asia/Dhaka",
-          "locale": "en",
-          "address": "Adaptive Enterprise Ltd (AEL), Q998+3W4, Dhaka",
-          "address-line-one": null,
-          "address-line-two": "Gaznabi Road",
-          "city": "Dhaka",
-          "state": "Dhaka Division",
-          "country": "BD",
-          "zip": null,
-          "longitude": 90.36733389999999,
-          "latitude": 23.7676351,
-          "created-at": "2022-08-26T05:04:45.434Z"
+  "payload": {
+    "id": "140205013",
+    "type": "entries",
+    "attributes": {
+      "agreements-status": "signed",
+      "checked-in-at": null,
+      "full-name": "Jennyq Doe",
+      "email": "q@gmail.com",
+      "employee-screening-flow": false,
+      "host": "Titu 800",
+      "host-email": "titucse800@gmail.com",
+      "private-notes": null,
+      "signed-in-at": "2022-09-09 13:22:46 UTC",
+      "device-session-uuid": "4cfd9839-b9d4-4108-b4f6-b4adfdbd0c61",
+      "signed-in-via": "iPad",
+      "signed-in-by": null,
+      "signed-out-via": "iPad",
+      "signed-out-by": null,
+      "signed-out-at": "2022-09-09 13:28:35 UTC",
+      "thumbnails": {
+        "large": null,
+        "original": null,
+        "small": null
+      },
+      "flow-name": "Visitor",
+      "original-nda-sign-date": null,
+      "nda": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140205013/agreement-d8daf/2022_09_09_19_22_46_Jennyq_Doe_Visitor_Non-disclosure_Agreement.pdf?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1662730175&Signature=tieb9Mc8tL87zecB%2FgE8elLKnng%3D",
+      "legal-docs": [
+        {
+          "id": 43236286,
+          "url": "https://envoyuserentries.s3.amazonaws.com/ndas/177837/43236286/agreement-ddf84/2022_09_09_19_22_46_Jennyq_Doe_Visitor_Non-disclosure_Agreement.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4IIUN6N3F32XVNF7%2F20220909%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220909T132835Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=68d9ce4e9f7734153dddef3e11270e90bcd21e7f5e6541d8bd586b0a09eaea7c",
+          "signed-at": "2022-09-09 13:22:46 UTC",
+          "agreement": {
+            "id": 321483
+          }
+        }
+      ],
+      "group-name": null,
+      "id-check-status": "",
+      "is-delivery": false,
+      "agreement-refused": false,
+      "pov-key": "Purpose of visit",
+      "user-data": [
+        {
+          "field": "Host",
+          "value": "Titu 800"
         },
-        "relationships": {
-          "company": {
-            "data": {
-              "id": "135430",
-              "type": "companies"
+        {
+          "field": "Your Full Name",
+          "value": "Jennyq Doe"
+        },
+        {
+          "field": "Purpose of visit",
+          "value": "Visitor"
+        },
+        {
+          "field": "Reason to visit?",
+          "value": "N"
+        },
+        {
+          "field": "Your Email Address",
+          "value": "q@gmail.com"
+        },
+        {
+          "field": "Do you have an appointment?",
+          "value": "Yes"
+        }
+      ],
+      "sms-status": "not_sent",
+      "approval-status": {
+        "status": "approved",
+        "auto-approved": false,
+        "report": [
+          {
+            "reason": "Entry allowed",
+            "result": "pass",
+            "source": "conditional-rule",
+            "messages": {
+              "failure": {
+                "text": "Someone will be with you shortly.",
+                "header": "Please wait here while we review your responses."
+              }
+            }
+          },
+          {
+            "reason": "",
+            "result": "pass",
+            "source": "capacity-screening",
+            "messages": {
+              "failure": {
+                "text": "Someone will be with you shortly.",
+                "header": "Please wait here while we review your responses."
+              }
             }
           }
-        }
+        ],
+        "reviewer-id": null,
+        "reviewer-name": null,
+        "review-note": null,
+        "reviewed-at": null
       },
-      "company": {
-        "id": "135430",
-        "type": "companies",
-        "attributes": {
-          "name": "AEL",
-          "plan-intent": "premium",
-          "buy-intent": false,
-          "active": true,
-          "created-at": "2022-08-26T05:04:45.404Z"
-        }
-      }
+      "failure-message-markdown": "# Please wait here while we review your responses.\n\nSomeone will be with you shortly.",
+      "custom-deny-markdown": "",
+      "push-status": "not_sent",
+      "email-status": "not_sent"
     },
-    "payload": {
-      "id": "5216109",
-      "type": "locations-capacities",
-      "links": {
-        "self": "/api/v3/locations-capacities/5216109"
-      },
-      "attributes": {
-        "capacity-date": "2022-09-03",
-        "capacity-limit": 500,
-        "on-site-count": 0,
-        "expected-count": 0,
-        "employees-registered-count": 0,
-        "in-count": 1,
-        "out-count": 1,
-        "capacity-reached": false,
-        "capacity-enabled": true
-      },
-      "relationships": {
-        "location": {
-          "links": {
-            "self": "/api/v3/locations-capacities/5216109/relationships/location",
-            "related": "/api/v3/locations-capacities/5216109/location"
-          }
-        },
-        "company": {
-          "links": {
-            "self": "/api/v3/locations-capacities/5216109/relationships/company",
-            "related": "/api/v3/locations-capacities/5216109/company"
-          }
+    "relationships": {
+      "location": {
+        "data": {
+          "type": "locations",
+          "id": "177837"
         }
+      },
+      "visitor-entrance": {
+        "data": {
+          "type": "visitor_entrances",
+          "id": "84510"
+        }
+      },
+      "device": {
+        "data": {
+          "type": "devices",
+          "id": "193071"
+        }
+      },
+      "sign-out-device": {
+        "data": {
+          "type": "devices",
+          "id": "193071"
+        }
+      },
+      "employee": {
+        "data": {
+          "type": "employees",
+          "id": "97885729"
+        }
+      },
+      "invite-multi-tenancy-visitor-notification-logs": {
+        "links": {
+          "related": "https://app.envoy.com/api/v2/entries/140205013?include=invite-multi-tenancy-visitor-notification-logs"
+        }
+      },
+      "flow": {
+        "data": {
+          "type": "flows",
+          "id": "359435"
+        }
+      },
+      "previous-entries": {
+        "links": {
+          "related": "https://app.envoy.com/api/v3/entries/140205013/previous-entries"
+        }
+      },
+      "platform-jobs": {
+        "links": {
+          "related": "https://app.envoy.com/api/v3/entries/140205013/platform-jobs"
+        }
+      },
+      "agreeable-ndas": {
+        "data": [
+          {
+            "type": "agreeable-ndas",
+            "id": "72829714"
+          }
+        ]
       }
     }
   }
-]
+}

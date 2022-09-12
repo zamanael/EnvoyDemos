@@ -77,7 +77,7 @@
     <Compile Include="Models\Core\Address.cs" />
     <Compile Include="Models\Core\Company.cs" />
     <Compile Include="Models\Core\CompanyResponse.cs" />
-    <Compile Include="Models\CustomField.cs" />
+    <Compile Include="Models\VisitorAndProtect\CustomField.cs" />
     <Compile Include="Models\VisitorAndProtect\Employee.cs" />
     <Compile Include="Models\VisitorAndProtect\EmployeeResponse.cs" />
     <Compile Include="Models\VisitorAndProtect\EmployeesResponse.cs" />
@@ -86,7 +86,7 @@
     <Compile Include="Models\VisitorAndProtect\Flow.cs" />
     <Compile Include="Models\VisitorAndProtect\FlowResponse.cs" />
     <Compile Include="Models\VisitorAndProtect\FlowsResponse.cs" />
-    <Compile Include="Models\Host.cs" />
+    <Compile Include="Models\VisitorAndProtect\Host.cs" />
     <Compile Include="Models\VisitorAndProtect\Invite.cs" />
     <Compile Include="Models\VisitorAndProtect\Invitee.cs" />
     <Compile Include="Models\VisitorAndProtect\InviteResponse.cs" />
@@ -95,14 +95,14 @@
     <Compile Include="Models\Core\LocationResponse.cs" />
     <Compile Include="Models\Core\LocationsResponse.cs" />
     <Compile Include="Models\Meta.cs" />
-    <Compile Include="Models\Option.cs" />
+    <Compile Include="VisitorAndProtectApis\Option.cs" />
     <Compile Include="Models\VisitorAndProtect\RecurringInvite.cs" />
     <Compile Include="Models\VisitorAndProtect\RecurringInviteResponse.cs" />
-    <Compile Include="Models\Reservation.cs" />
-    <Compile Include="Models\ReservationResponse.cs" />
-    <Compile Include="Models\ScheduledFor.cs" />
-    <Compile Include="Models\Space.cs" />
-    <Compile Include="Models\SpaceResponse.cs" />
+    <Compile Include="Models\Spaces\Reservation.cs" />
+    <Compile Include="Models\Spaces\ReservationResponse.cs" />
+    <Compile Include="Models\VisitorAndProtect\ScheduledFor.cs" />
+    <Compile Include="Models\Spaces\Space.cs" />
+    <Compile Include="Models\Spaces\SpaceResponse.cs" />
     <Compile Include="Models\Core\TokenResponse.cs" />
     <Compile Include="Models\VisitorAndProtect\WorkSchedule.cs" />
     <Compile Include="Models\VisitorAndProtect\WorkScheduleResponse.cs" />
@@ -126,8 +126,6 @@
     <None Include="README.md" />
     <Content Include="Webhook\EnvoyWebhookResponse.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Spaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

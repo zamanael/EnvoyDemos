@@ -1,6 +1,6 @@
 ﻿using CardAccess.Logging;
 using EnvoyNetFrameworkSdk.Extensions;
-using EnvoyNetFrameworkSdk.Models;
+using EnvoyNetFrameworkSdk.Models.Spaces;
 using EnvoyNetFrameworkSdk.SpacesApis;
 using System;
 using System.Threading.Tasks;

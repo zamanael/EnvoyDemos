@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace EnvoyNetFrameworkSdk.Models
+namespace EnvoyNetFrameworkSdk.Models.Spaces
 {
-    public class ReservationResponse
+    public class Reservation
     {
     }
 }
