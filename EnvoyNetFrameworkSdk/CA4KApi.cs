@@ -1,4 +1,5 @@
 ﻿using CardAccess.API;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -69,5 +70,21 @@ namespace EnvoyNetFrameworkSdk
             return Enumerable.Empty<(string, string)>();
         }
 
+        public void ActivateBadge(JObject signinInfo)
+        {
+            ushort facility = 0;
+            ulong badge = 52944;
+            ushort accessGroup = 1;
+
+            caAccess.UpdateBadgeAccessGroup(facility, badge, new ushort[] { accessGroup });
+        }
+
+        public void DeactivateBadge(JObject signoutInfo)
+        {
+            ushort facility = 0;
+            ulong badge = 52944;
+
+            caAccess.UpdateBadgeAccessGroup(facility, badge, Enumerable.Empty<ushort>().ToArray());
+        }
     }
 }
