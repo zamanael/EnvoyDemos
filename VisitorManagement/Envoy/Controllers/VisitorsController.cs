@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
         public VisitorsController()
         {
             _visitorsHelper = new VisitorsHelper();
-            _logger = Logger.GetLogger<VisitorsController>();
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
         }
 
         [HttpPost]

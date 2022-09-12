@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
         public SpacesController()
         {
             _spaceHelper = new SpacesHelper();
-            _logger = Logger.GetLogger<SpacesController>();
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
         }
 
         [HttpGet]

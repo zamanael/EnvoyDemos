@@ -1,4 +1,5 @@
-﻿using EnvoyNetFrameworkSdk.Models.Core;
+﻿using CardAccess.Logging;
+using EnvoyNetFrameworkSdk.Models.Core;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,13 @@ namespace EnvoyNetFrameworkSdk.CoreApis
 {
     public class AuthenticationHelper : BaseHelper
     {
+        private readonly ILog _logger;
+
+        public AuthenticationHelper()
+        {
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
+        }
+
         public async Task<TokenResponse> GetTokenAsync(IEnumerable<KeyValuePair<string,string>> formData)
         {
             try
@@ -35,7 +43,7 @@ namespace EnvoyNetFrameworkSdk.CoreApis
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                _logger.Error(ex.Message, ex);
                 throw new Exception("An error occured");
             }
         }

@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
         public EntriesController()
         {
             _entriesHelper = new EntriesHelper();
-            _logger = Logger.GetLogger<EmployeesController>();
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
         }
 
         [HttpGet]

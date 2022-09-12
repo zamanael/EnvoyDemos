@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
         public ReservationsController()
         {
             _reservationHelper = new ReservationsHelper();
-            _logger = Logger.GetLogger<ReservationsController>();
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
         }
 
         [HttpGet]

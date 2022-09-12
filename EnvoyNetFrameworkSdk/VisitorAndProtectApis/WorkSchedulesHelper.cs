@@ -1,4 +1,6 @@
-﻿using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
+﻿using CardAccess.Logging;
+using EnvoyNetFrameworkSdk.Extensions;
+using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -9,17 +11,31 @@ namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
     public class WorkSchedulesHelper : BaseHelper
     {
         private const string workSchedulesUri = "work-schedules";
+        private readonly ILog _logger;
+
+        public WorkSchedulesHelper()
+        {
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
+        }
 
         public async Task<WorkSchedulesResponse> GetWorkSchedulesAsync(int page = 1, int perPage = 100)
         {
             try
             {
+                _logger.Debug($"{nameof(GetWorkSchedulesAsync)}()");
+
                 var responseString = await GetAsync($"{workSchedulesUri}?page={page}&perPage={perPage}");
-                return JsonConvert.DeserializeObject<WorkSchedulesResponse>(responseString);
+                WorkSchedulesResponse workSchedulesResponse = JsonConvert.DeserializeObject<WorkSchedulesResponse>(responseString);
+
+                _logger.Debug($"{nameof(GetWorkSchedulesAsync)}() - " +
+                   $"\nResponse: " +
+                   $"\n{workSchedulesResponse.Serialize()}");
+
+                return workSchedulesResponse;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                _logger.Error(ex.Message, ex);
                 throw new Exception("An error occured");
             }
         }
@@ -28,12 +44,20 @@ namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
         {
             try
             {
+                _logger.Debug($"{nameof(GetWorkScheduleByIdAsync)}({nameof(id)}: {id})");
+
                 var responseString = await GetAsync($"{workSchedulesUri}/{id}");
-                return JsonConvert.DeserializeObject<WorkScheduleResponse>(responseString);
+                WorkScheduleResponse workScheduleResponse = JsonConvert.DeserializeObject<WorkScheduleResponse>(responseString);
+
+                _logger.Debug($"{nameof(GetWorkScheduleByIdAsync)}({nameof(id)}: {id}) - " +
+                   $"\nResponse: " +
+                   $"\n{workScheduleResponse.Serialize()}");
+
+                return workScheduleResponse;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                _logger.Error(ex.Message, ex);
                 throw new Exception("An error occured");
             }
         }

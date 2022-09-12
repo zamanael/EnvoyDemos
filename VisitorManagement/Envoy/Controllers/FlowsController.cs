@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
         public FlowsController()
         {
             _flowsHelper = new FlowsHelper();
-            _logger = Logger.GetLogger<FlowsController>();
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
         }
 
         [HttpGet]
@@ -46,16 +46,16 @@ namespace VisitorManagement.Envoy.Controllers
 
         [HttpGet]
         [Route("flows/{id}")]
-        public async Task<FlowResponse> GetLocationByIdAsync(int id)
+        public async Task<FlowResponse> GetFlowByIdAsync(int id)
         {
             try
             {
                 _logger.Debug($"{nameof(Request.RequestUri.AbsolutePath)}: {Request.RequestUri.AbsolutePath}");
-                _logger.Debug($"{nameof(GetLocationByIdAsync)}({nameof(id)}: {id})");
+                _logger.Debug($"{nameof(GetFlowByIdAsync)}({nameof(id)}: {id})");
 
                 FlowResponse flowResponse = await _flowsHelper.GetFlowByIdAsync(id);
 
-                _logger.Debug($"{nameof(GetLocationByIdAsync)}({nameof(id)}: {id}) - " +
+                _logger.Debug($"{nameof(GetFlowByIdAsync)}({nameof(id)}: {id}) - " +
                    $"\nResponse: " +
                    $"\n{flowResponse.Serialize()}");
 

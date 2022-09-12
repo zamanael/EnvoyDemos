@@ -1,4 +1,5 @@
-﻿using EnvoyNetFrameworkSdk.Models;
+﻿using CardAccess.Logging;
+using EnvoyNetFrameworkSdk.Models;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -9,6 +10,12 @@ namespace EnvoyNetFrameworkSdk.SpacesApis
     public class SpacesHelper : BaseHelper
     {
         private const string spacesUri = "spaces";
+        private readonly ILog _logger;
+
+        public SpacesHelper()
+        {
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
+        }
 
         public async Task<SpaceResponse> GetSpacesAsync(string type = "DESK", int page = 1, int perPage = 250)
         {
@@ -19,7 +26,7 @@ namespace EnvoyNetFrameworkSdk.SpacesApis
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                _logger.Error(ex.Message, ex);
                 throw new Exception("An error occured");
             }
         }
@@ -33,7 +40,7 @@ namespace EnvoyNetFrameworkSdk.SpacesApis
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                _logger.Error(ex.Message, ex);
                 throw new Exception("An error occured");
             }
         }

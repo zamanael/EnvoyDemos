@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
         public LocationsController()
         {
             _locationsHelper = new LocationsHelper();
-            _logger = Logger.GetLogger<LocationsController>();
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
         }
 
         [HttpGet]

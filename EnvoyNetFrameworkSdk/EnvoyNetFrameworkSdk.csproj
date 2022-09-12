@@ -34,6 +34,10 @@
     <Reference Include="CardAccess.API">
       <HintPath>..\output\CardAccess.API.dll</HintPath>
     </Reference>
+    <Reference Include="CardAccess.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\output\CardAccess.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.WebHooks.Common, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebHooks.Common.1.2.2\lib\net45\Microsoft.AspNet.WebHooks.Common.dll</HintPath>
     </Reference>

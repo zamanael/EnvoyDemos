@@ -1,4 +1,6 @@
-﻿using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
+﻿using CardAccess.Logging;
+using EnvoyNetFrameworkSdk.Extensions;
+using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -9,17 +11,31 @@ namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
     public class RecrurringInvitesHelper : BaseHelper
     {
         private const string recurringInvitesUri = "recurring-invites";
+        private readonly ILog _logger;
+
+        public RecrurringInvitesHelper()
+        {
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
+        }
 
         public async Task<RecurringInviteResponse> GetRecurringInviteByIdAsync(int id)
         {
             try
             {
+                _logger.Debug($"{nameof(GetRecurringInviteByIdAsync)}({nameof(id)}: {id})");
+
                 var responseString = await GetAsync($"{recurringInvitesUri}/{id}");
-                return JsonConvert.DeserializeObject<RecurringInviteResponse>(responseString);
+                RecurringInviteResponse recurringInviteResponse = JsonConvert.DeserializeObject<RecurringInviteResponse>(responseString);
+
+                _logger.Debug($"{nameof(GetRecurringInviteByIdAsync)}({nameof(id)}: {id}) - " +
+                   $"\nResponse: " +
+                   $"\n{recurringInviteResponse.Serialize()}");
+
+                return recurringInviteResponse;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                _logger.Error(ex.Message, ex);
                 throw new Exception("An error occured");
             }
         }

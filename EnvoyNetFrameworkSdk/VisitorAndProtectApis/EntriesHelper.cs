@@ -1,4 +1,6 @@
-﻿using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
+﻿using CardAccess.Logging;
+using EnvoyNetFrameworkSdk.Extensions;
+using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -9,17 +11,31 @@ namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
     public class EntriesHelper : BaseHelper
     {
         private const string entriesUri = "entries";
+        private readonly ILog _logger;
+
+        public EntriesHelper()
+        {
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
+        }
 
         public async Task<EntryResponse> GetEntriesAsync(int page = 1, int perPage = 30, string sort = "SIGNED_IN_AT", string order = "DESC")
         {
             try
             {
+                _logger.Debug($"{nameof(GetEntriesAsync)}()");
+
                 var responseString = await GetAsync($"{entriesUri}?page={page}&perPage={perPage}&sort={sort}&order={order}");
-                return JsonConvert.DeserializeObject<EntryResponse>(responseString);
+                EntryResponse entryResponse = JsonConvert.DeserializeObject<EntryResponse>(responseString);
+
+                _logger.Debug($"{nameof(GetEntriesAsync)}() - " +
+                   $"\nResponse: " +
+                   $"\n{entryResponse.Serialize()}");
+
+                return entryResponse;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                _logger.Error(ex.Message, ex);
                 throw new Exception("An error occured");
             }
         }
@@ -28,12 +44,20 @@ namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
         {
             try
             {
+                _logger.Debug($"{nameof(GetEntryByIdAsync)}({nameof(id)}: {id})");
+
                 var responseString = await GetAsync($"{entriesUri}/{id}");
-                return JsonConvert.DeserializeObject<EntryResponse>(responseString);
+                EntryResponse entryResponse = JsonConvert.DeserializeObject<EntryResponse>(responseString);
+
+                _logger.Debug($"{nameof(GetEntryByIdAsync)}({nameof(id)}: {id}) - " +
+                   $"\nResponse: " +
+                   $"\n{entryResponse.Serialize()}");
+
+                return entryResponse;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                _logger.Error(ex.Message, ex);
                 throw new Exception("An error occured");
             }
         }

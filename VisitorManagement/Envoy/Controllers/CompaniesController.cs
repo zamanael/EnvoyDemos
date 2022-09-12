@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
         public CompaniesController()
         {
             _companiesHelper = new CompaniesHelper();
-            _logger = Logger.GetLogger<CompaniesController>();
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
         }
 
 

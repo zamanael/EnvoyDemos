@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
         public WorkSchedulesController()
         {
             _workSchedulesHelper = new WorkSchedulesHelper();
-            _logger = Logger.GetLogger<WorkSchedulesController>();
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
         }
 
         [HttpGet]

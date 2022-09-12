@@ -1,4 +1,5 @@
-﻿using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
+﻿using CardAccess.Logging;
+using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -9,6 +10,12 @@ namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
     public class EmployeesHelper : BaseHelper
     {
         private const string employeesUri = "employees";
+        private readonly ILog _logger;
+
+        public EmployeesHelper()
+        {
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
+        }
 
         public async Task<EmployeesResponse> GetEmployeesAsync(int page = 1, int perPage = 10, string sort="NAME", string order = "ASC")
         {
@@ -19,7 +26,7 @@ namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                _logger.Error(ex.Message, ex);
                 throw new Exception("An error occured");
             }
         }
@@ -33,7 +40,7 @@ namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                _logger.Error(ex.Message, ex);
                 throw new Exception("An error occured");
             }
         }

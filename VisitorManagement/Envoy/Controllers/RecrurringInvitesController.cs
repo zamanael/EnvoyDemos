@@ -17,7 +17,7 @@ namespace VisitorManagement.Envoy.Controllers
         public RecrurringInvitesController()
         {
             _recurringInvitesHelper = new RecrurringInvitesHelper();
-            _logger = Logger.GetLogger<RecrurringInvitesController>();
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
         }
 
         [HttpGet]

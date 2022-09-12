@@ -23,7 +23,6 @@ namespace VisitorManagement.Envoy.Controllers
         {
             _authenticationHelper = new AuthenticationHelper();
             _logger = Logger.GetLogger("CardAccess.Web.UI");
-           // _logger = Logger.GetLogger<AuthenticationController>();
         }
 
         [HttpPost]

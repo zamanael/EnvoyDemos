@@ -1,4 +1,5 @@
-﻿using EnvoyNetFrameworkSdk.Models;
+﻿using CardAccess.Logging;
+using EnvoyNetFrameworkSdk.Models;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,6 +8,13 @@ namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
 {
     public class VisitorsHelper : BaseHelper
     {
+        private readonly ILog _logger;
+
+        public VisitorsHelper()
+        {
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
+        }
+
         public IEnumerable<Option> GetHelloOption()
         {
             return new Option[]

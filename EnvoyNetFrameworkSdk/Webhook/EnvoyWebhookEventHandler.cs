@@ -1,4 +1,5 @@
 ﻿//using Microsoft.AspNet.SignalR;
+using CardAccess.Logging;
 using Microsoft.AspNet.WebHooks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -15,6 +16,8 @@ namespace EnvoyNetFrameworkSdk.Webhook
     /// </summary>
     public class EnvoyWebhookEventHandler : WebHookHandler
     {
+        private readonly ILog _logger;
+
         public static event Action<(string EventName, string PayLoad)> LocationCapacityUpdated;
         public static event Action<(string EventName, string PayLoad)> EntryScreened;
         public static event Action<(string EventName, string PayLoad)> NDAFileSigned;
@@ -38,7 +41,7 @@ namespace EnvoyNetFrameworkSdk.Webhook
         public EnvoyWebhookEventHandler()
         {
             Receiver = "GenericJson";
-            
+            _logger = Logger.GetLogger("CardAccess.Web.UI");
         }
 
         public override Task ExecuteAsync(string generator, WebHookHandlerContext context)
