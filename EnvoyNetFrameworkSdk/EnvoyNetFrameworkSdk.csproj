@@ -69,6 +69,7 @@
     <Compile Include="CoreApis\AuthenticationHelper.cs" />
     <Compile Include="CoreApis\CompaniesHelper.cs" />
     <Compile Include="CoreApis\LocationsHelper.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Models\Core\Address.cs" />
     <Compile Include="Models\Core\Company.cs" />
     <Compile Include="Models\Core\CompanyResponse.cs" />
