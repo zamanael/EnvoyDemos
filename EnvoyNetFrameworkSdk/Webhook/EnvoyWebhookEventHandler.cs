@@ -4,7 +4,10 @@ using Microsoft.AspNet.WebHooks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace EnvoyNetFrameworkSdk.Webhook
 {
@@ -46,85 +49,100 @@ namespace EnvoyNetFrameworkSdk.Webhook
 
         public override Task ExecuteAsync(string generator, WebHookHandlerContext context)
         {
-            JObject data = context.GetDataOrDefault<JObject>();
-            string @event = (string)data["meta"]["event"];
-
-            switch (@event)
+            try
             {
-                case EnvoyWebhookEvents.LocationCapacityUpdated:
-                    LocationCapacityUpdated?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.EntryScreened:
-                    EntryScreened?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.NDAFileSigned:
-                    NDAFileSigned?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.EntrySignIn:
-                    CA4KApi.Instance.ActivateBadge(data);
-                    EntrySignIn?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.EntrySignOut:
-                    CA4KApi.Instance.DeactivateBadge(data);
-                    EntrySignOut?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
+                JObject data = context.GetDataOrDefault<JObject>();
+                string @event = (string)data["meta"]["event"];
+
+                switch (@event)
+                {
+                    case EnvoyWebhookEvents.LocationCapacityUpdated:
+                        LocationCapacityUpdated?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.EntryScreened:
+                        EntryScreened?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.NDAFileSigned:
+                        NDAFileSigned?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.EntrySignIn:
+                        CA4KApi.Instance.ActivateBadge(data);
+                        EntrySignIn?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.EntrySignOut:
+                        CA4KApi.Instance.DeactivateBadge(data);
+                        EntrySignOut?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
 
 
-                case EnvoyWebhookEvents.EmployeeCheckInCreated:
-                    EmployeeCheckInCreated?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.EmployeeCheckInUpdated:
-                    EmployeeCheckInUpdated?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.EmployeeEntrySignIn:
-                    EmployeeEntrySignIn?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.EmployeeEntrySignOut:
-                    EmployeeEntrySignOut?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.EntryblockListDenied:
-                    EntryBlockListDenied?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.EntryBlockListReview:
-                    EntryBlockListReview?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.InviteCreated:
-                    InviteCreated?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.InviteQRCodeSent:
-                    InviteQRCodeSent?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.InviteRemoved:
-                    InviteRemoved?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.InviteUpdated:
-                    InviteUpdated?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.SignIn:
-                    SignIn?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.TicketCreated:
-                    TicketCreated?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.UpcomingEmployeeOnSite:
-                    UpcomingEmployeeOnSite?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.UpcomingInvitedVisit:
-                    UpcomingInvitedVisit?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                case EnvoyWebhookEvents.PluginUninstalled:
-                    UpcomingInvitedVisit?.Invoke((@event, JsonConvert.SerializeObject(data)));
-                    break;
-                default:
-                    throw new NotImplementedException();
-                    //break;
+                    case EnvoyWebhookEvents.EmployeeCheckInCreated:
+                        EmployeeCheckInCreated?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.EmployeeCheckInUpdated:
+                        EmployeeCheckInUpdated?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.EmployeeEntrySignIn:
+                        EmployeeEntrySignIn?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.EmployeeEntrySignOut:
+                        EmployeeEntrySignOut?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.EntryblockListDenied:
+                        EntryBlockListDenied?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.EntryBlockListReview:
+                        EntryBlockListReview?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.InviteCreated:
+                        InviteCreated?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.InviteQRCodeSent:
+                        InviteQRCodeSent?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.InviteRemoved:
+                        InviteRemoved?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.InviteUpdated:
+                        InviteUpdated?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.SignIn:
+                        SignIn?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.TicketCreated:
+                        TicketCreated?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.UpcomingEmployeeOnSite:
+                        UpcomingEmployeeOnSite?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.UpcomingInvitedVisit:
+                        UpcomingInvitedVisit?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    case EnvoyWebhookEvents.PluginUninstalled:
+                        UpcomingInvitedVisit?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                        //break;
+                }
+
+                //var hubContext = GlobalHost.ConnectionManager.GetHubContext<EnvoyWebhookEventHub>();
+                //hubContext.Clients.All.notifyEnvoyWebhookEvent(@event, JsonConvert.SerializeObject(data));
+
+
+                return Task.FromResult(true);
             }
+            catch (Exception ex)
+            {
+                _logger.Error(ex.Message, ex);
 
-            //var hubContext = GlobalHost.ConnectionManager.GetHubContext<EnvoyWebhookEventHub>();
-            //hubContext.Clients.All.notifyEnvoyWebhookEvent(@event, JsonConvert.SerializeObject(data));
+                var resp = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                {
+                    Content = new StringContent("Error handling event."),
+                    ReasonPhrase = "Internal server error"
+                };
 
-
-            return Task.FromResult(true);
+                throw new HttpResponseException(resp);
+            }
         }
     }
 }

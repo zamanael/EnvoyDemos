@@ -3,8 +3,8 @@
     public class UserData
     {
         public string Host { get; set; }
-        public ulong? BadgeNo { get; set; }
-        public ushort? FacilityNo { get; set; }
+        public long? BadgeNo { get; set; }
+        public short? FacilityNo { get; set; }
         public string AccessGroupName { get; set; }
         public string VisitorFullName { get; set; }
         public string FirstName { get; set; }

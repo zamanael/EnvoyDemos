@@ -44,27 +44,39 @@ namespace EnvoyNetFrameworkSdk
                   .FirstOrDefault();
         }
 
-        //private int GetNextAccessGroupNo()
-        //{
-        //    var dt = caAccess.GetAccessGroups();
+        private int CreateNewAccessGroup(long badgeNo)
+        {
+            string name = GetAccessGroupName(badgeNo);
+            int no = GetNextAccessGroupNo();
 
-        //    if (dt != null)
-        //    {
-        //        return dt.AsEnumerable()
-        //            .Select(dr => Convert.ToInt32(dr["ValueMember"]))
-        //            .Max() + 1;
-        //    }
+            bool success = caAccess.AccessGroupOperation(name, no, 0) == 0;
+            if (!success)
+            {
+                throw new Exception("Couldn't create access group.");
+            }
 
-        //    return 1;
-        //}
+            //DateTime now = DateTime.Now;
 
-        //private bool CreateAccessGroup(string name, int no)
-        //{
-        //    bool result = caAccess.AccessGroupOperation(name, no, 0) == 0;
-        //    DateTime now = DateTime.Now;
+            //return success && CreateTimeScheduleTimeBlock(no, 0, (int)now.DayOfWeek, (int)now.DayOfWeek, now, now.AddSeconds(60 * 2));
 
-        //    return result && CreateTimeScheduleTimeBlock(no, 0, (int)now.DayOfWeek, (int)now.DayOfWeek, now, now.AddSeconds(60 * 2));
-        //}
+            return no;
+        }
+
+        private string GetAccessGroupName(long badgeNo) => $"Envoy Access Group For Badge {badgeNo}";
+
+        private int GetNextAccessGroupNo()
+        {
+            var dt = caAccess.GetAccessGroups();
+
+            if (dt != null)
+            {
+               var v = dt.AsEnumerable()
+                    .Select(dr => Convert.ToInt32(dr["ValueMember"]))
+                    .Max() + 1;
+            }
+
+            return 1;
+        }
     }
 }
 

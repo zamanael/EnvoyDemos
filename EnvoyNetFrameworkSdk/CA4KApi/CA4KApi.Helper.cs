@@ -22,14 +22,14 @@ namespace EnvoyNetFrameworkSdk
                 dic.Add(customField.Field, customField.Value);
             }
 
-            ulong? badgeNo = null;
-            if (dic.ContainsKey("Badge No") && ulong.TryParse(dic["Badge No"].ToString(), out ulong b))
+            long? badgeNo = null;
+            if (dic.ContainsKey("Badge No") && long.TryParse(dic["Badge No"].ToString(), out long b))
             {
                 badgeNo = b;
             }
 
-            ushort? facilityNo = null;
-            if (dic.ContainsKey("Facility No") && ushort.TryParse(dic["Facility No"].ToString(), out ushort f))
+            short? facilityNo = null;
+            if (dic.ContainsKey("Facility No") && short.TryParse(dic["Facility No"].ToString(), out short f))
             {
                 facilityNo = f;
             }

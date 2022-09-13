@@ -18,12 +18,17 @@ namespace EnvoyNetFrameworkSdk
                 return;
 
             ulong badge = (ulong)userData.BadgeNo;
-            ushort facility = userData.FacilityNo.Value;
+            ushort facility = (ushort)userData.FacilityNo.Value;
             string pivi = "0";
             string firstName = userData.FirstName;
             string lastName = userData.LastName;
             string mi = userData.MI ?? "";
             ushort accessGroupNo = (ushort)GetAccessGroupNoByName(userData.AccessGroupName);
+            if (accessGroupNo == 0)
+            {
+                accessGroupNo = (ushort)CreateNewAccessGroup((long)badge);
+            }
+            ushort[] agNos = new ushort[] { accessGroupNo };
             ushort operation = 0; //insert;
 
             bool badgeExists = caAccess.BadgeExists((long)badge, facility, pivi);
@@ -36,7 +41,7 @@ namespace EnvoyNetFrameworkSdk
                 firstName,
                 lastName,
                 mi,
-                new ushort[] { accessGroupNo },
+                agNos,
                 operation
             );
         }
@@ -53,7 +58,7 @@ namespace EnvoyNetFrameworkSdk
                 return;
 
             ulong badge = (ulong)userData.BadgeNo;
-            ushort facility = userData.FacilityNo.Value;
+            ushort facility = (ushort)userData.FacilityNo.Value;
             string pivi = "0";
             string firstName = userData.FirstName;
             string lastName = userData.LastName;
