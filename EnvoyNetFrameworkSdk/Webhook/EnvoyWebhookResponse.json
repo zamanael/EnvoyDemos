@@ -1,6 +1,6 @@
 {
   "meta": {
-    "event": "entry_sign_out",
+    "event": "invite_created",
     "plugin_id": "f8dd333c-8138-4aee-8c8e-7aa8c0ed36c9",
     "install_id": "65699",
     "env": {
@@ -10,9 +10,9 @@
       "accessGroups": "1"
     },
     "job": {
-      "id": "081d84a9-5540-445f-b4c7-2a14a8675cff",
-      "name": "entry_sign_out",
-      "identifier": "vr:entry:140353831"
+      "id": "001871d5-30ad-4dc1-bd67-56a028a939af",
+      "name": "invite_created",
+      "identifier": "vr:invite:43116507"
     },
     "company": {
       "id": "136287",
@@ -27,7 +27,7 @@
     },
     "auth": {
       "token_type": "Bearer",
-      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjI5ODAyNzQsImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6IjFmNjBmNGQ1LTM4YmEtNDQ1Zi05MDQ0LWQxYmM4ZGY1ZGFiNSIsImV4cCI6MTY2MzA2NjY3NCwic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.ERUAGimtpb4u_XOcrOZskRdLR8cpENx5_CEzHZJKZ_xLM2pEBP6fd4S7cGS3TrO0sEdc-DqAraIZQ0bKP5R7xKEJOCRYsLRkUcGgtEcax05OdSJdHsqVxCfxjLUe0z8T",
+      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjMwNTI2NjksImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6IjdlMDYyOGNkLWRlMTgtNGYxYy1hYjc0LTBmZjNlNmRkODY0NCIsImV4cCI6MTY2MzEzOTA2OSwic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.kk9xkUNSwtlwLQk__nShsoVrTOA3t8IFvfE2xkXeRfLwOW05S2BNteCc9fldXgzdH_osygPKE-0inqvZ6gR0zksc0E7YpSh90frtpzHr4T172tmO2CMhNQuu5vLBoXzi",
       "expires_in": 86400,
       "refresh_token": null,
       "refresh_token_expires_in": null,
@@ -65,145 +65,79 @@
     }
   },
   "payload": {
-    "id": "140353831",
-    "type": "entries",
+    "id": "43116507",
+    "type": "invites",
     "attributes": {
-      "agreements-status": "signed",
+      "agreements-status": "pending",
       "checked-in-at": null,
-      "full-name": "John Doe",
-      "email": "j@gmail.com",
       "employee-screening-flow": false,
-      "host": "Titu 800",
-      "host-email": "titucse800@gmail.com",
-      "private-notes": null,
-      "signed-in-at": "2022-09-12 10:49:36 UTC",
-      "device-session-uuid": "3f32c06b-89c9-41f2-a4f8-ec8a53c882f7",
-      "signed-in-via": "iPad",
-      "signed-in-by": null,
-      "signed-out-via": "iPad",
-      "signed-out-by": null,
-      "signed-out-at": "2022-09-12 10:57:53 UTC",
-      "thumbnails": {
-        "large": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140353831/photo-w300-c7125/John_Doe.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1662983874&Signature=HKbpSZKxl3CNBJXNi3JiFTwy2B8%3D",
-        "original": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140353831/photo-original-c7125/John_Doe.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1662983874&Signature=AAbK4J3gzFfv3U8CM4cAvKZjeG0%3D",
-        "small": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140353831/photo-w160-c7125/John_Doe.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1662983874&Signature=uG%2BhbMdggeWj8Fu5%2BI8EHQMWLOw%3D"
-      },
+      "full-name": "John Doe",
+      "email": "johndoe@gmail.com",
+      "inviter-name": "Titu 800",
+      "inviter-email": "titucse800@gmail.com",
+      "expected-arrival-time": "2022-09-13T07:15:00Z",
+      "private-notes": "This is a test invite.",
+      "arrived": false,
+      "been-here-before": false,
       "flow-name": "Visitor",
-      "original-nda-sign-date": "2022-09-09 12:29:37 UTC",
-      "nda": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140353831/agreement-7bf16/2022_09_09_18_29_37_John_Doe_Visitor_Non-disclosure_Agreement.pdf?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1662980334&Signature=9cj8sa1Fi%2F8WjLvqwtCNPSkL1A4%3D",
-      "legal-docs": [
-        {
-          "id": 43234171,
-          "url": "https://envoyuserentries.s3.amazonaws.com/ndas/177837/43234171/agreement-d605b/2022_09_09_18_29_37_John_Doe_Visitor_Non-disclosure_Agreement.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4IIUN6N3F32XVNF7%2F20220912%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220912T105754Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=55d0ced82bfb0cc0fae58f125e33b168d5b8a655c9f6cb043fe5d016b0f7f48d",
-          "signed-at": "2022-09-09 12:29:37 UTC",
-          "agreement": {
-            "id": 321483
-          }
-        }
-      ],
-      "group-name": null,
-      "id-check-status": "",
-      "is-delivery": false,
-      "agreement-refused": false,
-      "pov-key": "Purpose of visit",
+      "flow-id": 359435,
       "user-data": [
+        {
+          "field": "Facility No",
+          "value": "0"
+        },
+        {
+          "field": "Badge No",
+          "value": "52944"
+        },
+        {
+          "field": "Your Email Address",
+          "value": ""
+        },
         {
           "field": "Host",
           "value": "Titu 800"
         },
         {
           "field": "Your Full Name",
-          "value": "John Doe"
+          "value": ""
         },
         {
           "field": "Purpose of visit",
           "value": "Visitor"
-        },
-        {
-          "field": "Reason to visit?",
-          "value": "Consultancy"
-        },
-        {
-          "field": "Your Email Address",
-          "value": "j@gmail.com"
-        },
-        {
-          "field": "Do you have an appointment?",
-          "value": "Yes"
         }
       ],
-      "sms-status": "not_sent",
+      "additional-guests": 0,
+      "guest-updated-at": null,
+      "nda": null,
+      "nda-available": true,
+      "original-nda-sign-date": null,
+      "secret-token": "e349bcc47eaff4db4d14",
+      "edit-token": "zioSqpGvzapeapHCfjafpNJz",
+      "group-name": null,
+      "photo-url": null,
+      "qr-code": "https://envoyuserentries.s3.amazonaws.com/invites/43116507/qr-code-original-2d93d/e349bcc47eaff4db4d14-invite-qr-code20220913-10-15qp39d.png?1663052668",
+      "qr-code-sent-at": null,
+      "preregistration-complete": false,
+      "reminder-sent-at": null,
       "approval-status": {
         "status": "approved",
         "auto-approved": false,
-        "report": [
-          {
-            "reason": "Entry allowed",
-            "result": "pass",
-            "source": "conditional-rule",
-            "messages": {
-              "failure": {
-                "text": "Someone will be with you shortly.",
-                "header": "Please wait here while we review your responses."
-              }
-            }
-          },
-          {
-            "reason": "",
-            "result": "pass",
-            "source": "capacity-screening",
-            "messages": {
-              "failure": {
-                "text": "Someone will be with you shortly.",
-                "header": "Please wait here while we review your responses."
-              }
-            }
-          }
-        ],
+        "report": [],
         "reviewer-id": null,
         "reviewer-name": null,
         "review-note": null,
         "reviewed-at": null
-      },
-      "failure-message-markdown": "# Please wait here while we review your responses.\n\nSomeone will be with you shortly.",
-      "custom-deny-markdown": "",
-      "push-status": "not_sent",
-      "email-status": "not_sent"
+      }
     },
     "relationships": {
+      "entry": {
+        "data": null
+      },
       "location": {
         "data": {
-          "type": "locations",
-          "id": "177837"
-        }
-      },
-      "visitor-entrance": {
-        "data": {
-          "type": "visitor_entrances",
-          "id": "84510"
-        }
-      },
-      "device": {
-        "data": {
-          "type": "devices",
-          "id": "193071"
-        }
-      },
-      "sign-out-device": {
-        "data": {
-          "type": "devices",
-          "id": "193071"
-        }
-      },
-      "employee": {
-        "data": {
-          "type": "employees",
-          "id": "97885729"
-        }
-      },
-      "invite-multi-tenancy-visitor-notification-logs": {
-        "links": {
-          "related": "https://app.envoy.com/api/v2/entries/140353831?include=invite-multi-tenancy-visitor-notification-logs"
+          "id": "177837",
+          "type": "locations"
         }
       },
       "flow": {
@@ -212,29 +146,33 @@
           "id": "359435"
         }
       },
-      "recurring-entry": {
+      "employee": {
         "data": {
-          "type": "entries",
-          "id": "140203943"
+          "type": "employees",
+          "id": "97885729"
         }
       },
-      "previous-entries": {
+      "creator": {
+        "data": {
+          "type": "users",
+          "id": "2493969"
+        }
+      },
+      "recurring-invite": {
+        "data": {
+          "type": "recurring-invites",
+          "id": "280234"
+        }
+      },
+      "multi-tenancy-visitor-notification-logs": {
         "links": {
-          "related": "https://app.envoy.com/api/v3/entries/140353831/previous-entries"
+          "related": "https://web.envoy.com/api/v2/invites/43116507?include=multi-tenancy-visitor-notification-logs"
         }
       },
       "platform-jobs": {
         "links": {
-          "related": "https://app.envoy.com/api/v3/entries/140353831/platform-jobs"
+          "related": "https://web.envoy.com/api/v3/invites/43116507/platform-jobs"
         }
-      },
-      "agreeable-ndas": {
-        "data": [
-          {
-            "type": "agreeable-ndas",
-            "id": "72921282"
-          }
-        ]
       }
     }
   }
