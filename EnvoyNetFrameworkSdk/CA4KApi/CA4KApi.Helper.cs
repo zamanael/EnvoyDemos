@@ -11,8 +11,6 @@ namespace EnvoyNetFrameworkSdk
     {
         private UserData GetUserData(JObject data)
         {
-            UserData userData = new UserData();
-
             JArray userDataArray = data["payload"]["attributes"]["user-data"] as JArray;
             var dic = new Dictionary<string, object>();
 
@@ -50,16 +48,16 @@ namespace EnvoyNetFrameworkSdk
 
             return new UserData
             {
-                AccessGroupName = dic["Access Group"]?.ToString(),
+                Room = dic.ContainsKey("Room") ? dic["Room"]?.ToString() : null,
                 BadgeNo = badgeNo,
-                Email = dic["Your Email Address"]?.ToString(),
+                Email = dic.ContainsKey("Your Email Address") ? dic["Your Email Address"]?.ToString() : null,
                 FacilityNo = facilityNo,
                 FirstName = firstName,
-                Host = dic["Host"]?.ToString(),
+                Host = dic.ContainsKey("Host") ? dic["Host"]?.ToString() : null,
                 LastName = lastName,
                 MI = mi,
-                PurposeOfVisit = dic["Purpose of visit"]?.ToString(),
-                VisitorFullName = dic["Your Full Name"]?.ToString()
+                PurposeOfVisit = dic.ContainsKey("Purpose of visit") ? dic["Purpose of visit"]?.ToString() : null,
+                VisitorFullName = dic.ContainsKey("Your Full Name") ? dic["Your Full Name"]?.ToString() : null
             };
         }
     }

@@ -14,7 +14,7 @@ namespace EnvoyNetFrameworkSdk
                 !userData.FacilityNo.HasValue ||
                 string.IsNullOrEmpty(userData.FirstName) ||
                 string.IsNullOrEmpty(userData.LastName) ||
-                string.IsNullOrEmpty(userData.AccessGroupName))
+                string.IsNullOrEmpty(userData.Room))
                 return;
 
             ulong badge = (ulong)userData.BadgeNo;
@@ -23,7 +23,7 @@ namespace EnvoyNetFrameworkSdk
             string firstName = userData.FirstName;
             string lastName = userData.LastName;
             string mi = userData.MI ?? "";
-            ushort accessGroupNo = (ushort)GetOrCreateAccessGroup(userData.AccessGroupName, (long)badge);
+            ushort accessGroupNo = (ushort)GetOrCreateAccessGroup(userData.Room, (long)badge);
             ushort[] agNos = new ushort[] { accessGroupNo };
             ushort operation = 0; //insert;
 
@@ -50,7 +50,7 @@ namespace EnvoyNetFrameworkSdk
                 !userData.FacilityNo.HasValue ||
                 string.IsNullOrEmpty(userData.FirstName) ||
                 string.IsNullOrEmpty(userData.LastName) ||
-                string.IsNullOrEmpty(userData.AccessGroupName))
+                string.IsNullOrEmpty(userData.Room))
                 return;
 
             ulong badge = (ulong)userData.BadgeNo;
