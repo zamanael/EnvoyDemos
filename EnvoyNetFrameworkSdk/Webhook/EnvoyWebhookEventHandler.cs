@@ -65,7 +65,7 @@ namespace EnvoyNetFrameworkSdk.Webhook
                     EntrySignIn?.Invoke((@event, JsonConvert.SerializeObject(data)));
                     break;
                 case EnvoyWebhookEvents.EntrySignOut:
-                    //CA4KApi.Instance.DeactivateBadge(data);
+                    CA4KApi.Instance.DeactivateBadge(data);
                     EntrySignOut?.Invoke((@event, JsonConvert.SerializeObject(data)));
                     break;
 
