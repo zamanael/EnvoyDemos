@@ -61,11 +61,11 @@ namespace EnvoyNetFrameworkSdk.Webhook
                     NDAFileSigned?.Invoke((@event, JsonConvert.SerializeObject(data)));
                     break;
                 case EnvoyWebhookEvents.EntrySignIn:
-                    CA4KApi.Instance.ActivateBadge(data);
+                    //CA4KApi.Instance.ActivateBadge(data);
                     EntrySignIn?.Invoke((@event, JsonConvert.SerializeObject(data)));
                     break;
                 case EnvoyWebhookEvents.EntrySignOut:
-                    CA4KApi.Instance.DeactivateBadge(data);
+                    //CA4KApi.Instance.DeactivateBadge(data);
                     EntrySignOut?.Invoke((@event, JsonConvert.SerializeObject(data)));
                     break;
 
@@ -110,6 +110,9 @@ namespace EnvoyNetFrameworkSdk.Webhook
                     UpcomingEmployeeOnSite?.Invoke((@event, JsonConvert.SerializeObject(data)));
                     break;
                 case EnvoyWebhookEvents.UpcomingInvitedVisit:
+                    UpcomingInvitedVisit?.Invoke((@event, JsonConvert.SerializeObject(data)));
+                    break;
+                case EnvoyWebhookEvents.PluginUninstalled:
                     UpcomingInvitedVisit?.Invoke((@event, JsonConvert.SerializeObject(data)));
                     break;
                 default:

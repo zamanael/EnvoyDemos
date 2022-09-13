@@ -45,5 +45,7 @@
         public const string TicketCreated = "ticket_created";
         // (Desks) Sign-in - Beta
         public const string SignIn = "sign_in";
+
+        public const string PluginUninstalled = "plugin_uninstalled";
     }
 }
