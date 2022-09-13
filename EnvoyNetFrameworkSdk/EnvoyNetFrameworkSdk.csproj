@@ -69,7 +69,8 @@
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
     <Compile Include="BaseHelper.cs" />
-    <Compile Include="CA4KApi.cs" />
+    <Compile Include="CA4KApi\CA4KApi.AccessGroups.cs" />
+    <Compile Include="CA4KApi\CA4KApi.cs" />
     <Compile Include="CoreApis\AuthenticationHelper.cs" />
     <Compile Include="CoreApis\CompaniesHelper.cs" />
     <Compile Include="CoreApis\LocationsHelper.cs" />

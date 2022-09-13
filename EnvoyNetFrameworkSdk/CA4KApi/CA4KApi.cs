@@ -1,4 +1,5 @@
 ﻿using CardAccess.API;
+using CardAccess.Logging;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -7,20 +8,22 @@ using System.Linq;
 
 namespace EnvoyNetFrameworkSdk
 {
-    public sealed class CA4KApi
+    public sealed partial class CA4KApi
     {
         //the volatile keyword ensures that the instantiation is complete 
         //before it can be accessed further helping with thread safety.
         private static volatile CA4KApi _instance;
         private static readonly object SyncLock = new object();
 
-        private ca4Knet caAccess;
-        bool apiInitialized = false;
+        private readonly ca4Knet caAccess;
+        readonly bool apiInitialized = false;
+        private readonly ILog _logger;
 
         private CA4KApi()
         {
             try
             {
+                _logger = Logger.GetLogger("CardAccess.Web.UI");
                 caAccess = new ca4Knet();
                 caAccess.LogIn("admin", "");
                 if (caAccess.ConnectStr != "")
@@ -28,7 +31,7 @@ namespace EnvoyNetFrameworkSdk
                     apiInitialized = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 if (caAccess != null) caAccess = null;
             }
@@ -56,19 +59,7 @@ namespace EnvoyNetFrameworkSdk
             }
         }
 
-        public IEnumerable<(string DisplayMember, string ValueMember)> GetAccessGroups()
-        {
-            var dt = caAccess.GetAccessGroups();
-
-            if (dt != null)
-            {
-                return dt.AsEnumerable()
-                    .Select(dr => (dr["DisplayMember"].ToString(), dr["ValueMember"].ToString()))
-                    .ToArray();
-            }
-
-            return Enumerable.Empty<(string, string)>();
-        }
+        
 
         public void ActivateBadge(JObject data)
         {

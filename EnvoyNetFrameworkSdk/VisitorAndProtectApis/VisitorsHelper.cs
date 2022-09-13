@@ -35,14 +35,6 @@ namespace EnvoyNetFrameworkSdk.VisitorAndProtectApis
             };
         }
 
-        public IEnumerable<Option> GetAccessGroupOption()
-        {
-            return CA4KApi.Instance.GetAccessGroups()
-                .Select(a => new Option
-                {
-                    Label = a.DisplayMember,
-                    Value = a.ValueMember
-                });
-        }
+        public IEnumerable<Option> GetAccessGroupOption() => CA4KApi.Instance.GetAccessGroupsOptions();
     }
 }
