@@ -69,6 +69,9 @@
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
     <Compile Include="BaseHelper.cs" />
+    <Compile Include="CA4KApi\CA4KApi.Helper.cs" />
+    <Compile Include="CA4KApi\CA4KApi.TimeSchedules.cs" />
+    <Compile Include="CA4KApi\CA4KApi.Badge.cs" />
     <Compile Include="CA4KApi\CA4KApi.AccessGroups.cs" />
     <Compile Include="CA4KApi\CA4KApi.cs" />
     <Compile Include="CoreApis\AuthenticationHelper.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="Models\Core\Address.cs" />
     <Compile Include="Models\Core\Company.cs" />
     <Compile Include="Models\Core\CompanyResponse.cs" />
+    <Compile Include="Models\UserData.cs" />
     <Compile Include="Models\VisitorAndProtect\CustomField.cs" />
     <Compile Include="Models\VisitorAndProtect\Employee.cs" />
     <Compile Include="Models\VisitorAndProtect\EmployeeResponse.cs" />
