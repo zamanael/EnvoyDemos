@@ -70,9 +70,9 @@ namespace EnvoyNetFrameworkSdk
 
             if (dt != null)
             {
-               var v = dt.AsEnumerable()
-                    .Select(dr => Convert.ToInt32(dr["ValueMember"]))
-                    .Max() + 1;
+                return dt.AsEnumerable()
+                     .Select(dr => Convert.ToInt32(dr["ValueMember"]))
+                     .Max() + 1;
             }
 
             return 1;
