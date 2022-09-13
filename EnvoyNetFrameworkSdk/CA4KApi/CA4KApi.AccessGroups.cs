@@ -43,15 +43,18 @@ namespace EnvoyNetFrameworkSdk
             name = GenerateAccessGroupName(badgeNo);
             no = GetAccessGroupNoByName(name);
             if (no > 0)
+            {
+                GetOrCreateTimeSchedule(badgeNo);
+                //CreateDefaultTimeScheduleTimeBlock(no);
                 return no;
+            }
 
             no = GetNextAccessGroupNo();
             bool success = caAccess.AccessGroupOperation(name, no, 0) == 0;
             if (!success)
                 throw new Exception("Couldn't create access group.");
 
-            //DateTime now = DateTime.Now;
-            //return success && CreateTimeScheduleTimeBlock(no, 0, (int)now.DayOfWeek, (int)now.DayOfWeek, now, now.AddSeconds(60 * 2));
+           
 
             return no;
         }
