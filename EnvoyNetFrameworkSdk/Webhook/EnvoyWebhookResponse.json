@@ -10,9 +10,9 @@
       "accessGroups": "1"
     },
     "job": {
-      "id": "001871d5-30ad-4dc1-bd67-56a028a939af",
+      "id": "b539dde1-ab00-4a26-b3c8-6c8a78c54fcf",
       "name": "invite_created",
-      "identifier": "vr:invite:43116507"
+      "identifier": "vr:invite:43116508"
     },
     "company": {
       "id": "136287",
@@ -27,7 +27,7 @@
     },
     "auth": {
       "token_type": "Bearer",
-      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjMwNTI2NjksImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6IjdlMDYyOGNkLWRlMTgtNGYxYy1hYjc0LTBmZjNlNmRkODY0NCIsImV4cCI6MTY2MzEzOTA2OSwic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.kk9xkUNSwtlwLQk__nShsoVrTOA3t8IFvfE2xkXeRfLwOW05S2BNteCc9fldXgzdH_osygPKE-0inqvZ6gR0zksc0E7YpSh90frtpzHr4T172tmO2CMhNQuu5vLBoXzi",
+      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjMwNTI2NjksImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6Ijg3N2JjYTIzLTBlZjctNDIwNS05ZGZiLTQxNTA4NTNhODU5YiIsImV4cCI6MTY2MzEzOTA2OSwic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.Z1rQ5s1cfxKBcObof_r9xbQIpSeiYVIktI3ZLXprnvcmzvTW-tu7vqhmEjJNPbX37OxK-vHAmurVBMzjcH48mAo3WaduLV99CuyBB4bZHeekpgFdskICzzsp_BA7jJH_",
       "expires_in": 86400,
       "refresh_token": null,
       "refresh_token_expires_in": null,
@@ -65,7 +65,7 @@
     }
   },
   "payload": {
-    "id": "43116507",
+    "id": "43116508",
     "type": "invites",
     "attributes": {
       "agreements-status": "pending",
@@ -75,7 +75,7 @@
       "email": "johndoe@gmail.com",
       "inviter-name": "Titu 800",
       "inviter-email": "titucse800@gmail.com",
-      "expected-arrival-time": "2022-09-13T07:15:00Z",
+      "expected-arrival-time": "2022-09-14T07:15:00Z",
       "private-notes": "This is a test invite.",
       "arrived": false,
       "been-here-before": false,
@@ -113,10 +113,10 @@
       "nda-available": true,
       "original-nda-sign-date": null,
       "secret-token": "e349bcc47eaff4db4d14",
-      "edit-token": "zioSqpGvzapeapHCfjafpNJz",
+      "edit-token": "JwUp9h4p8AnAz51VEBc4Nd1y",
       "group-name": null,
       "photo-url": null,
-      "qr-code": "https://envoyuserentries.s3.amazonaws.com/invites/43116507/qr-code-original-2d93d/e349bcc47eaff4db4d14-invite-qr-code20220913-10-15qp39d.png?1663052668",
+      "qr-code": null,
       "qr-code-sent-at": null,
       "preregistration-complete": false,
       "reminder-sent-at": null,
@@ -166,12 +166,12 @@
       },
       "multi-tenancy-visitor-notification-logs": {
         "links": {
-          "related": "https://web.envoy.com/api/v2/invites/43116507?include=multi-tenancy-visitor-notification-logs"
+          "related": "https://web.envoy.com/api/v2/invites/43116508?include=multi-tenancy-visitor-notification-logs"
         }
       },
       "platform-jobs": {
         "links": {
-          "related": "https://web.envoy.com/api/v3/invites/43116507/platform-jobs"
+          "related": "https://web.envoy.com/api/v3/invites/43116508/platform-jobs"
         }
       }
     }
