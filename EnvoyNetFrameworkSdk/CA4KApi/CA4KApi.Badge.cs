@@ -23,11 +23,7 @@ namespace EnvoyNetFrameworkSdk
             string firstName = userData.FirstName;
             string lastName = userData.LastName;
             string mi = userData.MI ?? "";
-            ushort accessGroupNo = (ushort)GetAccessGroupNoByName(userData.AccessGroupName);
-            if (accessGroupNo == 0)
-            {
-                accessGroupNo = (ushort)CreateNewAccessGroup((long)badge);
-            }
+            ushort accessGroupNo = (ushort)GetOrCreateAccessGroup(userData.AccessGroupName, (long)badge);
             ushort[] agNos = new ushort[] { accessGroupNo };
             ushort operation = 0; //insert;
 

@@ -34,7 +34,29 @@ namespace EnvoyNetFrameworkSdk
             }
         }
 
-        public int GetAccessGroupNoByName(string name)
+        private int GetOrCreateAccessGroup(string name, long badgeNo)
+        {
+            int no = GetAccessGroupNoByName(name);
+            if (no > 0)
+                return no;
+
+            name = GenerateAccessGroupName(badgeNo);
+            no = GetAccessGroupNoByName(name);
+            if (no > 0)
+                return no;
+
+            no = GetNextAccessGroupNo();
+            bool success = caAccess.AccessGroupOperation(name, no, 0) == 0;
+            if (!success)
+                throw new Exception("Couldn't create access group.");
+
+            //DateTime now = DateTime.Now;
+            //return success && CreateTimeScheduleTimeBlock(no, 0, (int)now.DayOfWeek, (int)now.DayOfWeek, now, now.AddSeconds(60 * 2));
+
+            return no;
+        }
+
+        private int GetAccessGroupNoByName(string name)
         {
             DataTable dt = caAccess.GetAccessGroups();
 
@@ -44,25 +66,7 @@ namespace EnvoyNetFrameworkSdk
                   .FirstOrDefault();
         }
 
-        private int CreateNewAccessGroup(long badgeNo)
-        {
-            string name = GetAccessGroupName(badgeNo);
-            int no = GetNextAccessGroupNo();
-
-            bool success = caAccess.AccessGroupOperation(name, no, 0) == 0;
-            if (!success)
-            {
-                throw new Exception("Couldn't create access group.");
-            }
-
-            //DateTime now = DateTime.Now;
-
-            //return success && CreateTimeScheduleTimeBlock(no, 0, (int)now.DayOfWeek, (int)now.DayOfWeek, now, now.AddSeconds(60 * 2));
-
-            return no;
-        }
-
-        private string GetAccessGroupName(long badgeNo) => $"Envoy Access Group For Badge {badgeNo}";
+        private string GenerateAccessGroupName(long badgeNo) => $"Envoy Access Group For Badge {badgeNo}";
 
         private int GetNextAccessGroupNo()
         {
