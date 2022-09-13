@@ -1,6 +1,5 @@
 ﻿using EnvoyNetFrameworkSdk.Models;
 using Newtonsoft.Json.Linq;
-using System.Data;
 using System.Linq;
 
 namespace EnvoyNetFrameworkSdk
@@ -78,4 +77,3 @@ namespace EnvoyNetFrameworkSdk
         }
     }
 }
-
