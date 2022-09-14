@@ -46,7 +46,7 @@ namespace EnvoyNetFrameworkSdk
                 operation
             );
 
-            var now = DateTime.Now;
+            var now = GetRoundedNow();
             int enable = 1;
             caAccess.UpdateBadgeParams(
                 facility,
@@ -74,6 +74,20 @@ namespace EnvoyNetFrameworkSdk
                 deactDate1: null,
                 enable: 0
             );
+        }
+
+        private DateTime GetRoundedNow()
+        {
+            var now = DateTime.Now;
+
+            int minute = now.Minute % 15;
+
+            if (minute > 0)
+            {
+                now = now.AddMinutes(-minute);
+            }
+
+            return now;
         }
     }
 }
