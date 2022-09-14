@@ -16,9 +16,9 @@
       }
     },
     "job": {
-      "id": "b6da3a09-4657-4441-9721-ba67bc762311",
+      "id": "efbb45e6-ff4c-4467-91e2-21bc1699f5d0",
       "name": "entry_sign_in",
-      "identifier": "vr:entry:140564090"
+      "identifier": "vr:entry:140700216"
     },
     "company": {
       "id": "136287",
@@ -33,7 +33,7 @@
     },
     "auth": {
       "token_type": "Bearer",
-      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjMwODM1NDcsImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6ImJmMDM1ZjNlLWY1YzUtNGIyNS1iZGU1LTQzYmI4MmYxMmNjYSIsImV4cCI6MTY2MzE2OTk0Nywic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.hMlUaQ82p8BIkzlhkW6RKzOGdjwnWgAfpmk0HDdpW1TMV1FM1tElkkoIJKeZlqirELfCsYdNmvwROJOrlIDeTwR0wX_MSUQnwZIkRva1CzOR0jI_CBB5TYVkjJaHht5e",
+      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjMxNjI2MDQsImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6IjAxMDcwZGJiLTVmNGUtNGYzMS05MjRjLWQ2NTlhNjQ3N2IwMyIsImV4cCI6MTY2MzI0OTAwNCwic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.fwD57HBGRZLO3U7PzRwTV6lO4rCUA1rrnR7Uavr5xHv12l8BQVF3qlE6P9SgHGnw8DJP8RntFdoO1Mx0myZO3xPQtQCiyU-K6E6bFd6HwujHfe6vuGauPgVGhRec4vJ8",
       "expires_in": 86400,
       "refresh_token": null,
       "refresh_token_expires_in": null,
@@ -71,42 +71,50 @@
     }
   },
   "payload": {
-    "id": "140564090",
+    "id": "140700216",
     "type": "entries",
     "attributes": {
-      "agreements-status": "not_signed",
+      "agreements-status": "signed",
       "checked-in-at": null,
-      "full-name": "John Doe",
-      "email": "johndoe@gmail.com",
+      "full-name": "Nazmul Hasan",
+      "email": "nazmulhasan@gmail.com",
       "employee-screening-flow": false,
-      "host": "Titu 800",
-      "host-email": "titucse800@gmail.com",
-      "private-notes": "This is a dummy visit.",
-      "signed-in-at": "2022-09-13 15:45:00 UTC",
-      "device-session-uuid": null,
-      "signed-in-via": "Dashboard",
-      "signed-in-by": "Assad Zaman",
+      "host": "Assad Zaman",
+      "host-email": "zaman.yovne@gmail.com",
+      "private-notes": "From host: This is a test invite",
+      "signed-in-at": "2022-09-14 13:36:26 UTC",
+      "device-session-uuid": "b147d531-731f-4e65-a1ea-61711848e2a7",
+      "signed-in-via": "iPad",
+      "signed-in-by": null,
       "signed-out-via": null,
       "signed-out-by": null,
       "thumbnails": {
-        "large": null,
-        "original": null,
-        "small": null
+        "large": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140700216/photo-w300-ec64f/Nazmul_Hasan.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663166204&Signature=cRCxVO2qgz%2FInnWxkzBtSZoYhPc%3D",
+        "original": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140700216/photo-original-ec64f/Nazmul_Hasan.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663166204&Signature=%2BijctGjnPo1wve%2BAhAhdgk7WIxY%3D",
+        "small": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140700216/photo-w160-ec64f/Nazmul_Hasan.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663166204&Signature=54AzzWfI2%2Fdc3nzIMufY8t073tc%3D"
       },
       "flow-name": "Visitor",
       "original-nda-sign-date": null,
+      "nda": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140700216/agreement-243ee/2022_09_14_19_36_26_Nazmul_Hasan_Visitor_Non-disclosure_Agreement.pdf?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663162664&Signature=bdrFGFrq37xUUS%2FweozBmylOtkI%3D",
+      "legal-docs": [
+        {
+          "id": 43383986,
+          "url": "https://envoyuserentries.s3.amazonaws.com/ndas/177837/43383986/agreement-97745/2022_09_14_19_36_26_Nazmul_Hasan_Visitor_Non-disclosure_Agreement.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4IIUN6N3F32XVNF7%2F20220914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220914T133644Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f8bd0b33ab37ca6b33f697222ee610bd3b41d5e75863121b5657920fddc3073c",
+          "signed-at": "2022-09-14 13:36:26 UTC",
+          "agreement": {
+            "id": 321483
+          }
+        }
+      ],
       "group-name": null,
       "id-check-status": "",
       "is-delivery": false,
       "agreement-refused": false,
-      "locality": {
-        "place-id": ""
-      },
       "pov-key": "Purpose of visit",
       "user-data": [
         {
           "field": "Host",
-          "value": "Titu 800"
+          "value": "Assad Zaman"
         },
         {
           "field": "Room",
@@ -122,7 +130,7 @@
         },
         {
           "field": "Your Full Name",
-          "value": "John Doe"
+          "value": "Nazmul Hasan"
         },
         {
           "field": "Purpose of visit",
@@ -130,7 +138,7 @@
         },
         {
           "field": "Your Email Address",
-          "value": "johndoe@gmail.com"
+          "value": "nazmulhasan@gmail.com"
         }
       ],
       "sms-status": "not_sent",
@@ -167,15 +175,33 @@
           "id": "177837"
         }
       },
+      "visitor-entrance": {
+        "data": {
+          "type": "visitor_entrances",
+          "id": "84510"
+        }
+      },
+      "device": {
+        "data": {
+          "type": "devices",
+          "id": "193071"
+        }
+      },
       "employee": {
         "data": {
           "type": "employees",
-          "id": "97885729"
+          "id": "97885620"
+        }
+      },
+      "invite": {
+        "data": {
+          "type": "invites",
+          "id": "43244701"
         }
       },
       "invite-multi-tenancy-visitor-notification-logs": {
         "links": {
-          "related": "https://app.envoy.com/api/v2/entries/140564090?include=invite-multi-tenancy-visitor-notification-logs"
+          "related": "https://app.envoy.com/api/v2/entries/140700216?include=invite-multi-tenancy-visitor-notification-logs"
         }
       },
       "flow": {
@@ -186,19 +212,19 @@
       },
       "previous-entries": {
         "links": {
-          "related": "https://app.envoy.com/api/v3/entries/140564090/previous-entries"
+          "related": "https://app.envoy.com/api/v3/entries/140700216/previous-entries"
         }
       },
       "platform-jobs": {
         "links": {
-          "related": "https://app.envoy.com/api/v3/entries/140564090/platform-jobs"
+          "related": "https://app.envoy.com/api/v3/entries/140700216/platform-jobs"
         }
       },
       "agreeable-ndas": {
         "data": [
           {
             "type": "agreeable-ndas",
-            "id": "73027096"
+            "id": "73092869"
           }
         ]
       }
