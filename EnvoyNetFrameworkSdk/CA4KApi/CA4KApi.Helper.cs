@@ -60,5 +60,18 @@ namespace EnvoyNetFrameworkSdk
                 VisitorFullName = dic.ContainsKey("Your Full Name") ? dic["Your Full Name"]?.ToString() : null
             };
         }
+
+        private Dictionary<string, int> GetRoomToAccessGroupMapping(JObject data)
+        {
+            JObject config = data["meta"]["config"]["accessGroups"] as JObject;
+            var map = new Dictionary<string, int>();
+
+            foreach (var item in config)
+            {
+                map.Add(item.Value.ToString(), int.Parse(item.Key));
+            }
+
+            return map;
+        }
     }
 }

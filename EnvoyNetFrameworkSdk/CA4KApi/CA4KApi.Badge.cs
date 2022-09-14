@@ -1,5 +1,6 @@
 ﻿using EnvoyNetFrameworkSdk.Models;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EnvoyNetFrameworkSdk
@@ -17,13 +18,16 @@ namespace EnvoyNetFrameworkSdk
                 string.IsNullOrEmpty(userData.Room))
                 return;
 
+
             ulong badge = (ulong)userData.BadgeNo;
             ushort facility = (ushort)userData.FacilityNo.Value;
             string pivi = "0";
             string firstName = userData.FirstName;
             string lastName = userData.LastName;
             string mi = userData.MI ?? "";
-            ushort accessGroupNo = (ushort)GetOrCreateAccessGroup(userData.Room, (long)badge);
+            string room = userData.Room;
+            Dictionary<string, int> roomToAccessGroupMapping = GetRoomToAccessGroupMapping(data);
+            ushort accessGroupNo = (ushort)roomToAccessGroupMapping[room];
             ushort[] agNos = new ushort[] { accessGroupNo };
             ushort operation = 0; //insert;
 
