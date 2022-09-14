@@ -1,5 +1,6 @@
 ﻿using EnvoyNetFrameworkSdk.Models;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -43,6 +44,15 @@ namespace EnvoyNetFrameworkSdk
                 mi,
                 agNos,
                 operation
+            );
+
+            var now = DateTime.Now;
+
+            caAccess.UpdateBadgeParams(
+                facility,
+                badge,
+                now,
+                now.AddHours(2)
             );
         }
 
