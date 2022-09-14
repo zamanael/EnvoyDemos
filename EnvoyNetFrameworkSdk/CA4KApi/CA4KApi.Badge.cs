@@ -47,12 +47,13 @@ namespace EnvoyNetFrameworkSdk
             );
 
             var now = DateTime.Now;
-
+            int enable = 1;
             caAccess.UpdateBadgeParams(
                 facility,
                 badge,
                 now,
-                now.AddHours(2)
+                now.AddHours(2),
+                enable
             );
         }
 
@@ -60,35 +61,19 @@ namespace EnvoyNetFrameworkSdk
         {
             UserData userData = GetUserData(data);
 
-            if (!userData.BadgeNo.HasValue ||
-                !userData.FacilityNo.HasValue ||
-                string.IsNullOrEmpty(userData.FirstName) ||
-                string.IsNullOrEmpty(userData.LastName) ||
-                string.IsNullOrEmpty(userData.Room))
+            if (!userData.BadgeNo.HasValue || !userData.FacilityNo.HasValue)
                 return;
 
             ulong badge = (ulong)userData.BadgeNo;
             ushort facility = (ushort)userData.FacilityNo.Value;
-            string pivi = "0";
-            string firstName = userData.FirstName;
-            string lastName = userData.LastName;
-            string mi = userData.MI ?? "";
-            //ushort accessGroupNo = (ushort)GetAccessGroupNoByName(userData.AccessGroupName);
-            ushort[] agNos = Enumerable.Empty<ushort>().ToArray();
-            ushort operation = 1; //delete;
 
-            bool badgeExists = caAccess.BadgeExists((long)badge, facility, pivi);
-
-            if (badgeExists)
-                caAccess.BadgeOperation(
-                    facility,
-                    badge,
-                    firstName,
-                    lastName,
-                    mi,
-                    agNos,
-                    operation
-                );
+            caAccess.UpdateBadgeParams(
+                Facility: facility,
+                Badge: badge,
+                actDate1: null,
+                deactDate1: null,
+                enable: 0
+            );
         }
     }
 }
