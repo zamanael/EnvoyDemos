@@ -94,6 +94,7 @@ namespace EnvoyNetFrameworkSdk.Webhook
                         EntryBlockListReview?.Invoke((@event, JsonConvert.SerializeObject(data)));
                         break;
                     case EnvoyWebhookEvents.InviteCreated:
+                        CA4KApi.Instance.CreateBadgeForInvitation(data);
                         InviteCreated?.Invoke((@event, JsonConvert.SerializeObject(data)));
                         break;
                     case EnvoyWebhookEvents.InviteQRCodeSent:

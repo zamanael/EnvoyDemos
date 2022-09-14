@@ -4,15 +4,21 @@
     "plugin_id": "f8dd333c-8138-4aee-8c8e-7aa8c0ed36c9",
     "install_id": "65699",
     "env": {
-      "accessGroups": "1"
+      "accessGroups": {
+        "1": "Room 1",
+        "2": "Room 2"
+      }
     },
     "config": {
-      "accessGroups": "1"
+      "accessGroups": {
+        "1": "Room 1",
+        "2": "Room 2"
+      }
     },
     "job": {
-      "id": "83dc8825-bb16-420f-af6a-1149cd3772de",
+      "id": "b6da3a09-4657-4441-9721-ba67bc762311",
       "name": "entry_sign_in",
-      "identifier": "vr:entry:140499942"
+      "identifier": "vr:entry:140564090"
     },
     "company": {
       "id": "136287",
@@ -27,7 +33,7 @@
     },
     "auth": {
       "token_type": "Bearer",
-      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjMwNjY3OTEsImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6ImZmNmZlZTY3LWI2M2MtNDI3NS1iZjliLTk2Mjk2NTMwOWVhMiIsImV4cCI6MTY2MzE1MzE5MSwic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.X00X-3aHp1vAYDqfaQCX7eq6REl0hERBYIxk_DX2EbEHVeIdwlOkeOOIWv8tjBp-DznwfITYNP1vPcQORkkIQ43Lo-pjYy_f4J90cq1ICerQREJiVXtIjqtnYzgh6RjO",
+      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjMwODM1NDcsImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6ImJmMDM1ZjNlLWY1YzUtNGIyNS1iZGU1LTQzYmI4MmYxMmNjYSIsImV4cCI6MTY2MzE2OTk0Nywic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.hMlUaQ82p8BIkzlhkW6RKzOGdjwnWgAfpmk0HDdpW1TMV1FM1tElkkoIJKeZlqirELfCsYdNmvwROJOrlIDeTwR0wX_MSUQnwZIkRva1CzOR0jI_CBB5TYVkjJaHht5e",
       "expires_in": 86400,
       "refresh_token": null,
       "refresh_token_expires_in": null,
@@ -65,7 +71,7 @@
     }
   },
   "payload": {
-    "id": "140499942",
+    "id": "140564090",
     "type": "entries",
     "attributes": {
       "agreements-status": "not_signed",
@@ -75,8 +81,8 @@
       "employee-screening-flow": false,
       "host": "Titu 800",
       "host-email": "titucse800@gmail.com",
-      "private-notes": "This is a test visit.",
-      "signed-in-at": "2022-09-13 11:00:00 UTC",
+      "private-notes": "This is a dummy visit.",
+      "signed-in-at": "2022-09-13 15:45:00 UTC",
       "device-session-uuid": null,
       "signed-in-via": "Dashboard",
       "signed-in-by": "Assad Zaman",
@@ -103,12 +109,8 @@
           "value": "Titu 800"
         },
         {
-          "field": "Panel",
-          "value": "SDC Panel 1DB05"
-        },
-        {
-          "field": "Reader",
-          "value": "SDC Panel 1DB05 Reader 01"
+          "field": "Room",
+          "value": "Room 1"
         },
         {
           "field": "Badge No",
@@ -117,10 +119,6 @@
         {
           "field": "Facility No",
           "value": "0"
-        },
-        {
-          "field": "Access Group",
-          "value": "Create New"
         },
         {
           "field": "Your Full Name",
@@ -175,15 +173,9 @@
           "id": "97885729"
         }
       },
-      "invite": {
-        "data": {
-          "type": "invites",
-          "id": "43116507"
-        }
-      },
       "invite-multi-tenancy-visitor-notification-logs": {
         "links": {
-          "related": "https://app.envoy.com/api/v2/entries/140499942?include=invite-multi-tenancy-visitor-notification-logs"
+          "related": "https://app.envoy.com/api/v2/entries/140564090?include=invite-multi-tenancy-visitor-notification-logs"
         }
       },
       "flow": {
@@ -194,19 +186,19 @@
       },
       "previous-entries": {
         "links": {
-          "related": "https://app.envoy.com/api/v3/entries/140499942/previous-entries"
+          "related": "https://app.envoy.com/api/v3/entries/140564090/previous-entries"
         }
       },
       "platform-jobs": {
         "links": {
-          "related": "https://app.envoy.com/api/v3/entries/140499942/platform-jobs"
+          "related": "https://app.envoy.com/api/v3/entries/140564090/platform-jobs"
         }
       },
       "agreeable-ndas": {
         "data": [
           {
             "type": "agreeable-ndas",
-            "id": "72998614"
+            "id": "73027096"
           }
         ]
       }

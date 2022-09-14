@@ -1,4 +1,6 @@
-﻿namespace EnvoyNetFrameworkSdk.Models
+﻿using System;
+
+namespace EnvoyNetFrameworkSdk.Models
 {
     public class UserData
     {
@@ -12,5 +14,6 @@
         public string MI { get; set; }
         public string PurposeOfVisit { get; set; }
         public string Email { get; set; }
+        public DateTime? ExpectedArrivalTime { get; set; }
     }
 }

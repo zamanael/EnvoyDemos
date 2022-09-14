@@ -2,6 +2,7 @@
 using EnvoyNetFrameworkSdk.Models.VisitorAndProtect;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -35,7 +36,8 @@ namespace EnvoyNetFrameworkSdk
             string firstName = null;
             string lastName = null;
             string mi = null;
-            string fullName = dic["Your Full Name"]?.ToString();
+            // string fullName = dic["Your Full Name"]?.ToString();
+            string fullName = data["payload"]["attributes"]["full-name"]?.ToString();
 
             if (!string.IsNullOrEmpty(fullName))
             {
@@ -45,6 +47,8 @@ namespace EnvoyNetFrameworkSdk
                 if (arr.Length > 2)
                     mi = arr[1];
             }
+
+            string expectedArrivalTime = data["payload"]["attributes"]["expected-arrival-time"]?.ToString();
 
             return new UserData
             {
@@ -57,7 +61,8 @@ namespace EnvoyNetFrameworkSdk
                 LastName = lastName,
                 MI = mi,
                 PurposeOfVisit = dic.ContainsKey("Purpose of visit") ? dic["Purpose of visit"]?.ToString() : null,
-                VisitorFullName = dic.ContainsKey("Your Full Name") ? dic["Your Full Name"]?.ToString() : null
+                VisitorFullName = dic.ContainsKey("Your Full Name") ? dic["Your Full Name"]?.ToString() : null,
+                ExpectedArrivalTime = string.IsNullOrEmpty(expectedArrivalTime) ? (DateTime?)null : DateTime.Parse(expectedArrivalTime).ToLocalTime()
             };
         }
 
