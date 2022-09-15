@@ -46,13 +46,13 @@ namespace EnvoyNetFrameworkSdk
                 operation
             );
 
-            var now = GetRoundedNow(userData.ExpectedArrivalTime);
+            //var now = GetRoundedNow(userData.ExpectedArrivalTime);
             int enable = 1;
             caAccess.UpdateBadgeParams(
                 facility,
                 badge,
-                now,
-                now.AddHours(2),
+                null,
+                DateTime.Now.AddHours(2),
                 enable
             );
         }
