@@ -78,5 +78,10 @@ namespace EnvoyNetFrameworkSdk
 
             return map;
         }
+
+        private bool IsInvited(JObject data)
+        {
+            return data["payload"]["relationships"]["invite"] != null;
+        }
     }
 }
