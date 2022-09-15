@@ -51,17 +51,17 @@ namespace EnvoyNetFrameworkSdk
             DateTime? actDate1 = null, deactDate1 = DateTime.Now.AddHours(2);
             if (isInvited)
             {
-            var dt = caAccess.GetBadgeInfo((long)badge, facility);
+                var dt = caAccess.GetBadgeInfo((long)badge, facility);
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     var date = dt.Rows[0]["ActvDate"];
-                    actDate1 = date == null ? null : (DateTime?)date;
+                    actDate1 = date == DBNull.Value ? null : (DateTime?)((DateTime)date).ToLocalTime();
                     date = dt.Rows[0]["ExprDate"];
-                    deactDate1 = date == null ? null : (DateTime?)date;
+                    deactDate1 = date == DBNull.Value ? null : (DateTime?)((DateTime)date).ToLocalTime();
                 }
             }
 
-   
+
             int enable = 1;
             caAccess.UpdateBadgeParams(
                 facility,
