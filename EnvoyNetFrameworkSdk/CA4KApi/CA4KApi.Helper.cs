@@ -52,7 +52,8 @@ namespace EnvoyNetFrameworkSdk
 
             return new UserData
             {
-                Room = dic.ContainsKey("Room") ? dic["Room"]?.ToString() : null,
+                //VisitorType = dic.ContainsKey("Purpose of visit") ? dic["Purpose of visit"]?.ToString() : null,
+                VisitorType = data["payload"]["relationships"]["flow"]["data"]["id"].ToString(),
                 BadgeNo = badgeNo,
                 Email = dic.ContainsKey("Your Email Address") ? dic["Your Email Address"]?.ToString() : null,
                 FacilityNo = facilityNo,
@@ -66,14 +67,14 @@ namespace EnvoyNetFrameworkSdk
             };
         }
 
-        private Dictionary<string, int> GetRoomToAccessGroupMapping(JObject data)
+        private Dictionary<string, int> GetVisitorTypeToAccessGroupMapping(JObject data)
         {
-            JObject config = data["meta"]["config"]["accessGroups"] as JObject;
+            JObject config = data["meta"]["config"]["visitorType"] as JObject;
             var map = new Dictionary<string, int>();
 
             foreach (var item in config)
             {
-                map.Add(item.Value.ToString(), int.Parse(item.Key));
+                map.Add(item.Key, int.Parse(item.Value.ToString()));
             }
 
             return map;

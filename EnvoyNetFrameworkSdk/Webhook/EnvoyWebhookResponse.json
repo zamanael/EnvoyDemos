@@ -4,21 +4,39 @@
     "plugin_id": "f8dd333c-8138-4aee-8c8e-7aa8c0ed36c9",
     "install_id": "65699",
     "env": {
-      "accessGroups": {
-        "1": "Room 1",
-        "2": "Room 2"
-      }
+      "hours": "15",
+      "password": "admin",
+      "userName": "admin",
+      "remoteUrl": "https://CA4KRestfulAPI.com",
+      "visitorType": {
+        "359435": "1",
+        "359453": "2"
+      },
+      "envoyProtect": true,
+      "excludeEmployees": [
+        "12345",
+        "12348"
+      ]
     },
     "config": {
-      "accessGroups": {
-        "1": "Room 1",
-        "2": "Room 2"
-      }
+      "hours": "15",
+      "password": "admin",
+      "userName": "admin",
+      "remoteUrl": "https://CA4KRestfulAPI.com",
+      "visitorType": {
+        "359435": "1",
+        "359453": "2"
+      },
+      "envoyProtect": true,
+      "excludeEmployees": [
+        "12345",
+        "12348"
+      ]
     },
     "job": {
-      "id": "9096f975-e048-433e-8ddb-4446ca0509e9",
+      "id": "292bed38-7cda-4da2-9569-aadaf6cf7767",
       "name": "entry_sign_in",
-      "identifier": "vr:entry:140873360"
+      "identifier": "vr:entry:141649852"
     },
     "company": {
       "id": "136287",
@@ -33,7 +51,7 @@
     },
     "auth": {
       "token_type": "Bearer",
-      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjMyMzgxNzIsImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6ImY1M2ViMGEzLWU2NDktNDNlYi1iNjk0LWRjZjEwMDkwZWQwNyIsImV4cCI6MTY2MzMyNDU3Miwic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.Zbr4xHTWdGS9YtVUmRcOj46yRGUZ1Iu0mhKnrqGla3Qy09CDRbsoXCPts53OFz5LNJIkYFQhqjvJBdytxbgEJ4Iu2ftSuzYUcpBZnd-Bf1hc7vbhp43qUWP7QAGXZnv6",
+      "access_token": "eyJhbGciOiJFUzM4NCJ9.eyJpYXQiOjE2NjM4NDEyNDAsImlzcyI6ImlkLmVudm95LmNvbSIsImp0aSI6IjE0MGE1OWYwLTE3M2QtNGYwMC04ZDZmLWM4OTBiNDNiNDRjZCIsImV4cCI6MTY2MzkyNzY0MCwic3ViIjoiVXNlcjoyNDkzOTY5IiwiYXVkIjoiM2QzZWIwNmUtMmU3NS0xMWVkLThjOGYtZGI1ODg1MGI5YTY2IiwidHlwIjoiYWNjZXNzIiwic2NvcGVzIjpbImZsb3dzLnJlYWQiLCJlbnRyaWVzLnJlYWQiLCJlbnRyaWVzLndyaXRlIiwiaW52aXRlcy5yZWFkIiwiaW52aXRlcy53cml0ZSIsImludml0ZXMuYXR0ZXN0IiwibG9jYXRpb25zLnJlYWQiLCJjb21wYW5pZXMucmVhZCIsImF1ZGl0LWxvZ3MucmVhZCIsImFncmVlbWVudHMucmVhZCIsImFncmVlbWVudHMud3JpdGUiLCJzaWduLWluLWZpZWxkLXBhZ2VzLnJlYWQiLCJzaWduLWluLWZpZWxkcy5yZWFkIiwic2lnbi1pbi1maWVsZHMud3JpdGUiLCJlbXBsb3llZXMucmVhZCIsImVtcGxveWVlcy53cml0ZSIsImJhZGdlcy5yZWFkIiwiYmxhY2tsaXN0LWZpbHRlcnMucmVhZCIsImJsYWNrbGlzdC1maWx0ZXJzLndyaXRlIiwiZGV2aWNlcy5yZWFkIiwidGlja2V0cy5yZWFkIiwidGlja2V0cy53cml0ZSIsInNwYWNlcy5yZWFkIiwicmVzZXJ2YXRpb25zLnJlYWQiLCJyZXNlcnZhdGlvbnMud3JpdGUiLCJ3b3JrLXNjaGVkdWxlcy5yZWFkIiwid29yay1zY2hlZHVsZXMud3JpdGUiXSwibWV0YSI6eyJjb21wYW55X2lkIjoiMTM2Mjg3IiwidGhyb3dfYXdheV9yb29tc19hZG1pbl91c2VyX2ZsYWciOnRydWV9fQ.h9HeojL7N8H9mQBKUqO72dF-4M9Rukq9dnZ7OaS0SXSB0D7VvpJp7lcGqWrj86ffuJ1gy0VAYO9P6A7snG8b6jQD-HYKbaFYx9oVz2KdG910mNpqDj0kcUpYWiLH1Go5",
       "expires_in": 86400,
       "refresh_token": null,
       "refresh_token_expires_in": null,
@@ -71,36 +89,36 @@
     }
   },
   "payload": {
-    "id": "140873360",
+    "id": "141649852",
     "type": "entries",
     "attributes": {
       "agreements-status": "signed",
       "checked-in-at": null,
-      "full-name": "John Doe",
-      "email": "johndoe@gmail.com",
+      "full-name": "Salman Ahmed",
+      "email": "salman@gmail.com",
       "employee-screening-flow": false,
-      "host": "Titu 800",
-      "host-email": "titucse800@gmail.com",
-      "private-notes": "From host: This is a test invite.",
-      "signed-in-at": "2022-09-15 10:35:58 UTC",
-      "device-session-uuid": "55a0f2f0-f2a8-4347-9685-69b5454739fa",
+      "host": null,
+      "host-email": null,
+      "private-notes": null,
+      "signed-in-at": "2022-09-22 10:07:07 UTC",
+      "device-session-uuid": "dc258e54-1d18-4a6b-824c-28f8eb4dba0b",
       "signed-in-via": "iPad",
       "signed-in-by": null,
       "signed-out-via": null,
       "signed-out-by": null,
       "thumbnails": {
-        "large": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140873360/photo-w300-719c0/John_Doe.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663241772&Signature=TdU2Y4ysaaUu%2BlQLeT%2BTs5UpVa4%3D",
-        "original": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140873360/photo-original-719c0/John_Doe.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663241772&Signature=XHY0YHFZf%2FXyAGl8dqna6DJ1XeE%3D",
-        "small": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140873360/photo-w160-719c0/John_Doe.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663241772&Signature=5CHH%2FK0IjjxO7yuL3K0caPd1S0U%3D"
+        "large": "https://envoyuserentries.s3.amazonaws.com/entries/177837/141649852/photo-w300-24912/Salman_Ahmed.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663844839&Signature=mxmVZqbeUUy1uyt2TimuqBPCoxw%3D",
+        "original": "https://envoyuserentries.s3.amazonaws.com/entries/177837/141649852/photo-original-24912/Salman_Ahmed.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663844839&Signature=ka3u2fWog6%2BD7iByIKUzE2HBlWk%3D",
+        "small": "https://envoyuserentries.s3.amazonaws.com/entries/177837/141649852/photo-w160-24912/Salman_Ahmed.jpg?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663844839&Signature=NCaLDenOF1ZIQeaGtqaLkYJXPMM%3D"
       },
       "flow-name": "Visitor",
-      "original-nda-sign-date": "2022-09-15 10:35:58 UTC",
-      "nda": "https://envoyuserentries.s3.amazonaws.com/entries/177837/140873360/agreement-503a7/2022_09_15_16_35_58_John_Doe_Visitor_Non-disclosure_Agreement.pdf?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663238232&Signature=92i0nr8bg9A2bBlF%2BEWMkGjpUxM%3D",
+      "original-nda-sign-date": "2022-09-15 14:14:00 UTC",
+      "nda": "https://envoyuserentries.s3.amazonaws.com/entries/177837/141649852/agreement-ad155/2022_09_15_20_14_00_Salman_Ahmed_Visitor_Non-disclosure_Agreement.pdf?AWSAccessKeyId=AKIA4IIUN6N3F32XVNF7&Expires=1663841299&Signature=UvxEN4SuE2cgPlXyHEXLx7PJ4aw%3D",
       "legal-docs": [
         {
-          "id": 43420293,
-          "url": "https://envoyuserentries.s3.amazonaws.com/ndas/177837/43420293/agreement-a7956/2022_09_15_16_35_58_John_Doe_Visitor_Non-disclosure_Agreement.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4IIUN6N3F32XVNF7%2F20220915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220915T103612Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=08ba726736b7da4028150e0aedbfab516cc418578a42d0f2724865d26c1245e3",
-          "signed-at": "2022-09-15 10:35:58 UTC",
+          "id": 43430007,
+          "url": "https://envoyuserentries.s3.amazonaws.com/ndas/177837/43430007/agreement-befc0/2022_09_15_20_14_00_Salman_Ahmed_Visitor_Non-disclosure_Agreement.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4IIUN6N3F32XVNF7%2F20220922%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220922T100719Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=40eaba7f58d20b17d8b20abc072fbcaffdc87357eff2b49d0a627bcaffa015aa",
+          "signed-at": "2022-09-15 14:14:00 UTC",
           "agreement": {
             "id": 321483
           }
@@ -110,19 +128,8 @@
       "id-check-status": "",
       "is-delivery": false,
       "agreement-refused": false,
-      "locality": {
-        "place-id": ""
-      },
       "pov-key": "Purpose of visit",
       "user-data": [
-        {
-          "field": "Host",
-          "value": "Titu 800"
-        },
-        {
-          "field": "Room",
-          "value": "Room 1"
-        },
         {
           "field": "Badge No",
           "value": "52944"
@@ -133,7 +140,7 @@
         },
         {
           "field": "Your Full Name",
-          "value": "John Doe"
+          "value": "Salman Ahmed"
         },
         {
           "field": "Purpose of visit",
@@ -141,7 +148,7 @@
         },
         {
           "field": "Your Email Address",
-          "value": "johndoe@gmail.com"
+          "value": "salman@gmail.com"
         }
       ],
       "sms-status": "not_sent",
@@ -190,21 +197,9 @@
           "id": "193071"
         }
       },
-      "employee": {
-        "data": {
-          "type": "employees",
-          "id": "97885729"
-        }
-      },
-      "invite": {
-        "data": {
-          "type": "invites",
-          "id": "43335901"
-        }
-      },
       "invite-multi-tenancy-visitor-notification-logs": {
         "links": {
-          "related": "https://app.envoy.com/api/v2/entries/140873360?include=invite-multi-tenancy-visitor-notification-logs"
+          "related": "https://app.envoy.com/api/v2/entries/141649852?include=invite-multi-tenancy-visitor-notification-logs"
         }
       },
       "flow": {
@@ -216,24 +211,24 @@
       "recurring-entry": {
         "data": {
           "type": "entries",
-          "id": "140564090"
+          "id": "141649181"
         }
       },
       "previous-entries": {
         "links": {
-          "related": "https://app.envoy.com/api/v3/entries/140873360/previous-entries"
+          "related": "https://app.envoy.com/api/v3/entries/141649852/previous-entries"
         }
       },
       "platform-jobs": {
         "links": {
-          "related": "https://app.envoy.com/api/v3/entries/140873360/platform-jobs"
+          "related": "https://app.envoy.com/api/v3/entries/141649852/platform-jobs"
         }
       },
       "agreeable-ndas": {
         "data": [
           {
             "type": "agreeable-ndas",
-            "id": "73156293"
+            "id": "73571812"
           }
         ]
       }

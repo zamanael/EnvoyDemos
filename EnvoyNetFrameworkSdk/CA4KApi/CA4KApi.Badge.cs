@@ -16,7 +16,7 @@ namespace EnvoyNetFrameworkSdk
                 !userData.FacilityNo.HasValue ||
                 string.IsNullOrEmpty(userData.FirstName) ||
                 string.IsNullOrEmpty(userData.LastName) ||
-                string.IsNullOrEmpty(userData.Room))
+                string.IsNullOrEmpty(userData.VisitorType))
                 return;
 
 
@@ -26,9 +26,9 @@ namespace EnvoyNetFrameworkSdk
             string firstName = userData.FirstName;
             string lastName = userData.LastName;
             string mi = userData.MI ?? "";
-            string room = userData.Room;
-            Dictionary<string, int> roomToAccessGroupMapping = GetRoomToAccessGroupMapping(data);
-            ushort accessGroupNo = (ushort)roomToAccessGroupMapping[room];
+            string visitorType = userData.VisitorType;
+            Dictionary<string, int> visitorTypeToAccessGroupMapping = GetVisitorTypeToAccessGroupMapping(data);
+            ushort accessGroupNo = (ushort)visitorTypeToAccessGroupMapping[visitorType];
             ushort[] agNos = new ushort[] { accessGroupNo };
             ushort operation = 0; //insert;
 
@@ -99,7 +99,7 @@ namespace EnvoyNetFrameworkSdk
                 !userData.FacilityNo.HasValue ||
                 string.IsNullOrEmpty(userData.FirstName) ||
                 string.IsNullOrEmpty(userData.LastName) ||
-                string.IsNullOrEmpty(userData.Room))
+                string.IsNullOrEmpty(userData.VisitorType))
                 return;
 
 
@@ -109,9 +109,9 @@ namespace EnvoyNetFrameworkSdk
             string firstName = userData.FirstName;
             string lastName = userData.LastName;
             string mi = userData.MI ?? "";
-            string room = userData.Room;
-            //Dictionary<string, int> roomToAccessGroupMapping = GetRoomToAccessGroupMapping(data);
-            //ushort accessGroupNo = (ushort)roomToAccessGroupMapping[room];
+            string visitorType = userData.VisitorType;
+            //Dictionary<string, int> visitorTypeToAccessGroupMapping = GetVisitorTypeToAccessGroupMapping(data);
+            //ushort accessGroupNo = (ushort)visitorTypeToAccessGroupMapping[visitorType];
             ushort accessGroupNo = (ushort)0;
             ushort[] agNos = new ushort[] { accessGroupNo };
             ushort operation = 0; //insert;

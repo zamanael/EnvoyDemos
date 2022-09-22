@@ -7,7 +7,7 @@ namespace EnvoyNetFrameworkSdk.Models
         public string Host { get; set; }
         public long? BadgeNo { get; set; }
         public short? FacilityNo { get; set; }
-        public string Room { get; set; }
+        public string VisitorType { get; set; }
         public string VisitorFullName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
